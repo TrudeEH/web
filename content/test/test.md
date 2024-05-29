@@ -2,6 +2,8 @@
 title: "Test"
 date: 2024-05-29T20:39:37+01:00
 draft: true
+tags: ["test"]
+author: "TrudeEH"
 ---
 
 # Title
