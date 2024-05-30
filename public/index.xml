@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>ExampleSite</title>
+    <title>TrudeWeb</title>
     <link>http://localhost:1313/</link>
-    <description>Recent content on ExampleSite</description>
-    <generator>Hugo</generator>
+    <description>Recent content on TrudeWeb</description>
+    <image>
+      <title>TrudeWeb</title>
+      <url>http://localhost:1313/logo.svg</url>
+      <link>http://localhost:1313/logo.svg</link>
+    </image>
+    <generator>Hugo -- 0.126.1</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 29 May 2024 20:39:37 +0100</lastBuildDate>
+    <copyright>Open-source - MIT License</copyright>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Test</title>
-      <link>http://localhost:1313/test/test/</link>
-      <pubDate>Wed, 29 May 2024 20:39:37 +0100</pubDate>
-      <guid>http://localhost:1313/test/test/</guid>
-      <description>Title Subtitle H3 H4 H5 H6 list elements another unordered list Normal text.&#xA;generic code&#xA;Important&#xA;Very important&#xA;Important Variant&#xA;echo &amp;#34;Code Block&amp;#34; Link</description>
-    </item>
   </channel>
 </rss>
