@@ -11,6 +11,8 @@ outputs:
     - RSS
     - JSON # necessary for search
 
+taxonomies:
+  tag: tags
 
 enableRobotsTXT: true
 buildDrafts: false
@@ -47,7 +49,7 @@ params:
   comments: false
   hidemeta: false
   hideSummary: false
-  showtoc: false
+  showtoc: true
   tocopen: false
 
   assets:
@@ -119,8 +121,8 @@ params:
 menu:
   main:
     - identifier: categories
-      name: Categories
-      url: /categories/
+      name: Posts
+      url: /posts/
       weight: 10
     - identifier: tags
       name: Tags
