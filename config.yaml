@@ -70,8 +70,8 @@ params:
     title: TrudeEH
     subtitle: "Software Developer • Computer Technician • Linux Enthusiast"
     imageUrl: "logo.jpg"
-    imageWidth: 120
-    imageHeight: 120
+    imageWidth: 150
+    imageHeight: 150
     imageTitle: Trude Logo
     buttons:
       - name: Posts
