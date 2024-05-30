@@ -76,8 +76,6 @@ params:
     buttons:
       - name: Posts
         url: posts
-      - name: Tags
-        url: tags
       - name: My Portfolio
         url: https://trudeeh.github.io/WebPortfolio/
 
@@ -91,6 +89,8 @@ params:
       url: "mailto:ehtrude@gmail.com"
     - name: github
       url: "https://github.com/TrudeEH"
+    - name: rss
+      url: "index.xml"
 
   # analytics:
   #   google:
