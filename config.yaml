@@ -68,7 +68,7 @@ params:
 
   # profile-mode
   profileMode:
-    enabled: true # needs to be explicitly set
+    enabled: false # The homeInfo mode was replaced with profile, to make the last few posts show up under the profile.
     title: TrudeEH
     subtitle: "Software Developer • Computer Technician • Linux Enthusiast"
     imageUrl: "logo.jpg"
