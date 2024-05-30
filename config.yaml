@@ -74,8 +74,6 @@ params:
     imageHeight: 150
     imageTitle: Trude Logo
     buttons:
-      - name: Posts
-        url: posts
       - name: My Portfolio
         url: https://trudeeh.github.io/WebPortfolio/
 
