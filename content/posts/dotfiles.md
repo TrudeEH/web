@@ -6,7 +6,7 @@ showToc: true # Table of Contents
 author: "TrudeEH"
 title: "Dotfiles: Configuration Files"
 date: 2024-05-30T17:35:03+01:00
-tags: ["linux", "macos", "crostini", "github", "git"]
+tags: ["linux", "macos", "crostini", "github", "git", "guide"]
 description: "How to I set up my dotfiles in a UNIX system."
 cover:
     image: "" # image path/url
@@ -31,6 +31,7 @@ Sometimes we need a file in two places at once. This is usually not possible, be
 When a **symlink** is created, it 'points' to the original file, opening it instead, like a shortcut.
 
 You can tell a file is a symlink, because `ls -al` displays the file like this:
+
 ```sh
 (...) .tmux.conf -> dotfiles/dotfiles/.tmux.conf
 ```
@@ -46,6 +47,7 @@ This seems like a good solution; however, a problem remains. It is very tedious 
 To solve this, **stow** was created.
 
 Stow can be quite complex, but for our usage, this is all we need:
+
 ```sh
 stow -vt $HOME dotfiles_directory
 ```
@@ -53,6 +55,7 @@ stow -vt $HOME dotfiles_directory
 The `-v` flag will make the command more verbose (tell you what it is doing) and `-t` specifies where to create the symlinks. Finally, the `dotfiles_directory` is the directory where your dotfiles are located.
 
 The dotfiles directory can look something like this:
+
 ```txt
 dotfiles/
 ├── .bash_profile
