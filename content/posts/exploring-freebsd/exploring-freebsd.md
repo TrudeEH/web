@@ -6,7 +6,7 @@ showToc: true # Table of Contents
 author: "TrudeEH"
 title: "Exploring FreeBSD"
 date: 2024-06-01T17:55:19+01:00
-tags: ["freebsd", "bsd", "blog"]
+tags: ["freebsd", "bsd"] 
 description: "A linux user's first steps into the BSD world."
 cover:
     image: "" # image path/url
@@ -49,7 +49,7 @@ XFCE behaves similarly on Linux and overall felt quite stable, as it usually doe
 
 I was happy with my system for a while, but soon enough, I wanted to take things further.
 
-I like to keep my workstation as clean and simple aas possible, so I removed XFCE and began preparing a **DWM** system.
+I like to keep my workstation as clean and simple as possible, so I removed XFCE and began preparing a **DWM** system.
 
 Something interesting I noticed is that, because FreeBSD is a complete OS instead of a distribution (like Debian or Arch for Linux), there are no packages installed, and `pkg` only returns itself. Every package the user will ever install is located at `/usr/share/...` and not as part of the system. This is another great advantage for FreeBSD.
 
