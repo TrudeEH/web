@@ -58,7 +58,7 @@ The advantages are as follows:
 
 1. Performance (one of the main goals of the project)
 2. Security (Generally safer than Linux)
-3. Separation of concerns (user packages are only installing in user directories; the base system is always clean.)
+3. Separation of concerns (user packages are only installed in user directories; the base system is always clean.)
 5. Software availability (Can run Linux binaries and has many ports available.)
 6. Extra features (ZFS support, Jails, Bluetooth and more.)
 - Documentation (The community is smaller than Linux's, but the written documents are far better.)
