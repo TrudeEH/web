@@ -39,7 +39,7 @@ First, we'll take a look at Linux Distros and how they compare. ~~(I'd just like
 
 All Linux distros use the Linux Kernel, and most (but not all) use GNU utilities and SystemD.
 
-The Linux Kernel is very large, and so, much less minimal than any BSD Kernels. However, the code is there for a reason, and it is mainly for hardware support.
+The Linux Kernel is very large, and so, much less minimal than any BSD Kernels. However, the code is there for a reason, and it is mainly for hardware support. Linux also develops faster and tools are often replaced, making it more up-to-date but less stable.
 
 In short, these are the advantages of Linux over BSDs:
 
