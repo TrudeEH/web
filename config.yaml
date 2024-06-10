@@ -3,6 +3,7 @@ title: TrudeWeb
 paginate: 5
 theme: PaperMod
 copyright: "Open-source - MIT License"
+canonifyURLs: true
 
 # Search
 outputs:
