@@ -35,7 +35,7 @@ So, I decided to try FreBSD on a spare laptop to see where it would take me, if 
 
 The initial installation was surprisingly easy. The TUI installer is intuitive, and setting up the system (while reading the handbook) never had me lost. As mentioned before, the documentation is *really* good, and this chapter was no exception.
 
-![Installing FreeBSD](freebsd14-install.png)
+![Installing FreeBSD](images/freebsd14-install.png)
 
 After setting it up and testing the TTY, I found that although many Linux utilities are present, they either work slightly differently or have less options. Personally, I think that is a good thing; Thery feel simple.
 
