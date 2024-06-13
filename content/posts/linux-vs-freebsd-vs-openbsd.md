@@ -99,5 +99,5 @@ Thanks for reading and a special *thank you* to everyone who helped on Reddit, l
 - [Alpine Linux](https://alpinelinux.org/about/)
 - [OpenBSD Goals](https://www.openbsd.org/goals.html)
 - [OpenBSD Why Use](https://www.openbsd.org/faq/faq1.html#WhyUse)
-- [FreeBSD Features](https://www.freebsd.org/features/)
+- FreeBSD Project [goal](https://docs.freebsd.org/en/books/faq/#FreeBSD-goals) and [features](https://www.freebsd.org/features/)
 
