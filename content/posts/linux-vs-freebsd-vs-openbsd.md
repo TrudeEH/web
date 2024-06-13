@@ -93,7 +93,7 @@ Thanks for reading and a special *thank you* to everyone who helped on Reddit, l
 
 ## Sources
 
-- [Smart people on Reddit](https://www.reddit.com/r/BSD/comments/1dbxxyb/linux_to_bsd_whats_really_the_difference/)
+- Smart people on Reddit – <https://redd.it/1dbxxyb>, <https://redd.it/1dbxz0r>
 - [Old YT playlist (some good points there)](https://www.youtube.com/playlist?list=PLdArachVKgnZ4-RPot9EbKBdyR4qtzIOo)
 - [Quare FreeBSD](https://vermaden.wordpress.com/2020/09/07/quare-freebsd/)
 - [Alpine Linux](https://alpinelinux.org/about/)
