@@ -1,5 +1,5 @@
 baseURL: "https://trude.dev"
-title: TrudeWeb
+title: trude.dev
 paginate: 5
 theme: PaperMod
 copyright: "Open-source - MIT License"
@@ -28,7 +28,7 @@ minify:
 
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
-  title: TrudeWeb
+  title: trude.dev
   description: "TrudeEH's Blog and Personal Website"
   keywords: [Blog, Portfolio, Trude, TrudeEH]
   author: "TrudeEH"
