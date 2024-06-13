@@ -78,7 +78,7 @@ params:
     imageTitle: Trude Logo
     buttons:
       - name: My Portfolio
-        url: https://trudeeh.github.io/WebPortfolio/
+        url: https://me.trude.dev
 
   # home-info mode
   homeInfoParams:
