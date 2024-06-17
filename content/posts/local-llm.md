@@ -6,7 +6,7 @@ showToc: true # Table of Contents
 author: "TrudeEH"
 title: "Local LLMs (ChatGPT-like AI)"
 date: 2024-05-30T18:44:10+01:00
-tags: ["ai", "llm", "linux", "macos", "guide"]
+tags: ["ai", "llm", "linux", "macos"]
 description: "Run AI models locally for free"
 cover:
     image: "" # image path/url
