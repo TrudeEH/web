@@ -4,7 +4,7 @@ draft: false
 searchHidden: false
 showToc: true # Table of Contents
 author: "TrudeEH"
-title: "Smartphone Security and Privacy Guide."
+title: "Smartphone Security and Privacy Guide"
 date: 2024-06-16T12:44:18+01:00
 tags: ["android", "privacy", "security", "grapheneos"]
 description: "Most people need a phone, but they all collect personal data and track you. How can we fix our phones, then?"
