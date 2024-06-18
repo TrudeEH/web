@@ -99,7 +99,7 @@ You might want to make sacrifices to have nice things, and that's okay. Start by
 - [Fdroid](https://f-droid.org) - Open-Source-only App Store
 - [K-9 Mail](https://f-droid.org/pt/packages/com.fsck.k9/) - Email client (supports Gmail)
 - [Fossify SMS Messenger](https://f-droid.org/packages/org.fossify.messages/) - SMS Messenger
-- Nextcloud Suite - [Files](https://f-droid.org/packages/com.nextcloud.android.beta/); [News](https://f-droid.org/packages/de.luhmer.owncloudnewsreader/) [Passwords](https://f-droid.org/packages/com.hegocre.nextcloudpasswords/); [Notes](https://f-droid.org/packages/it.niedermann.owncloud.notes/) [Talk](https://f-droid.org/packages/com.nextcloud.talk2/) - Replace Google Services with your NC instance
+- Nextcloud Suite - [Files](https://f-droid.org/packages/com.nextcloud.android.beta/); [News](https://f-droid.org/packages/de.luhmer.owncloudnewsreader/); [Passwords](https://f-droid.org/packages/com.hegocre.nextcloudpasswords/); [Notes](https://f-droid.org/packages/it.niedermann.owncloud.notes/); [Talk](https://f-droid.org/packages/com.nextcloud.talk2/) - Replace Google Services with your NC instance
 
 ## GrapheneOS
 
