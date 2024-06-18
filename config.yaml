@@ -88,6 +88,8 @@ params:
   socialIcons:
     - name: email
       url: "mailto:ehtrude@gmail.com"
+    - name: matrix
+      url: "https://matrix.to/#/@ehtrude:matrix.org"
     - name: github
       url: "https://github.com/TrudeEH"
     - name: rss
