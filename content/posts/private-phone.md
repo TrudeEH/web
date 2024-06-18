@@ -91,7 +91,7 @@ You might want to make sacrifices to have nice things, and that's okay. Start by
 ## Open-source apps that I recommend
 
 - [InnerTune](https://f-droid.org/packages/com.zionhuang.music/) - YouTube Music replacement (also no more Ads and free premium features)
-- [NewPipe](https://f-droid.org/packages/org.schabi.newpipe/) - YouTube alternative (also with premium features, SponsorBlock and no Ads)
+- [NewPipe](https://f-droid.org/packages/org.schabi.newpipe/) - YouTube alternative (also with premium features and no Ads)
 - [Fossify Calendar](https://f-droid.org/es/packages/org.fossify.calendar/) - Open Calendar app
 - [Pie Launcher](https://f-droid.org/pt/packages/de.markusfisch.android.pielauncher/) - Simple and efficient APP launcher
 - [DAVx⁵](https://f-droid.org/packages/at.bitfire.davdroid/) - Sync calendars, To-dos and contacts with Nextcloud
