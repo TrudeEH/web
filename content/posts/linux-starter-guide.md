@@ -6,7 +6,7 @@ showToc: true # Table of Contents
 author: "TrudeEH"
 title: "Linux Starter Guide"
 date: 2024-06-28T23:36:46+01:00
-tags: []
+tags: ["linux"]
 description: "How to install and use Linux"
 cover:
     image: "" # image path/url
