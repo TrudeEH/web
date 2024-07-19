@@ -31,7 +31,7 @@ Since personal sites are so much better than social media, why don't more people
 - Building a website is harder. You can create a social media account in seconds, but a website requires more work.
 - Often there is little financial incentive. My website has no ADs, so I make no money from it.
 - Social media platforms use algorithms to hook you in and decide what you should watch for you, which makes it easier to find new content that you might enjoy.
-- Google (and other engines) will promote commercial websites, since they make more money, have more keywords and often aggressive SEO optimizations.
+- Google (and other engines) will promote commercial websites, since they make more money, have more keywords and often use aggressive SEO optimizations.
 
 Still here? Great, so you are probably willing to put a bit more work to make your experience better. Luckily, it's very easy.
 
@@ -81,7 +81,7 @@ This post isn't a full HUGO tutorial (coming soon!), but it should be enough to 
 After building your site, there are still a few steps that you need to take before other people can access it.
 
 1. **Host your website.** You can host it yourself, using a spare computer or server, hire someone else, or use an online service to do it for you. For example, [GitHub pages](https://pages.github.com/) is a good free service (and it's the one I'm currently using).
-2. **Buy a domain name.** This is an optional step, but you likely want a custom name for your site. You can buy a domain name online and point it to your website address, so when someone types it in search, your website shows up. These are not very expensive. Mine renews for >40$/year.
+2. **Buy a domain name.** This is an optional step, but you likely want a custom name for your site. You can buy a domain name online and point it to your website address, so when someone types it in search, your website shows up. These are not very expensive. Mine renews for <40$/year.
 3. **Website analytics.** This is entirely optional too, but if you want to know how many people visit your site, you need some sort of analytics. Google Analytics is the most popular option. Keep in mind that these are not always accurate, and can be blocked easily by ad blockers and tracker blockers, such as uBlockOrigin.
 
 ## Conclusion
