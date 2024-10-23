@@ -4,7 +4,7 @@ draft: false
 searchHidden: false
 showToc: true # Table of Contents
 author: "TrudeEH"
-title: "Nix Starter guide"
+title: "Nix Starter Guide"
 date: 2024-10-20T16:10:10+01:00
 tags: ["linux", "nix", "macos"]
 description: "Easily manage packages, configurations, and create development environments."
