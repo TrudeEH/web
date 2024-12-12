@@ -77,8 +77,6 @@ params:
     imageHeight: 150
     imageTitle: Trude Logo
     buttons:
-      - name: My Portfolio
-        url: https://me.trude.dev
       - name: My Knowledge Base
         url: https://trude.notion.site/Trude-s-Knowledge-Base-10449cf14b4c80ff89d1f2c9541fe789?pvs=4
 
