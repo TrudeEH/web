@@ -4,7 +4,7 @@ draft: false
 searchHidden: false
 showToc: true # Table of Contents
 author: "JCionx"
-title: "My favorite macOS utilities"
+title: "JCionx Favorite macOS Utilities"
 date: 2024-12-14T14:45:34Z
 tags: ["macos","apps","software"]
 description: "My top 8 favorite macOS utilities"
