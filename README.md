@@ -1,5 +1,6 @@
 ## Start Server
 ```sh
+git submodule update --init --recursive
 hugo server --disableFastRender -D #D to include drafts
 ```
 

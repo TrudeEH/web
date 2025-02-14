@@ -1,6 +1,6 @@
 baseURL: "https://trude.dev"
 title: trude.dev
-paginate: 5
+pagerSize: 5
 theme: PaperMod
 copyright: "Open-source - MIT License"
 #canonifyURLs: true
@@ -36,6 +36,7 @@ params:
   DateFormat: "January 2, 2006"
   defaultTheme: auto # dark, light
   disableThemeToggle: false
+  social: true
 
   ShowReadingTime: true
   ShowShareButtons: true
@@ -125,6 +126,10 @@ params:
 
 menu:
   main:
+    - identifier: notes
+      name: Notes
+      url: /notes/
+      weight: 5
     - identifier: categories
       name: Posts
       url: /posts/
