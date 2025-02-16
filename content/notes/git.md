@@ -8,6 +8,7 @@ draft: false
 showToc: true
 title: Version Control [GIT]
 ---
+
 Git is a version control system first developed by Linus Torvalds. It facilitates collaboration on large projects, keeps track of changes, and allows mistakes to be rolled back into a previous state.
 
 ## Configure Git
