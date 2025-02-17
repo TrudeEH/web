@@ -84,7 +84,7 @@ We can finally add the ALU (Arithmetic Logic Unit) we built before into the new 
 The gray trapezoids are multiplexers:  
 ![image23](image23.png)  
 The output value is then stored in a temporary register, before replacing the first operand register's value.  
-The component we just built to control the `ALU` is part of a `Control Unit`. The full `control unit` is very complex, as it needs to handle every possible instruction. (So far, we have seen how to implement the `ALU` and `RAM`.)
+The component we just built to control the `ALU` is part of a `Control Unit`. The full `control unit` is very complex, as it needs to handle every possible instruction. (So far, we have seen how to implement the `ALU` and `RAM`.)  
 ![image24](image24.png)  
 Each register in the `CU` has a specific purpose, unlike `RAM`, which can be used to store any values.  
 ![image25](image25.png)  
