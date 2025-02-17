@@ -1,6 +1,6 @@
 baseURL: "https://trude.dev"
 title: trude.dev
-paginate: 5
+pagerSize: 5
 theme: PaperMod
 copyright: "Open-source - MIT License"
 #canonifyURLs: true
@@ -11,6 +11,10 @@ outputs:
     - HTML
     - RSS
     - JSON # necessary for search
+
+ignoreFiles:
+  - "notes/drafts/_Templates"
+  - "notes/drafts/TODO.md"
 
 taxonomies:
   tag: tags
@@ -36,6 +40,7 @@ params:
   DateFormat: "January 2, 2006"
   defaultTheme: auto # dark, light
   disableThemeToggle: false
+  social: true
 
   ShowReadingTime: true
   ShowShareButtons: true
@@ -79,8 +84,8 @@ params:
     buttons:
       - name: My Portfolio
         url: https://me.trude.dev
-      - name: My Knowledge Base
-        url: https://trude.notion.site/Trude-s-Knowledge-Base-10449cf14b4c80ff89d1f2c9541fe789?pvs=4
+      - name: My Notes
+        url: /notes/
 
   # home-info mode
   homeInfoParams:
@@ -90,8 +95,6 @@ params:
   socialIcons:
     - name: email
       url: "mailto:ehtrude@gmail.com"
-    - name: matrix
-      url: "https://matrix.to/#/@ehtrude:matrix.org"
     - name: github
       url: "https://github.com/TrudeEH"
     - name: rss
@@ -125,6 +128,10 @@ params:
 
 menu:
   main:
+    - identifier: notes
+      name: Notes
+      url: /notes/
+      weight: 5
     - identifier: categories
       name: Posts
       url: /posts/

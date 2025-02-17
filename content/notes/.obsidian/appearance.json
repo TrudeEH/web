@@ -1,0 +1,9 @@
+{
+  "accentColor": "#f5bd5c",
+  "cssTheme": "Adwaita",
+  "interfaceFontFamily": "Adwaita Sans",
+  "textFontFamily": "Adwaita Sans",
+  "monospaceFontFamily": "Adwaita Mono",
+  "nativeMenus": false,
+  "baseFontSize": 16
+}
