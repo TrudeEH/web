@@ -1,7 +1,6 @@
 ---
 title: Python
 description: 
-date: 2025-02-17T09:23:25+00:00
 draft: false
 tags:
   - python

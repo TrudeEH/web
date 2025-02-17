@@ -1,7 +1,6 @@
 ---
 title: Diodes
 description: 
-date: 2025-02-17T08:18:09+00:00
 draft: false
 tags:
   - electronics

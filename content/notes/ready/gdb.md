@@ -1,7 +1,6 @@
 ---
 title: Debugging [GDB]
 description: 
-date: 2025-02-17T08:16:48+00:00
 draft: false
 tags:
   - programming

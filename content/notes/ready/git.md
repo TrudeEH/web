@@ -1,7 +1,6 @@
 ---
 title: Version Control [GIT]
 description: 
-date: 2025-02-17T08:58:11+00:00
 draft: false
 tags:
   - programming

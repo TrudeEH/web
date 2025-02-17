@@ -1,7 +1,6 @@
 ---
 title: Logic Gates
 description: 
-date: 2025-02-17T08:25:49+00:00
 draft: false
 tags:
   - electronics
@@ -13,7 +12,7 @@ showToc: true
 ## NOT
 
 Invert the input.  
-![[image42.png]]
+![image42](image42.png)
 
 ### Truth Table
 
@@ -25,7 +24,7 @@ Invert the input.
 ## AND
 
 Output `1` only when both inputs are `1`.  
-![[image43.png]]
+![image43](image43.png)
 
 ### Truth Table
 
@@ -39,7 +38,7 @@ Output `1` only when both inputs are `1`.
 ## OR
 
 Output `1` if at least one input is `1`.  
-![[image44.png]]
+![image44](image44.png)
 
 ### Truth Table
 
@@ -53,7 +52,7 @@ Output `1` if at least one input is `1`.
 ## NAND
 
 An `AND` gate followed by a `NOT` gate.  
-![[image45.png]]
+![image45](image45.png)
 
 ### Truth Table
 
@@ -67,7 +66,7 @@ An `AND` gate followed by a `NOT` gate.
 ## NOR
 
 An `OR` gate followed by a `NOT` gate.  
-![[image46.png]]
+![image46](image46.png)
 
 ### Truth Table
 
@@ -81,8 +80,8 @@ An `OR` gate followed by a `NOT` gate.
 ## XOR
 
 Either input is `1`, exclusively.  
-![[image47.png]]  
-![[image48.png]]
+![image47](image47.png)  
+![image48](image48.png)
 
 ### Truth Table
 
@@ -96,7 +95,7 @@ Either input is `1`, exclusively.
 ## XNOR
 
 Inverted `XOR`.  
-![[image49.png]]
+![image49](image49.png)
 
 ### Truth Table
 
@@ -111,13 +110,13 @@ Inverted `XOR`.
 
 ### NOT
 
-![[image50.png]]
+![image50](image50.png)
 
 ### AND
 
-![[image51.png]]  
-![[image52.png]]
+![image51](image51.png)  
+![image52](image52.png)
 
 ### OR
 
-![[image53.png]]
+![image53](image53.png)

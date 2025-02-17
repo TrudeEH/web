@@ -38,7 +38,7 @@ This snippet implements a syscall that prints text to `stdout`, usually a termin
 ### Processes
 
 A program is an executable containing machine code. When a computer executes a program, it is first loaded into memory.  
-![[image5.png]]  
+![image5](image5.png)  
 A program loaded in memory is a process.
 
 > Note: For interpreted languages, the interpreter creates a process that executes the code directly.
@@ -90,7 +90,7 @@ Uses linked lists to store and lookup data, to keep the implementation of the fi
 
 #### Partition Layout
 
-![[EXT2.png]]
+![EXT2](EXT2.png)
 
 ### EXT3
 
@@ -100,7 +100,7 @@ Uses linked lists to store and lookup data, to keep the implementation of the fi
 
 #### HTrees
 
-`EXT3` can also use a [[ready/algorithms-and-data/index]] instead of a linked list to store directory entries, making lookup times much faster. To build the HTree, all filenames are hashed and ordered, making the implementation more complex. This feature is disabled by default.
+`EXT3` can also use a [index](ready/algorithms_and_data/index.md) instead of a linked list to store directory entries, making lookup times much faster. To build the HTree, all filenames are hashed and ordered, making the implementation more complex. This feature is disabled by default.
 
 #### Scalability
 
@@ -111,10 +111,10 @@ These patches improved multicore performance by over 10x.
 #### Preallocation / Reservation
 
 Writing two files simultaneously can create noncontinuous space.  
-![[image6.png]]  
+![image6](image6.png)  
 Because `EXT3` was designed to be used with HDDs, and separate portions of a file would slow down read speeds, `EXT3` implemented a preallocation/reservation system.  
 Inside the block bitmap, a few extra blocks were preallocated, storing both files in separate locations.  
-![[image7.png]]  
+![image7](image7.png)  
 Instead of `EXT2`, where errors were corrected directly in the hard drive, `EXT3` reserves space for each specific `inode` in memory. In the event of a crash, all data would be stored in memory, and thus, not corrupting the HDD itself.
 
 #### Online Resizer
@@ -123,7 +123,7 @@ Instead of `EXT2`, where errors were corrected directly in the hard drive, `EXT3
 
 #### Partition Layout
 
-![[EXT3.png]]
+![EXT3](EXT3.png)
 
 ### EXT4
 

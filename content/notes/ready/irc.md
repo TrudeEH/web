@@ -1,7 +1,6 @@
 ---
 title: IRC
 description: 
-date: 2025-02-17T09:13:13+00:00
 draft: false
 tags:
   - networking
@@ -17,7 +16,7 @@ IRC is a very simple communication protocol that allows users to chat in real ti
 
 ### Server
 
-To be able to communicate, users must connect to a server. Each server has its own rules, bots and commands. The IRC protocol itself does not implement encryption, however, [[https-ssl-certs|SSL Certificates]] can be used to establish a secure connection **with the server**.  
+To be able to communicate, users must connect to a server. Each server has its own rules, bots and commands. The IRC protocol itself does not implement encryption, however, [SSL Certificates](../https-ssl-certs) can be used to establish a secure connection **with the server**.  
 Every message sent **can be read by the server**, including **private messages** between users.  
 Separate IRC instances can communicate. This concept is often called **server federation**. This allows for users in different servers to send messages to each other.
 
@@ -163,7 +162,7 @@ services:
 ```
 
 To properly configure your server, be sure to read the [container’s documentation](https://hub.docker.com/r/inspircd/inspircd-docker/).  
-This container generates a self-signed SSL certificate for secure connections, however, it won't be accepted by actual clients. Refer to my [[https-ssl-certs|SSL guide]] to generate a real certificate for TLS to work. After generating your certificate, simply replace the old one with it.
+This container generates a self-signed SSL certificate for secure connections, however, it won't be accepted by actual clients. Refer to my [SSL Guide](../https-ssl-certs) to generate a real certificate for TLS to work. After generating your certificate, simply replace the old one with it.
 
 ### Linux
 
@@ -189,7 +188,7 @@ Finally, start `inspircd`.
 sudo systemctl start inspircd
 ```
 
-To enable TLS, refer to my [[https-ssl-certs|SSL guide]]. After generating your certificate, copy it to `inspircd`'s ssl directory.
+To enable TLS, refer to my [SSL Guide](../https-ssl-certs). After generating your certificate, copy it to `inspircd`'s ssl directory.
 
 ```Shell
  sudo cp /etc/letsencrypt/live/irc.example.com/fullchain.pem /etc/inspircd/ssl/cert.pem

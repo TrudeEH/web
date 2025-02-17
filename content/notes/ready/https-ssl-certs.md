@@ -1,7 +1,6 @@
 ---
 title: HTTPS and SSL Certificates
 description: 
-date: 2025-02-17T09:17:30+00:00
 draft: false
 tags:
   - networking
@@ -17,7 +16,7 @@ The `http` protocol sends data as plaintext, which is an issue when sharing sens
 
 ## TLS
 
-TLS is a form of [[encryption]], used to secure HTTPS connections.  
+TLS is a form of [encryption](encryption.md), used to secure HTTPS connections.  
 TLS replaces SSL (a deprecated protocol), however, the term SSL is still used often.
 
 ### Handshake

@@ -1,7 +1,6 @@
 ---
 title: Databases [SQL]
 description: 
-date: 2025-02-17T08:27:35+00:00
 draft: false
 tags:
   - programming
@@ -15,13 +14,13 @@ showToc: true
 A "table" written into a single file. The most common file type for this purpose is `CSV`.  
 The `CSV` format reads each line as a row, and each comma-separated value as a column.  
 The first row on a `CSV` file is used to describe the data in each column. If a `,` is present on the dataset, surround that entry with `"` to 'escape' it.  
-These files can be read and written to using languages like [[c-language]] and [[python]].
+These files can be read and written to using languages like [c-language](../c-language.md) and [python](../python.md).
 
 ## Relational Databases
 
 Instead of using a single table, a relational database can store data in multiple tables, and then define relationships between them.  
 Each table must have one column with an unique key that identifies each row.  
-![[image94.png]]
+![image94](image94.png)
 
 ### Relationships
 
@@ -229,7 +228,7 @@ genres.show_id WHERE id =
 
 #### Many-to-many
 
-![[image95.png]]
+![image95](image95.png)
 
 ```SQL
 -- Select every person who starred in a show

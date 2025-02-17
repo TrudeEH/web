@@ -1,7 +1,6 @@
 ---
 title: WSL2
 description: 
-date: 2025-02-17T09:18:31+00:00
 draft: false
 tags:
   - tools

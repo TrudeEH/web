@@ -1,7 +1,6 @@
 ---
 title: Password Manager [PASS]
 description: 
-date: 2025-02-17T09:19:30+00:00
 draft: false
 tags:
   - tools
@@ -17,10 +16,10 @@ There are many options available, however, *pass* is one of the simplest ones.
 
 ## Pass
 
-*Pass* uses [[encryption]] to encrypt your passwords. If you don't have one already, use GPG to generate a personal key.  
+*Pass* uses [encryption](encryption.md) to encrypt your passwords. If you don't have one already, use GPG to generate a personal key.  
 Besides from allowing you to read your passwords, *pass* can be scripted, providing your passwords to scripts and other programs securely.  
 Instead of a database, *pass* stores every password in separate files, inside a directory called `password-store`. You can use *pass* to organize passwords just like regular files in the filesystem.  
-Pass also integrates with [[git|Git]], allowing you to undo changes, rollback to a previous state, and set a remote repository to save them on.
+Pass also integrates with [Git](git.md), allowing you to undo changes, rollback to a previous state, and set a remote repository to save them on.
 
 ### Initialize Pass
 

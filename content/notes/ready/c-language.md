@@ -1,7 +1,6 @@
 ---
 title: C Language
 description: 
-date: 2025-02-17T08:54:40+00:00
 draft: false
 tags:
   - c

@@ -1,24 +1,24 @@
 {
   "main": {
-    "id": "707cdff055641daf",
+    "id": "5324373015726ba8",
     "type": "split",
     "children": [
       {
-        "id": "4ff646379bdc32f1",
+        "id": "4509724f8bf84da7",
         "type": "tabs",
         "children": [
           {
-            "id": "41d42d82984d27da",
+            "id": "e7a7b303c61786dc",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "drafts/lua.md",
+                "file": "ready/algorithms_and_data/index.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "lua"
+              "title": "index"
             }
           }
         ]
@@ -27,16 +27,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "8554fcd8146aea7c",
+    "id": "eb9752450aad8905",
     "type": "split",
     "children": [
       {
-        "id": "65145a8fc625fc73",
+        "id": "4162aa8f7241215d",
         "type": "tabs",
-        "dimension": 66.13756613756614,
         "children": [
           {
-            "id": "3e60316ef665bcea",
+            "id": "b73f137a8a755c19",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -49,7 +48,7 @@
             }
           },
           {
-            "id": "66bab8cc98ffff03",
+            "id": "9326f66eb4ea3558",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -66,7 +65,7 @@
             }
           },
           {
-            "id": "9febdd5b0820c714",
+            "id": "22ea3aa7ebecbacb",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -76,44 +75,26 @@
             }
           }
         ]
-      },
-      {
-        "id": "e6a895c667054857",
-        "type": "tabs",
-        "dimension": 33.86243386243386,
-        "children": [
-          {
-            "id": "f7c232306fce05bc",
-            "type": "leaf",
-            "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
-            }
-          }
-        ]
       }
     ],
     "direction": "horizontal",
-    "width": 284.5110321044922
+    "width": 300
   },
   "right": {
-    "id": "65640e3e4a22a762",
+    "id": "f049c1d8215eafd9",
     "type": "split",
     "children": [
       {
-        "id": "c2a2b4ff04865342",
+        "id": "0455a82f86b09797",
         "type": "tabs",
         "children": [
           {
-            "id": "5a238d79ee59fbda",
+            "id": "3a41ad6c5fed23f5",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "binary-operations/index.md",
-                "collapseAll": true,
+                "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
                 "showSearch": false,
@@ -122,11 +103,11 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for index"
+              "title": "Backlinks"
             }
           },
           {
-            "id": "0bf5145fd219badf",
+            "id": "4a36bf58b19c0cce",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
@@ -139,7 +120,7 @@
             }
           },
           {
-            "id": "f07e471ad3a546d5",
+            "id": "adbc09def111b239",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -154,7 +135,7 @@
             }
           },
           {
-            "id": "6e617d9f3ccf8c06",
+            "id": "91a2b2f8427bd50b",
             "type": "leaf",
             "state": {
               "type": "outline",
@@ -166,23 +147,13 @@
               "icon": "lucide-list",
               "title": "Outline"
             }
-          },
-          {
-            "id": "30cd499d012a4255",
-            "type": "leaf",
-            "state": {
-              "type": "advanced-tables-toolbar",
-              "state": {},
-              "icon": "spreadsheet",
-              "title": "Advanced Tables"
-            }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 218.5
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -194,56 +165,33 @@
       "command-palette:Open command palette": false,
       "obsidian-importer:Open Importer": false,
       "table-editor-obsidian:Advanced Tables Toolbar": false,
-      "obsidian-local-images-plus:Local Images Plus  0.16.3\r\nLocalize attachments (plugin folder)": false
+      "homepage:Open homepage": false
     }
   },
-  "active": "f7c232306fce05bc",
+  "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
-    "drafts/lua.md",
-    "drafts/linux_architecture/index.md",
-    "index/index.md",
-    "Untitled",
-    "TODO.md",
-    "temp/pngwing.com.png",
-    "temp/nix.svg",
-    "temp/image93.png",
-    "temp/windows-11-icon-logo-png_seeklogo-406208.png",
-    "temp/js.png",
-    "ready/python.md",
-    "ready/http.md",
-    "ready/ssh.md",
-    "ready/pass.md",
-    "ready/wsl2.md",
-    "ready/https-ssl-certs.md",
-    "drafts/macOS.md",
-    "ready/html.md",
-    "ready/irc.md",
+    "ready/binary_operations/index.md",
+    "ready/cpu_architecture/index.md",
+    "ready/databases/index.md",
+    "ready/logic_gates/index.md",
+    "ready/memory/index.md",
+    "ready/tmux/index.md",
+    "ready/transistors/index.md",
+    "ready/c-language.md",
+    "ready/c-snippets.md",
+    "ready/compiling.md",
+    "ready/diodes.md",
     "ready/encryption.md",
     "ready/flask.md",
-    "ready/compiling.md",
-    "ready/git.md",
-    "ready/diodes.md",
     "ready/gdb.md",
-    "ready/c-snippets.md",
-    "ready/c-language.md",
-    "drafts/assembly.md",
-    "ready/algorithms-and-data/index.md",
-    "temp/freebsd.png",
-    "temp/py.webp",
-    "ready/binary-operations/index.md",
-    "ready/binary-operations/image75.png",
-    "ready/binary-operations/image74.png",
-    "ready/binary-operations/image68.png",
-    "drafts/linux/index.md",
-    "ready/tmux/index.md",
-    "drafts",
-    "ready/databases",
-    "ready/logic_gates",
-    "ready/memory",
-    "ready",
-    "ready/cpu_architecture",
-    "index",
-    "drafts/_Templates",
-    "ready/tmux"
+    "ready/git.md",
+    "ready/html.md",
+    "ready/http.md",
+    "ready/https-ssl-certs.md",
+    "ready/irc.md",
+    "ready/pass.md",
+    "ready/python.md",
+    "ready/ssh.md",
+    "ready/wsl2.md"
   ]
 }

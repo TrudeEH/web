@@ -22,7 +22,7 @@ sudo journalctl -b -1 -r -p err
 
 The exact steps to fully encrypt a disk varies depending on the distribution, and can only be done at the install time.  
 On Ubuntu, for example, you can enable it in the "Advanced Features" toggle, at the disk selection stage.  
-![[image93.png]]
+![image93.png](image93.png)
 
 ### Encrypt Home Directory
 

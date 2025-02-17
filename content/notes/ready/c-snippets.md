@@ -1,7 +1,6 @@
 ---
 title: C Snippets
 description: 
-date: 2025-02-17T08:56:33+00:00
 draft: false
 tags:
   - c

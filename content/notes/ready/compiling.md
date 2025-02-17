@@ -1,7 +1,6 @@
 ---
 title: Compiling [MAKE / GCC]
 description: 
-date: 2025-02-17T08:59:53+00:00
 draft: false
 tags:
   - c

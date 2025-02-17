@@ -1,7 +1,6 @@
 ---
 title: Binary Operations
 description: 
-date: 2025-02-17T08:37:24+00:00
 draft: false
 tags:
   - computer-science
@@ -122,21 +121,21 @@ Add 2, single-digit binary numbers.
 | 1     | 0     | 0         | 1       |
 | 1     | 1     | 1         | 0       |
 
-![[image68.png]]
+![image68](image68.png)
 
 #### Full Adder
 
 When adding 2 binary numbers, one operation might return a carry value, which the `half adder` can't accept, as it only has 2 inputs.
 
-![[image69.png]]
+![image69](image69.png)
 
 To solve this issue, a `full adder` accepts 3 inputs.
 
-![[image70.png]]
+![image70](image70.png)
 
 #### 8-Bit Adder
 
-![[image71.png]]
+![image71](image71.png)
 
 ### Subtraction
 
@@ -153,7 +152,7 @@ Subtract 2, single-digit binary numbers.
 | 1     | 0     | 1    | 0          |
 | 1     | 1     | 0    | 0          |
 
-![[image72.png]]
+![image72](image72.png)
 
 #### Full Subtractor
 
@@ -170,11 +169,11 @@ A `full subtractor` accepts the borrow value, allowing us to chain results.
 | 1     | 1     | 0       | 0        | 0        |
 | 1     | 1     | 1       | 1        | 1        |
 
-![[image73.png]]
+![image73](image73.png)
 
 #### 8-Bit Subtractor
 
-![[image74.png]]
+![image74](image74.png)
 
 ### Multiplication
 
@@ -198,7 +197,7 @@ First, multiply the top number to every digit of the bottom one, and then add th
 
 #### 2-Bit By 2-Bit Multiplier
 
-![[image75.png]]
+![image75](image75.png)
 
 ### Division
 

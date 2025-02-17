@@ -1,7 +1,6 @@
 ---
 title: Terminal Multiplexer [TMUX]
 description: 
-date: 2025-02-17T08:34:57+00:00
 draft: false
 tags:
   - tools
@@ -23,7 +22,7 @@ showToc: true
 - **Windows** (A session contains windows. These behave like tabs in other programs.)
 - **Panes** (A split in the window, each with its own terminal instance.)  
 
-![[tmux_design.png]]
+![tmux_design](tmux_design.png)
 
 ## [Commands](https://tmuxcheatsheet.com/)
 

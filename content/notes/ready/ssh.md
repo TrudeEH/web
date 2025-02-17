@@ -1,7 +1,6 @@
 ---
 title: SSH
 description: 
-date: 2025-02-17T09:21:16+00:00
 draft: false
 tags:
   - networking

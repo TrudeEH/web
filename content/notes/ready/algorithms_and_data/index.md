@@ -1,7 +1,6 @@
 ---
 title: Algorithms & Data Structures
 description: 
-date: 2025-02-17T08:52:10+00:00
 draft: false
 tags:
   - c
