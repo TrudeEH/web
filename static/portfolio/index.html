@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Trude's Portfolio Website" />
+    <title>TrudeWeb</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/hero.css" />
+    <link rel="stylesheet" href="css/nav.css" />
+    <link rel="stylesheet" href="css/certs.css" />
+    <link rel="stylesheet" href="css/projects.css" />
+    <link rel="stylesheet" href="css/timeline.css" />
+  </head>
+  <body>
+    <div class="nav-container">
+      <nav id="nav">
+        <img
+          class="nav-logo"
+          src="img/dragon_logo.svg"
+          onclick="menuToggle(this)"
+          alt="Trude's Logo"
+        />
+        <div id="nav-container">
+          <ul>
+            <li>
+              <a href="#" aria-label="Home"
+                ><img src="img/home_FILL0_wght400_GRAD0_opsz24.svg" alt=""
+              /></a>
+            </li>
+            <li>
+              <a href="#certs" aria-label="Certificates"
+                ><img src="img/license_FILL0_wght400_GRAD0_opsz24.svg" alt=""
+              /></a>
+            </li>
+            <li>
+              <a href="#projects" aria-label="Projects"
+                ><img src="img/build_FILL0_wght400_GRAD0_opsz24.svg" alt=""
+              /></a>
+            </li>
+            <li>
+              <a href="#timeline" aria-label="Timeline"
+                ><img
+                  src="img/timeline_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.svg"
+                  alt=""
+              /></a>
+            </li>
+            <li>
+              <a href="#contact" aria-label="Contact"
+                ><img src="img/call_FILL0_wght400_GRAD0_opsz24.svg" alt=""
+              /></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="hero-container">
+      <main class="hero">
+        <div class="hero-text">
+          <h1 class="effect-shine">
+            <a href="#" class="effect-shine">José Simões</a>
+          </h1>
+          <h2>Software Developer</h2>
+        </div>
+        <div class="hero-logo">
+          <div class="hero-logo-image"></div>
+          <div class="hero-logo-icon-2"></div>
+          <div class="hero-logo-icon"></div>
+        </div>
+      </main>
+    </div>
+
+    <div class="certs-container">
+      <article id="certs">
+        <div class="title-bubble title-main">Certificates</div>
+        <div class="item-container">
+          <div class="certs-item">
+            <img src="img/mDip-prev.webp" alt="" />
+            <div class="certs-actions">
+              <a href="img/mDip.webp" target="_blank">Open Document</a>
+              <a href="https://www.esmonserrate.org/public/" target="_blank"
+                >Visit Website</a
+              >
+            </div>
+          </div>
+          <div class="certs-item">
+            <img src="img/CS50x-prev.webp" alt="" />
+            <div class="certs-actions">
+              <a href="img/CS50x.webp" target="_blank">Open Document</a>
+              <a
+                href="https://www.edx.org/learn/computer-science/harvard-university-cs50-s-introduction-to-computer-science"
+                target="_blank"
+                >Visit Website</a
+              >
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="projects-container">
+      <article id="projects">
+        <div class="title-bubble title-main">Projects</div>
+        <div class="item-container">
+          <div class="projects-item">
+            <div class="title-bubble">
+              XPrism - <img src="img/linux.svg" alt="" /> Desktop (EOL)
+            </div>
+            <img src="img/XPrism-screen.webp" alt="" />
+            <div class="projects-actions">
+              <a href="https://github.com/TrudeEH/XPrism" target="_blank"
+                >Source Code</a
+              >
+              <a
+                href="https://trudeeh.github.io/XPrismWeb/index.html"
+                target="_blank"
+                >Visit Website</a
+              >
+            </div>
+          </div>
+          <div class="projects-item">
+            <div class="title-bubble">trude.dev - Personal Blog</div>
+            <img src="img/trudedev.webp" alt="" />
+            <div class="projects-actions">
+              <a href="https://github.com/TrudeEH/web" target="_blank"
+                >Source Code</a
+              >
+              <a href="https://trude.dev" target="_blank">Visit Website</a>
+            </div>
+          </div>
+          <div class="projects-item">
+            <div class="title-bubble">
+              <img src="img/linux.svg" alt="" /> Dotfiles
+            </div>
+            <img src="img/sc1.webp" alt="" />
+            <div class="projects-actions">
+              <a href="https://github.com/TrudeEH/dotfiles" target="_blank"
+                >Source Code</a
+              >
+            </div>
+          </div>
+          <div class="projects-item">
+            <div class="title-bubble">
+              Wayland <img src="img/linux.svg" alt="" /> Desktop
+            </div>
+            <img src="img/TrudeLand.webp" alt="" />
+            <div class="projects-actions">
+              <a href="https://github.com/TrudeEH/TrudeLand2" target="_blank"
+                >Source Code</a
+              >
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+    <div class="timeline-container">
+      <article id="timeline">
+        <div class="title-bubble title-main">Timeline</div>
+        <div class="timeline">
+          <div class="checkpoint">
+            <div class="timeline-item">
+              <div class="checkpoint-item-bubble">2015</div>
+              <p>
+                My journey began here. I was 10y old at the time, and I was
+                gifted an arduino, and some components. I soon started studying
+                C and the basics of electronics.
+              </p>
+            </div>
+          </div>
+          <div class="checkpoint">
+            <div class="timeline-item">
+              <div class="checkpoint-item-bubble">2016-2020</div>
+              <p>
+                During these years, I was busy with school, but I kept learning.
+                I eventually learned HTML, CSS, and got started with JavaScript,
+                Python, Bash and many other languages. I also switched to Linux
+                and began exploring as much as I could, while also learning more
+                about cybersecurity, and the core concepts of many other
+                languages, scripting, git and crypto.
+              </p>
+            </div>
+          </div>
+          <div class="checkpoint">
+            <div class="timeline-item">
+              <div class="checkpoint-item-bubble">2020-2023</div>
+              <p>
+                I eventually moved on to a professional course, now focused on
+                programming, and dove deeper into C and Linux. For the final
+                project of the course, I developed a desktop environment for X
+                (Linux display server), which allows the user to run and manage
+                graphical apps efficiently, while using as little resources as
+                possible. <br />
+                I spent some time optimizing my workflow as well, trying to be
+                as productive as possible.
+              </p>
+            </div>
+          </div>
+          <div class="checkpoint">
+            <div class="timeline-item">
+              <div class="checkpoint-item-bubble">2023-2024</div>
+              <p>
+                After finishing the course, I decided to take CS50, and
+                completed it a few months later, gaining a much deeper knowledge
+                of computer science, C, and low-level programming. I then
+                created my own websites: A blog, and this web portfolio.
+                <br />
+                I kept developing my desktop environment and mantaining a few
+                tools to easily configure new Linux systems as well.
+              </p>
+            </div>
+          </div>
+          <div class="checkpoint">
+            <div class="timeline-item">
+              <div class="checkpoint-item-bubble">2024-Now</div>
+              <p>
+                For the last few months, I kept maintaining my previous
+                projects, got my driving license, and now I am developing some
+                new projects, as well as studying lower level CS concepts.
+              </p>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+    <div class="contact-container">
+      <article id="contact">
+        <div class="title-bubble title-main">Contact Me</div>
+        <div class="contact-bubble">
+          <a href="https://github.com/TrudeEH"
+            ><img src="img/github.svg" alt="Email"
+          /></a>
+          <a href="mailto:ehtrude@gmail.com"
+            ><img
+              src="img/alternate_email_FILL0_wght400_GRAD0_opsz24.svg"
+              alt="Email"
+          /></a>
+        </div>
+      </article>
+    </div>
+
+    <script src="index.js"></script>
+  </body>
+</html>

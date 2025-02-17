@@ -85,7 +85,7 @@ params:
     imageTitle: Trude Logo
     buttons:
       - name: My Portfolio
-        url: https://me.trude.dev
+        url: /portfolio/
       - name: My Notes
         url: /notes/
 

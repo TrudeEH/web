@@ -1,0 +1,211 @@
+:root {
+  --bg: #181818;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: Yellowtail;
+  src: local(sans-serif), url(../fonts/Yellowtail-Regular.ttf);
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Roboto;
+  src: local(sans-serif), url(../fonts/Roboto-Regular.ttf);
+  font-display: swap;
+}
+
+/* ----------- HTML - BODY -------------- */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background: var(--bg);
+  margin: 0px;
+  padding: 0px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: black;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4a4a4a;
+  border-radius: 99rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #7d7d7d;
+}
+
+/* -------------- Title Bubbles --------------- */
+
+.title-bubble {
+  height: 2rem;
+  width: 60%;
+  background: rgba(0, 0, 0, 0.298);
+  position: absolute;
+  top: 2rem;
+  left: 20%;
+  border-radius: 99rem;
+  text-align: center;
+  padding: 0.4rem 0px;
+  color: white;
+  z-index: 9;
+}
+
+.title-bubble img {
+  background: transparent !important;
+  transform: translateY(0.1rem);
+  height: 1rem !important;
+  width: 1rem !important;
+  background: transparent;
+  border-radius: 0 !important;
+  object-fit: contain !important;
+  filter: invert(100%) sepia(14%) saturate(177%) hue-rotate(186deg)
+    brightness(115%) contrast(100%);
+}
+
+.title-main {
+  position: relative;
+  top: 0;
+  left: 0;
+  background: rgba(163, 163, 163, 0.298);
+}
+
+/* -------------- Contact Bubbles -------- */
+#contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  padding-bottom: 7rem;
+  background: url("../img/contactbg.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.contact-bubble {
+  display: flex;
+  height: 5rem;
+  background: #78787848;
+  border-radius: 99rem;
+  width: fit-content;
+  padding: 1rem;
+  margin-top: 2rem;
+  transition: 0.5s;
+  -webkit-box-shadow: 0px 0px 48px -24px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 48px -24px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 48px -24px rgba(0, 0, 0, 0.75);
+}
+
+.contact-bubble a {
+  height: 100%;
+  background: #ffffff64;
+  border-radius: 50%;
+  object-fit: cover;
+  -webkit-box-shadow: 0px 0px 48px -24px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 48px -24px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 48px -24px rgba(0, 0, 0, 0.75);
+  transition: 0.4s;
+}
+
+.contact-bubble a:hover {
+  background: #ffffffbd;
+  transform: scale(104%);
+  transition: 0.4s;
+  -webkit-box-shadow: 0px 0px 42px -14px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 42px -14px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 42px -14px rgba(0, 0, 0, 0.75);
+}
+
+.contact-bubble img {
+  height: 100%;
+  border-radius: 50%;
+  padding: 0.2rem;
+}
+
+.contact-bubble a:last-child {
+  margin-left: 1rem;
+}
+
+.contact-bubble:hover {
+  transform: scale(104%);
+  transition: 0.5s;
+  -webkit-box-shadow: 0px 0px 42px -14px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 42px -14px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 42px -14px rgba(0, 0, 0, 0.75);
+}
+
+/* -------------- Common Rules ----------- */
+
+#certs,
+.hero,
+#projects,
+#timeline,
+#contact {
+  border-radius: 30px;
+}
+
+.timeline-container,
+.certs-container,
+.projects-container,
+.hero-container {
+  padding-bottom: 16px;
+  padding-top: 0;
+}
+
+@media only screen and (min-width: 750px) {
+  .timeline-container,
+  .certs-container,
+  .projects-container,
+  .contact-container {
+    padding: 16px;
+    padding-top: 0;
+  }
+  .hero-container {
+    padding: 16px;
+  }
+  .title-main {
+    height: 3rem;
+    font-size: 150%;
+    width: 20rem;
+    padding: 0.7rem 0px;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .hero {
+    border-radius: 0 0 30px 30px;
+  }
+  #contact {
+    border-radius: 30px 30px 0 0;
+  }
+}
+
+.certs-item a,
+.projects-item a,
+.certs-item,
+.projects-item,
+.skills-info,
+.hero-logo-icon,
+nav,
+.title-bubble,
+.contact-bubble,
+.contact-bubble img,
+.timeline-item {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}

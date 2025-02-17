@@ -1,0 +1,102 @@
+#certs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background: url(../img/certsbg.webp);
+  background-position: center;
+  background-size: cover;
+}
+
+#certs .item-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.certs-item {
+  position: relative;
+  width: 100%;
+  background-color: #ffffff54;
+  border-radius: 1.2rem;
+  padding: 1rem;
+  margin: 1rem;
+  transition: 0.5s;
+  -webkit-box-shadow: 0px 0px 48px -24px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 48px -24px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 48px -24px rgba(0, 0, 0, 0.75);
+}
+
+.certs-item:hover {
+  transform: scale(102%);
+  transition: 0.5s;
+  -webkit-box-shadow: 0px 0px 42px -14px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 42px -14px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 42px -14px rgba(0, 0, 0, 0.75);
+}
+
+.certs-item img {
+  width: 100%;
+  max-height: 30rem;
+  border-radius: 0.6rem;
+  object-fit: cover;
+  background-color: white;
+}
+
+.certs-actions {
+  width: 100%;
+  display: flex;
+}
+
+.certs-item a {
+  width: 100%;
+  text-align: center;
+  background: #00000073;
+  border-radius: 50rem;
+  margin-top: 1rem;
+  padding: 0.5rem 0px;
+  text-decoration: none;
+  color: white;
+  -webkit-box-shadow: 0px 0px 48px -24px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 48px -24px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 48px -24px rgba(0, 0, 0, 0.75);
+  transition: 0.4s;
+}
+
+.certs-item a:last-child {
+  margin-left: 0.5rem;
+}
+
+.certs-item a:hover {
+  background: #00000061;
+  transform: scale(102%);
+  transition: 0.4s;
+  -webkit-box-shadow: 0px 0px 42px -14px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 42px -14px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 42px -14px rgba(0, 0, 0, 0.75);
+}
+
+@media only screen and (min-width: 750px) {
+  .certs-item:nth-child(2) {
+    margin-left: 2rem;
+  }
+  #certs .item-container {
+    margin: 1rem;
+    display: flex;
+    flex-direction: row;
+  }
+  #certs {
+    padding-right: 2rem !important;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .certs-actions {
+    flex-direction: column;
+  }
+  .certs-item a:last-child {
+    margin-left: 0;
+  }
+}
