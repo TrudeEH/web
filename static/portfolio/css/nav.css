@@ -121,9 +121,13 @@ nav li a:active {
   background: #00000073;
 }
 
-li a:hover,
-.nav-logo:hover {
+li a:hover {
   background: #00000028;
+  transition: 0.3s;
+}
+
+.nav-logo:hover {
+  filter: invert(100%);
   transition: 0.3s;
 }
 
