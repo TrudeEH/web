@@ -12,6 +12,9 @@ outputs:
     - RSS
     - JSON # necessary for search
 
+ignoreFiles:
+  - "notes/drafts/_Templates"
+
 taxonomies:
   tag: tags
 
