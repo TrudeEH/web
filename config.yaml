@@ -13,8 +13,8 @@ outputs:
     - JSON # necessary for search
 
 ignoreFiles:
-  - "notes/drafts/_Templates"
-  - "notes/drafts/TODO.md"
+  - "_Templates"
+  - "TODO.md"
 
 taxonomies:
   tag: tags

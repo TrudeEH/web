@@ -1,6 +1,9 @@
 ---
 draft: true
 ---
+
+## Notes
+
 In draft folder? (checkbox)
 - [x] Linux Architecture / Linux
 - [x] Assembly

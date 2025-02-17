@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "drafts/hardware-tools.md",
+                "file": "TODO.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "hardware-tools"
+              "title": "TODO"
             }
           }
         ]
@@ -169,6 +169,7 @@
   },
   "active": "ab03f7100c1ce0fb",
   "lastOpenFiles": [
+    "_Templates/note.md",
     "drafts/nvim.md",
     "drafts/rust.md",
     "drafts/swift.md",
@@ -193,7 +194,6 @@
     "ready/gdb.md",
     "ready/git.md",
     "ready/html.md",
-    "ready/http.md",
-    "ready/https-ssl-certs.md"
+    "ready/http.md"
   ]
 }

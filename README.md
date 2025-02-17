@@ -1,8 +1,7 @@
 # Trude's Website
 
 Welcome to my personal website!
-
-Here you will find my blog, computer science notes, 
+[Visit Site](https://trude.dev/)
 
 ## Start Server
 ```sh
