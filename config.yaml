@@ -41,6 +41,8 @@ params:
   defaultTheme: auto # dark, light
   disableThemeToggle: false
   social: true
+  mainSections:
+    - posts
 
   ShowReadingTime: true
   ShowShareButtons: true

@@ -1,3 +1,9 @@
+# Trude's Website
+
+Welcome to my personal website!
+
+Here you will find my blog, computer science notes, 
+
 ## Start Server
 ```sh
 git submodule update --init --recursive
