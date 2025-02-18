@@ -3,6 +3,7 @@ draft: true
 ---
 
 ## Notes
+### New Notes
 
 In draft folder? (checkbox)
 - [x] Linux Architecture / Linux
@@ -17,3 +18,6 @@ In draft folder? (checkbox)
 - [ ] FreeBSD
 - [x] Neovim, vim bindings, text editor
 - [x] Hardware Debug/Repair Tools (maybe integrate JCionx page?)
+- [ ] Android and custom ROMs
+
+### Enhancements
