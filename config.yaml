@@ -79,7 +79,7 @@ params:
     enabled: false # The homeInfo mode was replaced with profile, to make the last few posts show up under the profile.
     title: TrudeEH
     subtitle: "Software Developer • Computer Technician • Linux Enthusiast"
-    imageUrl: "logo.jpg"
+    imageUrl: "logo.webp"
     imageWidth: 150
     imageHeight: 150
     imageTitle: Trude Logo
