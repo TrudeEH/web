@@ -1,0 +1,350 @@
+/* Background */
+.bg {
+  color: #d4d4d4; /* Light gray for text */
+  background-color: #1d1d1d; /* Dark background */
+}
+/* PreWrapper */
+.chroma {
+  color: #d4d4d4; /* Light gray for text */
+  background-color: #1d1d1d; /* Dark background */
+}
+/* Other */
+.chroma .x {
+}
+/* Error */
+.chroma .err {
+  color: #f44747; /* Red for errors */
+}
+/* CodeLine */
+.chroma .cl {
+}
+/* LineLink */
+.chroma .lnlinks {
+  outline: none;
+  text-decoration: none;
+  color: inherit;
+}
+/* LineTableTD */
+.chroma .lntd {
+  vertical-align: top;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+/* LineTable */
+.chroma .lntable {
+  border-spacing: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+/* LineHighlight */
+.chroma .hl {
+  background-color: #454545; /* Dark gray for highlights */
+}
+/* LineNumbersTable */
+.chroma .lnt {
+  white-space: pre;
+  -webkit-user-select: none;
+  user-select: none;
+  margin-right: 0.4em;
+  padding: 0 0.4em 0 0.4em;
+  color: #808080; /* Gray for line numbers */
+}
+/* LineNumbers */
+.chroma .ln {
+  white-space: pre;
+  -webkit-user-select: none;
+  user-select: none;
+  margin-right: 0.4em;
+  padding: 0 0.4em 0 0.4em;
+  color: #b5cea8; /* Light green for line numbers */
+}
+/* Line */
+.chroma .line {
+  display: flex;
+}
+/* Keyword */
+.chroma .k {
+  color: #569cd6; /* Blue for keywords */
+}
+/* KeywordConstant */
+.chroma .kc {
+  color: #9cdcfe; /* Light blue for constants */
+}
+/* KeywordDeclaration */
+.chroma .kd {
+  color: #569cd6; /* Blue for declarations */
+}
+/* KeywordNamespace */
+.chroma .kn {
+  color: #569cd6; /* Blue for namespaces */
+}
+/* KeywordPseudo */
+.chroma .kp {
+  color: #9cdcfe; /* Light blue for pseudo keywords */
+}
+/* KeywordReserved */
+.chroma .kr {
+  color: #569cd6; /* Blue for reserved keywords */
+}
+/* KeywordType */
+.chroma .kt {
+  color: #569cd6; /* Blue for types */
+}
+/* Name */
+.chroma .n {
+}
+/* NameAttribute */
+.chroma .na {
+}
+/* NameBuiltin */
+.chroma .nb {
+}
+/* NameBuiltinPseudo */
+.chroma .bp {
+}
+/* NameClass */
+.chroma .nc {
+  color: #4ec9b0; /* Teal for class names */
+}
+/* NameConstant */
+.chroma .no {
+  color: #9cdcfe; /* Light blue for constants */
+}
+/* NameDecorator */
+.chroma .nd {
+  color: #d7ba7d; /* Light brown for decorators */
+}
+/* NameEntity */
+.chroma .ni {
+  color: #ce9178; /* Light orange for entities */
+}
+/* NameException */
+.chroma .ne {
+  color: #4ec9b0; /* Teal for exceptions */
+}
+/* NameFunction */
+.chroma .nf {
+  color: #d7ba7d; /* Light brown for functions */
+}
+/* NameFunctionMagic */
+.chroma .fm {
+}
+/* NameLabel */
+.chroma .nl {
+  color: #9cdcfe; /* Light blue for labels */
+}
+/* NameNamespace */
+.chroma .nn {
+  color: #569cd6; /* Blue for namespaces */
+}
+/* NameOther */
+.chroma .nx {
+}
+/* NameProperty */
+.chroma .py {
+  color: #9cdcfe; /* Light blue for properties */
+}
+/* NameTag */
+.chroma .nt {
+  color: #b5cea8; /* Light green for tags */
+}
+/* NameVariable */
+.chroma .nv {
+  color: #9cdcfe; /* Light blue for variables */
+}
+/* NameVariableClass */
+.chroma .vc {
+}
+/* NameVariableGlobal */
+.chroma .vg {
+}
+/* NameVariableInstance */
+.chroma .vi {
+}
+/* NameVariableMagic */
+.chroma .vm {
+}
+/* Literal */
+.chroma .l {
+  color: #9cdcfe; /* Light blue for literals */
+}
+/* LiteralDate */
+.chroma .ld {
+  color: #9cdcfe; /* Light blue for dates */
+}
+/* LiteralString */
+.chroma .s {
+  color: #ce9178; /* Light orange for strings */
+}
+/* LiteralStringAffix */
+.chroma .sa {
+  color: #9cdcfe; /* Light blue for string affixes */
+}
+/* LiteralStringBacktick */
+.chroma .sb {
+  color: #ce9178; /* Light orange for backtick strings */
+}
+/* LiteralStringChar */
+.chroma .sc {
+  color: #ce9178; /* Light orange for string chars */
+}
+/* LiteralStringDelimiter */
+.chroma .dl {
+  color: #9cdcfe; /* Light blue for string delimiters */
+}
+/* LiteralStringDoc */
+.chroma .sd {
+  color: #ce9178; /* Light orange for doc strings */
+}
+/* LiteralStringDouble */
+.chroma .s2 {
+  color: #ce9178; /* Light orange for double strings */
+}
+/* LiteralStringEscape */
+.chroma .se {
+  color: #9cdcfe; /* Light blue for escape sequences */
+}
+/* LiteralStringHeredoc */
+.chroma .sh {
+  color: #9cdcfe; /* Light blue for heredoc strings */
+}
+/* LiteralStringInterpol */
+.chroma .si {
+  color: #ce9178; /* Light orange for interpolated strings */
+}
+/* LiteralStringOther */
+.chroma .sx {
+  color: #ce9178; /* Light orange for other strings */
+}
+/* LiteralStringRegex */
+.chroma .sr {
+  color: #d16969; /* Dark red for regex strings */
+}
+/* LiteralStringSingle */
+.chroma .s1 {
+  color: #ce9178; /* Light orange for single strings */
+}
+/* LiteralStringSymbol */
+.chroma .ss {
+  color: #ce9178; /* Light orange for symbols */
+}
+/* LiteralNumber */
+.chroma .m {
+  color: #9cdcfe; /* Light blue for numbers */
+}
+/* LiteralNumberBin */
+.chroma .mb {
+  color: #9cdcfe; /* Light blue for binary numbers */
+}
+/* LiteralNumberFloat */
+.chroma .mf {
+  color: #9cdcfe; /* Light blue for float numbers */
+}
+/* LiteralNumberHex */
+.chroma .mh {
+  color: #9cdcfe; /* Light blue for hex numbers */
+}
+/* LiteralNumberInteger */
+.chroma .mi {
+  color: #9cdcfe; /* Light blue for integers */
+}
+/* LiteralNumberIntegerLong */
+.chroma .il {
+  color: #9cdcfe; /* Light blue for long integers */
+}
+/* LiteralNumberOct */
+.chroma .mo {
+  color: #9cdcfe; /* Light blue for octal numbers */
+}
+/* Operator */
+.chroma .o {
+  color: #569cd6; /* Blue for operators */
+}
+/* OperatorWord */
+.chroma .ow {
+  color: #569cd6; /* Blue for operator words */
+}
+/* Punctuation */
+.chroma .p {
+}
+/* Comment */
+.chroma .c {
+  color: #808080;
+}
+/* CommentHashbang */
+.chroma .ch {
+  color: #808080;
+}
+/* CommentMultiline */
+.chroma .cm {
+  color: #808080;
+}
+/* CommentSingle */
+.chroma .c1 {
+  color: #808080;
+}
+/* CommentSpecial */
+.chroma .cs {
+  color: #808080;
+}
+/* CommentPreproc */
+.chroma .cp {
+  color: #808080;
+}
+/* CommentPreprocFile */
+.chroma .cpf {
+  color: #808080;
+}
+/* Generic */
+.chroma .g {
+}
+/* GenericDeleted */
+.chroma .gd {
+  color: #f66151; /* Dark red for deleted */
+  background-color: #490202; /* Dark background for deleted */
+}
+/* GenericEmph */
+.chroma .ge {
+}
+/* GenericError */
+.chroma .gr {
+  color: #f66151; /* Dark red for errors */
+}
+/* GenericHeading */
+.chroma .gh {
+  color: #569cd6; /* Blue for headings */
+}
+/* GenericInserted */
+.chroma .gi {
+  color: #4ec9b0; /* Teal for inserted */
+  background-color: #0f5323; /* Dark background for inserted */
+}
+/* GenericOutput */
+.chroma .go {
+  color: #6a9955; /* Green for output */
+}
+/* GenericPrompt */
+.chroma .gp {
+  color: #6a9955; /* Green for prompt */
+}
+/* GenericStrong */
+.chroma .gs {
+}
+/* GenericSubheading */
+.chroma .gu {
+  color: #569cd6; /* Blue for subheadings */
+}
+/* GenericTraceback */
+.chroma .gt {
+  color: #569cd6; /* Blue for tracebacks */
+}
+/* GenericUnderline */
+.chroma .gl {
+  text-decoration: underline;
+}
+/* TextWhitespace */
+.chroma .w {
+  color: #808080; /* Gray for whitespace */
+}

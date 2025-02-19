@@ -4,8 +4,18 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: AdwaitaMono;
+  src: local(monospace), url(/fonts/AdwaitaMono.ttf);
+  font-display: swap;
+}
+
 body {
   font-family: "AdwaitaSans", sans-serif;
+}
+
+code {
+  font-family: "AdwaitaMono", monospace;
 }
 
 :root {
@@ -29,7 +39,7 @@ body {
   --tertiary: #4b4b4b;
   --content: #cccccc;
   --hljs-bg: #272727;
-  --code-bg: #272727;
+  --code-bg: #2e2e2e;
   --border: #2e2e2e;
   --code-block-bg: #272727;
 }
