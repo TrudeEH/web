@@ -28,6 +28,11 @@ code {
   font-family: "AdwaitaMono", monospace;
 }
 
+.counter {
+  color: var(--secondary);
+  font-size: 0.9rem;
+}
+
 :root {
   --theme: #fafafa;
   --entry: #ffffff;

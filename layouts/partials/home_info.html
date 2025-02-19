@@ -32,8 +32,18 @@
         {{- end }}
         <h1>{{ .title | default site.Title | markdownify }}</h1>
         <span>{{ .subtitle | markdownify }}</span>
-        {{- partial "social_icons.html" -}}
 
+        <!-- Counter -->
+        {{- $grouped := site.RegularPages.GroupBy "Section" -}}
+        {{- $counters := slice -}}
+        {{- range $group := $grouped -}}
+            {{- if $group.Key -}}
+            {{- $counters = $counters | append (printf "%s: %d" (title $group.Key) (len $group.Pages)) -}}
+            {{- end -}}
+        {{- end -}}
+        <span class="counter">{{ delimit $counters " • " }}</span>
+        
+        {{- partial "social_icons.html" -}}
         {{- with .buttons }}
         <div class="buttons">
             {{- range . }}
