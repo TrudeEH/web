@@ -1,5 +1,10 @@
 {
   "promptDelete": false,
   "tabSize": 2,
-  "alwaysUpdateLinks": true
+  "alwaysUpdateLinks": true,
+  "spellcheckDictionary": [
+    "bruteforce"
+  ],
+  "spellcheck": false,
+  "vimMode": false
 }

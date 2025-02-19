@@ -9,6 +9,14 @@ title: Linux
 ---
 #todo
 
+## Automatic Updates
+
+### Debian
+
+```sh
+dpkg-reconfigure --priority=low unattended-upgrades
+```
+
 ## Troubleshooting
 
 - Read error logs from the last session
