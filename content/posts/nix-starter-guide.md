@@ -365,7 +365,7 @@ mkdir -p ~/.config/nix-darwin/
 cp -f flake.nix ~/.config/nix-darwin/
 cp -f home.nix ~/.config/nix-darwin/
 
-if [[ $(uname -m) == "x86_64" ]]; then
+if [ $(uname -m) == "x86_64" ](%20$(uname%20-m)%20==%20"x86_64"%20); then
     echo "Intel mac."
     nix --extra-experimental-features "nix-command flakes" run nix-darwin -- switch --flake ~/.config/nix-darwin#x86
 else

@@ -186,14 +186,7 @@ First, multiply the top number to every digit of the bottom one, and then add th
 | 0   | 0   | 0   |
 | 1   | 0   | 1   |
 
-```Plain
-    ||.|		
- x  ||.
-    ....
-   ||.|
-+ ||.|
- |..|||.
-```
+![multiplication](multiplication.png)
 
 #### 2-Bit By 2-Bit Multiplier
 
@@ -201,57 +194,20 @@ First, multiply the top number to every digit of the bottom one, and then add th
 
 ### Division
 
-1. Find the smallest part of the dividend greater than or equal to the ==divisor==.
+1. Find the smallest part of the dividend greater than or equal to the **divisor**.![d1](d1.png)
 
-    ```Plain
-	|.|  ||..|
-    ```
+  
+2. Write the first digit of **the answer**, and **copy the original divisor down**.![d2](d2.png)
 
-2. Write the first digit of ==the answer==, and ==copy the original divisor down==.
+  
+3. Subtract the **aligned dividend digits** by **the digits under the dividend**.![d3](d3.png)
 
-    ```Plain
-				 |
-	|.|  ||..|
-			 |.|
-    ```
+4. Lower **the next dividend digit**.![d4](d4.png)
 
-3. Subtract ==the aligned dividend digits== by ==the digits under the dividend==.
+5. Is **the total** greater or equal to the **divisor**? If so, add a `1` to the answer. If not, **add a `0` to the answer and return to step 4**.![d5](d5.png)
 
-    ```Plain
-				 |
-	|.|  ||..|	 
-			 |.|
-				 |
-    ```
 
-4. Lower ==the next dividend digit==.
-
-    ```Plain
-				 |
-	|.|  ||..|	 
-			 |.|
-				 |.
-    ```
-
-5. Is ==the total== greater or equal to the ==divisor==? If so, add a `1` to the answer. If not, ==add a== ==`0`== ==to the answer== ==and return to step 4==.
-
-    ```Plain
-				 |.
-	|.|  ||..|	 
-			 |.|
-				 |.
-    ```
-
-6. Return to step 2, until you reach the end of the number. If you reached the end, you found ==the answer==.
-
-    ```Plain
-				 |.|
-	|.|  ||..|	 
-			 |.|
-				 |.|
-				 |.|
-					 .
-    ```
+6. Return to step 2, until you reach the end of the number. If you reached the end, you found **the answer**.![d6](d6.png)
 
 ### ASCII
 

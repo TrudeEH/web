@@ -13,8 +13,8 @@
 }
 
 @font-face {
-  font-family: Roboto;
-  src: local(sans-serif), url(../fonts/Roboto-Regular.ttf);
+  font-family: AdwaitaSans;
+  src: local(sans-serif), url(/fonts/AdwaitaSans.ttf);
   font-display: swap;
 }
 
@@ -25,7 +25,7 @@ html {
 }
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "AdwaitaSans", sans-serif;
   background: var(--bg);
   margin: 0px;
   padding: 0px;

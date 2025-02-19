@@ -3,6 +3,7 @@ draft: true
 ---
 
 ## Notes
+
 ### New Notes
 
 In draft folder? (checkbox)
@@ -13,7 +14,6 @@ In draft folder? (checkbox)
 - [x] Lua
 - [ ] JS
 - [ ] CSS
-- [ ] Firewall
 - [x] macOS
 - [ ] FreeBSD
 - [x] Neovim, vim bindings, text editor

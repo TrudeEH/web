@@ -1,0 +1,35 @@
+@font-face {
+  font-family: AdwaitaSans;
+  src: local(sans-serif), url(/fonts/AdwaitaSans.ttf);
+  font-display: swap;
+}
+
+body {
+  font-family: "AdwaitaSans", sans-serif;
+}
+
+:root {
+  --theme: #fafafa;
+  --entry: #ffffff;
+  --primary: #2f2f2f;
+  --secondary: #696866;
+  --tertiary: #d9d9d9;
+  --content: #3a3a3a;
+  --hljs-bg: #ebebeb;
+  --code-bg: #ebebeb;
+  --border: #ebebeb;
+  --code-block-bg: #272727;
+}
+
+.dark {
+  --theme: #1d1d1d;
+  --entry: #2e2e2e;
+  --primary: #deddda;
+  --secondary: #acaaa7;
+  --tertiary: #4b4b4b;
+  --content: #cccccc;
+  --hljs-bg: #272727;
+  --code-bg: #272727;
+  --border: #2e2e2e;
+  --code-block-bg: #272727;
+}

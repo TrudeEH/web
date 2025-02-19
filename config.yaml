@@ -44,6 +44,11 @@ params:
   mainSections:
     - posts
 
+  label:
+    text: "TrudeEH"
+    icon: /logo.webp
+    iconHeight: 10
+
   ShowReadingTime: true
   ShowShareButtons: true
   ShowPostNavLinks: true

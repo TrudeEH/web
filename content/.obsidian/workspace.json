@@ -11,14 +11,12 @@
             "id": "ab03f7100c1ce0fb",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "image",
               "state": {
-                "file": "notes/ready/firewall.md",
-                "mode": "source",
-                "source": false
+                "file": "notes/ready/binary_operations/d1.png"
               },
-              "icon": "lucide-file",
-              "title": "firewall"
+              "icon": "lucide-image",
+              "title": "d1"
             }
           }
         ]
@@ -94,7 +92,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "notes/ready/firewall.md",
+                "file": "TODO.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +102,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for firewall"
+              "title": "Backlinks for TODO"
             }
           },
           {
@@ -141,13 +139,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "notes/ready/firewall.md",
+                "file": "notes/ready/binary_operations/d1.png",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of firewall"
+              "title": "Outline of d1"
             }
           }
         ],
@@ -171,9 +169,17 @@
   },
   "active": "b73f137a8a755c19",
   "lastOpenFiles": [
-    "notes/drafts/linux/index.md",
-    "notes/ready/firewall.md",
+    "notes/ready/binary_operations/index.md",
+    "notes/ready/binary_operations/d6.png",
+    "notes/ready/binary_operations/d5.png",
+    "notes/ready/binary_operations/d4.png",
+    "notes/ready/binary_operations/d3.png",
+    "notes/ready/binary_operations/d2.png",
+    "notes/ready/binary_operations/d1.png",
+    "notes/ready/binary_operations/multiplication.png",
     "TODO.md",
+    "notes/ready/firewall.md",
+    "notes/drafts/linux/index.md",
     "_Templates/note.md",
     "drafts/nvim.md",
     "drafts/rust.md",
@@ -194,8 +200,6 @@
     "ready/c-snippets.md",
     "ready/compiling.md",
     "ready/diodes.md",
-    "ready/encryption.md",
-    "ready/flask.md",
-    "ready/gdb.md"
+    "ready/encryption.md"
   ]
 }
