@@ -31,7 +31,7 @@ The name sounded familiar, but I never looked into it that much. After a few hou
 
 So, I decided to try FreBSD on a spare laptop to see where it would take me, if not for anything else, just to learn something new.
 
-## Installation, the handbook and XFCE
+## Installation, the Handbook and XFCE
 
 The initial installation was surprisingly easy. The TUI installer is intuitive, and setting up the system (while reading the handbook) never had me lost. As mentioned before, the documentation is *really* good, and this chapter was no exception.
 
@@ -45,7 +45,7 @@ I didn't add my user to the `wheel` group, but logging into root and enabling it
 
 XFCE behaves similarly on Linux and overall felt quite stable, as it usually does.
 
-## Going deeper
+## Going Deeper
 
 I was happy with my system for a while, but soon enough, I wanted to take things further.
 
@@ -65,7 +65,7 @@ Rebooting the system didn't work; the computer would never turn off; a poweroff 
 
 I also noticed that a missing driver for the SD card reader was slowing the boot time by ~2min, so I disabled it.
 
-## My final thoughts
+## My Final Thoughts
 
 Overall, I can't use FreeBSD on my current hardware, or, most likely I'm missing something important. In any case, I believe that my goal was fulfilled: To learn a new system and better understand Linux.
 

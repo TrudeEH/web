@@ -32,7 +32,7 @@ No entity controls Linux, due to its open nature, so you will always be private 
 
 The disadvantage of Linux (which has been improving a lot over the last few years) is software support. Some apps such as Photoshop and Microsoft Word and games like League of Legends and Roblox, don't work on Linux. Before switching to Linux, make sure all your programs are supported, and if not, try to find other free and open alternatives, like Kritta or GIMP instead of Photoshop, or Google Docs, LibreOffice or OnlyOffice to replace Microsoft Word.
 
-## The first step: Choose a base distribution
+## The First Step: Choose a Base Distribution
 
 One of the best features of Linux is that you can customize it and use it however you like. Instead of a global Linux OS, you get to choose a distribution. Linux itself is just a Kernel - like an engine, that can be used to power any distribution.
 
@@ -48,7 +48,7 @@ These are often used as a base for other distros to build upon.
 
 To get started, I recommend that you pick Debian-based options, because they are the most widely used, have better support, and are overall more stable. You will find more documentation and help online with these, too.
 
-## Choose your Desktop Environment
+## Choose Your Desktop Environment
 
 Again, there are many DEs, but the two most popular are *GNOME* and *KDE Plasma*.
 
@@ -64,7 +64,7 @@ KDE Plasma is the most powerful desktop of any operating system. It is very flex
 
 The choice you make doesn't really matter that much, since you can easily switch between them if you happen to not like one, or prefer the other. If you can, try both, and see which one you like the most. As a general rule, if you came from Windows, try KDE Plasma, and if you came from macOS, try GNOME first.
 
-## Choose a distribution
+## Choose a Distribution
 
 Finally, you can decide which distro to install.
 
@@ -80,7 +80,8 @@ And if you chose KDE Plasma, try:
 - [**Linux Mint**](https://linuxmint.com/download.php) Another great option to get started. Has a Cinnamon and KDE version, both are quite simple to use and well-designed. This is the most recommended option for new users, and it feels a lot like Windows 10 out of the box. Choose it if you want something simple and more similar to Windows.
 
 ## Install Linux
-it
+
+it  
 First, you'll need a spare USB drive. The drive will be erased, so make sure to not leave anything important on it. Download your preferred distribution from their respective websites (likely an `.iso` file) and a flash tool, such as [Balena Etcher](https://etcher.balena.io/).
 
 Then, use Balena to flash the iso onto the USB drive. This is a simple process, all you have to do is follow the instructions on the Balena Etcher program.
@@ -106,7 +107,7 @@ The most common issues are:
 - **Low performance in games / graphic glitches.** You are likely using an NVIDIA GPU. Install the proprietary drivers, and it should be good to go. Ubuntu and Mint have driver managers and tools to help you with this. If you can't find them, look for help online. There are many articles about this subject.
 - **I can see my desktop, but text and icons look very small.** Go to settings and search for display scaling, then increase the slider until your desktop looks fine. This happens because you are using a 2K or 4K screen, which has more pixels than a regular screen. After applying your new scaling setting, reboot. Sometimes some elements will still look blurry until you do.
 
-## Install new programs
+## Install New Programs
 
 Some programs might be missing, or you may need something that isn't installed by default.
 
@@ -114,7 +115,7 @@ To install new software, open the `Software` app on GNOME (the name can vary) or
 
 If you can't find what you are looking for, search online for the program's webpage. Some programs are available as `.deb` files, which you can run to install new software. After launching it, you will have the option to install the program. These are similar to `.dmg` files on macOS and `.exe` or `.msi` files on Windows. Use this option as a last resort only. Most apps you will ever need are in the software store program, and files downloaded from the web may not be as secure.
 
-## Keep exploring!
+## Keep Exploring!
 
 With a Linux desktop and the software you need, you should be ready to use your device. If you can, spend some time exploring and changing settings to customize your system, and make the most out of it.
 

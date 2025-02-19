@@ -16,7 +16,7 @@ cover:
     hidden: true # only hide on current single page
 ---
 
-## Why am I doing this (again)?
+## Why Am I Doing This (again)?
 
 I've been using Linux for many years, and recently tried FreeBSD on a spare laptop. I didn't see many differences initially, but it got me wondering: What *really* are the differences between Linux and \*BSDs? Which OS should I use?
 
@@ -33,9 +33,9 @@ From most relevant to less important for me personally:
 
 You may disagree with my priorities - and that's okay, the final decision will likely vary.
 
-## Linux vs \*BSDs
+## Linux Vs \*BSDs
 
-First, we'll take a look at Linux Distros and how they compare. ~~(I'd just like to interject for a moment. What you’re referring to as Linux, is in fact, GNU/Linux, or as I’ve recently taken to calling it, GNU plus Linux.)~~ 
+First, we'll take a look at Linux Distros and how they compare. ~~(I'd just like to interject for a moment. What you're referring to as Linux, is in fact, GNU/Linux, or as I've recently taken to calling it, GNU plus Linux.)~~ 
 
 All Linux distros use the Linux Kernel, and most (but not all) use GNU utilities and SystemD.
 
@@ -59,8 +59,8 @@ The advantages are as follows:
 1. Performance (one of the main goals of the project)
 2. Security (Generally safer than Linux)
 3. Separation of concerns (user packages are only installed in user directories; the base system is always clean.)
-5. Software availability (Can run Linux binaries and has many ports available.)
-6. Extra features (ZFS support, Jails, Bluetooth and more.)
+4. Software availability (Can run Linux binaries and has many ports available.)
+5. Extra features (ZFS support, Jails, Bluetooth and more.)
 - Documentation (The community is smaller than Linux's, but the written documents are far better.)
 - Fast `pkg` (The package manager is written in C and is faster than OpenBSD's.)
 
@@ -100,4 +100,3 @@ Thanks for reading and a special *thank you* to everyone who helped on Reddit, l
 - [OpenBSD Goals](https://www.openbsd.org/goals.html)
 - [OpenBSD FAQ: Introduction to OpenBSD](https://www.openbsd.org/faq/faq1.html)
 - FreeBSD Project [goal](https://docs.freebsd.org/en/books/faq/#FreeBSD-goals) and [features](https://www.freebsd.org/features/)
-

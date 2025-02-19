@@ -20,11 +20,11 @@ Google is progressively getting worse, YouTube has more and more ADs, and most w
 
 I've been bothered by the "modern" web quite a lot, as I used to get my news from YouTube, but seeing the internet get progressively worse made me wonder if there is a better way...
 
-## Using the personal web
+## Using the Personal Web
 
 If you use the internet extensively, you have likely found many blogs and personal websites, such as the one you are on right now, my blog. These tend to be more honest, less intrusive, and many, such as my own, have no ADs, and collect no personal data about you. This one, for example, is open-source, so you can research freely without worrying about copyright laws, and even suggest changes and help me improve it.
 
-Personal websites are great since they are not restricted by what an app allows you to do. You can do _anything_ on your website, since you actually _own_ it. There is no limit to how creative you can get.
+Personal websites are great since they are not restricted by what an app allows you to do. You can do *anything* on your website, since you actually *own* it. There is no limit to how creative you can get.
 
 Since personal sites are so much better than social media, why don't more people use them instead? There are a few reasons:
 
@@ -54,11 +54,11 @@ Now that you have an aggregator, you need some websites to follow. Add those tha
 - [Neocities](https://neocities.org/browse) (Collection of small and creative websites)
 - [The Big List of Personal Websites](http://biglist.terraaeon.com/index.html)
 
-## Create your own content
+## Create Your Own Content
 
 If you like reading other people's content, you might be wondering how you can create your own corner of the web. It requires some work, but it's not too difficult.
 
-### Creating your own website
+### Creating Your Own Website
 
 Many people would recommend you to use website builders like Wordpress, and they can work for the most part, but you will be missing out on a lot of customization and freedom.
 
@@ -68,7 +68,7 @@ Now you can type anything on the web, add images and media, but you probably wan
 
 If all you want is a website with a few links to your socials and to introduce yourself to the world, you can stop here. If you also want to keep a blog, however, there is a better tool for the job.
 
-### Hosting a personal blog
+### Hosting a Personal Blog
 
 You could use plain html and css to build your blog, but that would not only get tiring, but you would waste a lot of time that could be used to create content. If you want to do it anyway, go for it, but for those who want an easier time, [HUGO](https://gohugo.io/) is the solution.
 
@@ -76,7 +76,7 @@ HUGO allows you to set up a website, select or build a theme, and then add new c
 
 This post isn't a full HUGO tutorial (coming soon!), but it should be enough to get you started on your own research. As an example, you can find my website's source code [on GitHub](https://github.com/TrudeEH/web).
 
-### Publish your site
+### Publish Your Site
 
 After building your site, there are still a few steps that you need to take before other people can access it.
 

@@ -16,7 +16,7 @@ cover:
     hidden: true # only hide on current single page
 ---
 
-## Why run AI locally?
+## Why Run AI Locally?
 
 AI models like ChatGPT and Gemini can be very useful, however, they have a few issues:
 
@@ -32,11 +32,11 @@ Using AI locally does have some issues, like the need for powerful hardware and 
 
 PS: All the tools shown below are free and open-source.
 
-## The engine: Ollama
+## The Engine: Ollama
 
 The first step is to actually run the model. The easiest way to do this is using `ollama`.
 
-To set it up, follow the [official guide](https://ollama.com/download) for your device.
+To set it up, follow the [official guide](https://ollama.com/download) for your device.  
 After this is done, select your model. As an example, I'll be using `llama3:latest`, an open-source model by Meta.
 
 ```sh
@@ -46,7 +46,7 @@ ollama run llama3 # Interact directly with the model. This is NOT recommended.
 
 Ollama by itself is already enough for many, but we can do better.
 
-## The middleman: Fabric
+## The Middleman: Fabric
 
 You can think of fabric as a layer between ollama, the tools you use, and you.
 
@@ -72,7 +72,7 @@ You can call fabric from your own apps and scripts, 'pipe' the result of a promp
 
 To install fabric, follow their [quickstart guide](https://github.com/danielmiessler/fabric?tab=readme-ov-file#quickstart).
 
-## Other tools and UIs
+## Other Tools and UIs
 
 Some other tools I recommend are:
 

@@ -24,7 +24,7 @@ Let's explore how we can convert a Chrome or Firefox extension to work with Safa
 
 ## Downloading the Source Code of the Extension
 
-The first step to convert your extension is to download its source code first.
+The first step to convert your extension is to download its source code first.  
 Paste the link of your extension in [this website](https://robwu.nl/crxviewer/) and Download the source code of the extension.
 
 ## Converting the Extension with Xcode

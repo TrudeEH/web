@@ -40,7 +40,7 @@ If you switch between macOS and Linux often, the problem grows even more, as now
 ## Searching for a Solution
 
 When trying to solve this issue, I came up with a few ideas. I could:
-- **Keep two different configurations: One for macOS and one for Debian.** I began work on this, and then... I realized that I needed to support Arch as well. No big deal, 3 configurations isn't a lot, I can manage it- I also have an arm laptop, and an x86 macOS machine that needs support. And what if I switch to another device in the future? ... This approach was getting me nowhere, as the 2 configurations I started with became 5, then 10, then more.
+- **Keep two different configurations: One for macOS and one for Debian.** I began work on this, and then... I realized that I needed to support Arch as well. No big deal, 3 configurations isn't a lot, I can manage itI also have an arm laptop, and an x86 macOS machine that needs support. And what if I switch to another device in the future? ... This approach was getting me nowhere, as the 2 configurations I started with became 5, then 10, then more.
 - **Write a compatibility layer between `brew`, `apt`, `pacman`, etc.** This seemed like a good approach at first, but because a package can have different names depending on how it is packaged, among many other issues, I quickly had to give up.
 - **Use the same package manager everywhere.** I tried to use Homebrew everywhere, but quickly noticed that many packages are missing, especially on Linux. Configurations would have to be ported as well.
 
@@ -360,6 +360,7 @@ This module also has its own configuration file (`flake.nix`), and I created a t
 That was a lot, but this file should give you a good understanding of how nix-darwin works, and what you can do with it.
 
 To apply your config, run the following commands:
+
 ```sh
 mkdir -p ~/.config/nix-darwin/
 cp -f flake.nix ~/.config/nix-darwin/
@@ -373,6 +374,7 @@ else
     nix --extra-experimental-features "nix-command flakes" run nix-darwin -- switch --flake ~/.config/nix-darwin#default
 fi
 ```
+
 **Note:** Nix-darwin already implements home-manager, so both configurations will be applied. There is no need to run the commands in the home-manager section of this blog post.
 
 ## Conclusion

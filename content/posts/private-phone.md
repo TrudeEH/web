@@ -16,7 +16,7 @@ cover:
     hidden: true # only hide on current single page
 ---
 
-## The current state of smartphones
+## The Current State of Smartphones
 
 Most people own a smartphone. They are extremely useful tools, but they are also a nightmare for security and privacy. This guide will attempt to help you improve your security and privacy while using a smartphone, without losing useful functionality.
 
@@ -47,7 +47,7 @@ There isn't much to say about these. These devices are simple, and can be secure
 
 Although the most secure / private option for a phone (as long as you're okay with SMS not being encrypted at all), these are not an option for most people.
 
-## Threat model
+## Threat Model
 
 The first step is to determine what your threat model is - how far you are willing to go.
 
@@ -55,9 +55,9 @@ For example, are you being targeted specifically? Is the government interested i
 
 Write down who your targets are, to help you decide what to defend against. The further you go, the more convenience you must sacrifice.
 
-## Some ideas of things to do and explore
+## Some Ideas of Things to Do and Explore
 
-### The simple route
+### The Simple Route
 
 **Low threat model** - Big Tech; Peace of mind; Not comfortable modifying your phone; Normal person
 
@@ -69,7 +69,7 @@ Write down who your targets are, to help you decide what to defend against. The 
 - Avoid personal information on social media.
 - Use [Matrix](https://matrix.org/) or [Signal](https://signal.org) for private chats.
 
-### Advanced route
+### Advanced Route
 
 **High threat model** - Someone capable is after you; You value security and privacy a lot; You are a tinkerer, or willing to learn; Paranoid
 
@@ -82,13 +82,13 @@ Write down who your targets are, to help you decide what to defend against. The 
 
 There are many more things you can do, but I can't help you with some of them, since this is as far as I'm willing to explore myself. It's impossible to be 100% safe, but following these steps will certainly help you *a lot* already.
 
-## Reality check
+## Reality Check
 
 You may find that you don't fit into any of these routes perfectly, and instead, somewhere in between. I, for example, still need some Google services, and not everyone uses Matrix in my life. This is why privacy and security are a spectrum, not a yes or no value. For me, most of these steps are worth it, but having this blog, just by itself, is already increasing my attack surface.
 
 You might want to make sacrifices to have nice things, and that's okay. Start by doing something; pick anything from the lists. Then, you might want to continue, or find your own balance.
 
-## Open-source apps that I recommend
+## Open-source Apps that I Recommend
 
 - [InnerTune](https://f-droid.org/packages/com.zionhuang.music/) - YouTube Music replacement (also no more Ads and free premium features)
 - [NewPipe](https://f-droid.org/packages/org.schabi.newpipe/) - YouTube alternative (also with premium features and no Ads)
@@ -117,7 +117,6 @@ You don't have to enable these features if you don't need them, obviously, but m
 
 There is also a [Web installer](https://grapheneos.org/install/web) to easily install GrapheneOS on your device.
 
-
 ## Nextcloud
 
 At this point, you know about GrapheneOS, and how to keep your phone safe, however, you might miss all those Google features. Applications like Google Drive, Google Photos, Contacts, Calendar... the list goes on.
@@ -138,4 +137,3 @@ In conclusion
 - If you can, use Nextcloud instead of Google services.
 
 Stay safe out there.
-

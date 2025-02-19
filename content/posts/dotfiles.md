@@ -16,7 +16,7 @@ cover:
     hidden: true # only hide on current single page
 ---
 
-## What are dotfiles and why should I care?
+## What Are Dotfiles and why Should I Care?
 
 After using your system for a while, you will likely change settings everywhere: On your desktop environment, different programs, and even create scripts to automate your work. Most of these configurations are saved in your `$HOME` directory, in the form of `.app_name`. These files begin with a **dot** (making them 'hidden'), hence the name **dotfiles**.
 
@@ -76,7 +76,7 @@ Where, `git` and `nvim`, for example, are the programs being configured.
 
 Stow can be installed on any Linux system and on macOS, manually or through [homebrew](https://brew.sh/).
 
-## Putting it all together
+## Putting it All together
 
 Finally, we reach the solution.
 
