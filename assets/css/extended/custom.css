@@ -10,6 +10,16 @@
   font-display: swap;
 }
 
+pre {
+  tab-size: 2; /* Set tab size to 2 spaces */
+  -moz-tab-size: 2; /* For Firefox */
+}
+
+code {
+  tab-size: 2; /* Set tab size for inline code */
+  -moz-tab-size: 2; /* For Firefox */
+}
+
 body {
   font-family: "AdwaitaSans", sans-serif;
 }

@@ -11,12 +11,14 @@
             "id": "ab03f7100c1ce0fb",
             "type": "leaf",
             "state": {
-              "type": "image",
+              "type": "markdown",
               "state": {
-                "file": "notes/ready/binary_operations/d1.png"
+                "file": "notes/ready/flask.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-image",
-              "title": "d1"
+              "icon": "lucide-file",
+              "title": "flask"
             }
           }
         ]
@@ -139,13 +141,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "notes/ready/binary_operations/d1.png",
+                "file": "notes/ready/flask.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of d1"
+              "title": "Outline of flask"
             }
           }
         ],
@@ -167,15 +169,19 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "b73f137a8a755c19",
+  "active": "ab03f7100c1ce0fb",
   "lastOpenFiles": [
+    "notes/ready/gdb.md",
+    "notes/ready/git.md",
+    "notes/ready/http.md",
+    "notes/ready/html.md",
+    "notes/ready/binary_operations/d1.png",
     "notes/ready/binary_operations/index.md",
     "notes/ready/binary_operations/d6.png",
     "notes/ready/binary_operations/d5.png",
     "notes/ready/binary_operations/d4.png",
     "notes/ready/binary_operations/d3.png",
     "notes/ready/binary_operations/d2.png",
-    "notes/ready/binary_operations/d1.png",
     "notes/ready/binary_operations/multiplication.png",
     "TODO.md",
     "notes/ready/firewall.md",
@@ -197,9 +203,6 @@
     "ready/tmux/index.md",
     "ready/transistors/index.md",
     "ready/c-language.md",
-    "ready/c-snippets.md",
-    "ready/compiling.md",
-    "ready/diodes.md",
-    "ready/encryption.md"
+    "ready/c-snippets.md"
   ]
 }
