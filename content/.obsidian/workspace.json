@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "notes/ready/flask.md",
+                "file": "posts/notes-update.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "flask"
+              "title": "notes-update"
             }
           }
         ]
@@ -141,13 +141,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "notes/ready/flask.md",
+                "file": "posts/notes-update.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of flask"
+              "title": "Outline of notes-update"
             }
           }
         ],
@@ -171,6 +171,17 @@
   },
   "active": "ab03f7100c1ce0fb",
   "lastOpenFiles": [
+    "_Templates/post.md",
+    "posts/notes-update.md",
+    "_Templates/note.md",
+    "posts/personal-web.md",
+    "posts/linux-starter-guide.md",
+    "posts/local-llm.md",
+    "posts/nix-starter-guide.md",
+    "posts/dotfiles.md",
+    "notes/drafts/linux/index.md",
+    "TODO.md",
+    "notes/ready/flask.md",
     "notes/ready/gdb.md",
     "notes/ready/git.md",
     "notes/ready/http.md",
@@ -183,10 +194,7 @@
     "notes/ready/binary_operations/d3.png",
     "notes/ready/binary_operations/d2.png",
     "notes/ready/binary_operations/multiplication.png",
-    "TODO.md",
     "notes/ready/firewall.md",
-    "notes/drafts/linux/index.md",
-    "_Templates/note.md",
     "drafts/nvim.md",
     "drafts/rust.md",
     "drafts/swift.md",
@@ -195,14 +203,6 @@
     "drafts/hardware-tools.md",
     "drafts/macOS.md",
     "ready/algorithms_and_data/index.md",
-    "ready/binary_operations/index.md",
-    "ready/cpu_architecture/index.md",
-    "ready/databases/index.md",
-    "ready/logic_gates/index.md",
-    "ready/memory/index.md",
-    "ready/tmux/index.md",
-    "ready/transistors/index.md",
-    "ready/c-language.md",
-    "ready/c-snippets.md"
+    "ready/binary_operations/index.md"
   ]
 }
