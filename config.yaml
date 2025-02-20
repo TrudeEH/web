@@ -1,6 +1,7 @@
 baseURL: "https://trude.dev"
 title: trude.dev
-pagerSize: 5
+pagination:
+  pagerSize: 5
 theme: PaperMod
 copyright: "Open-source - MIT License"
 #canonifyURLs: true
@@ -38,7 +39,7 @@ params:
   author: "TrudeEH"
   images: ["logo.svg"]
   DateFormat: "January 2, 2006"
-  defaultTheme: auto # dark, light
+  defaultTheme: dark # dark, light
   disableThemeToggle: false
   social: true
   mainSections:

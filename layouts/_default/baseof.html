@@ -17,9 +17,11 @@
 {{- print " dark" }}
 {{- end -}}
 " id="top">
+{{ if .IsHome }}
 <div id='stars'></div>
 <div id='stars2'></div>
 <div id='stars3'></div>
+{{ end }}
     {{- partialCached "header.html" . .Page -}}
     <main class="main">
         {{- block "main" . }}{{ end }}
