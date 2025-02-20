@@ -22,6 +22,10 @@ code {
 
 body {
   font-family: "AdwaitaSans", sans-serif;
+  overflow: hidden;
+}
+
+html {
 }
 
 code {
