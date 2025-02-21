@@ -4,21 +4,33 @@
     "type": "split",
     "children": [
       {
-        "id": "da1c1c5ba8d6b94f",
+        "id": "929b0fcada89ed0e",
         "type": "tabs",
         "children": [
           {
-            "id": "ab03f7100c1ce0fb",
+            "id": "28c9848f88828495",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "posts/notes-update.md",
+                "file": "notes/ready/how_to_computer/index.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "notes-update"
+              "title": "index"
+            }
+          },
+          {
+            "id": "5b5978f088ca6b22",
+            "type": "leaf",
+            "state": {
+              "type": "image",
+              "state": {
+                "file": "notes/ready/how_to_computer/input_selector.png"
+              },
+              "icon": "lucide-image",
+              "title": "input_selector"
             }
           }
         ]
@@ -78,7 +90,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 289.5
   },
   "right": {
     "id": "f049c1d8215eafd9",
@@ -141,13 +153,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "posts/notes-update.md",
+                "file": "notes/ready/how_to_computer/index.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of notes-update"
+              "title": "Outline of index"
             }
           }
         ],
@@ -155,7 +167,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 249.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -169,40 +181,42 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "ab03f7100c1ce0fb",
+  "active": "b73f137a8a755c19",
   "lastOpenFiles": [
-    "_Templates/post.md",
+    "notes/ready/how_to_computer/input_selector.png",
+    "notes/ready/how_to_computer/index.md",
+    "notes/ready/how_to_computer/bit_switch.png",
+    "notes/ready/how_to_computer/bus.png",
+    "notes/ready/how_to_computer/signed_negator.png",
+    "notes/ready/how_to_computer/full_adder_8bit.png",
+    "notes/ready/how_to_computer/full_adder.png",
+    "notes/ready/how_to_computer/half_adder.png",
+    "notes/ready/binary_operations/index.md",
+    "notes/ready/how_to_computer/image.png",
+    "notes/ready/how_to_computer/OR_gates_big.png",
+    "notes/ready/how_to_computer/image4.png",
+    "TODO.md",
+    "notes/ready/transistors/index.md",
+    "notes/ready/diodes.md",
+    "notes/drafts/nvim.md",
+    "notes/drafts/linux/index.md",
     "posts/notes-update.md",
+    "_Templates/post.md",
     "_Templates/note.md",
     "posts/personal-web.md",
     "posts/linux-starter-guide.md",
     "posts/local-llm.md",
     "posts/nix-starter-guide.md",
     "posts/dotfiles.md",
-    "notes/drafts/linux/index.md",
-    "TODO.md",
     "notes/ready/flask.md",
     "notes/ready/gdb.md",
     "notes/ready/git.md",
     "notes/ready/http.md",
     "notes/ready/html.md",
-    "notes/ready/binary_operations/d1.png",
-    "notes/ready/binary_operations/index.md",
-    "notes/ready/binary_operations/d6.png",
-    "notes/ready/binary_operations/d5.png",
-    "notes/ready/binary_operations/d4.png",
-    "notes/ready/binary_operations/d3.png",
-    "notes/ready/binary_operations/d2.png",
-    "notes/ready/binary_operations/multiplication.png",
     "notes/ready/firewall.md",
     "drafts/nvim.md",
     "drafts/rust.md",
     "drafts/swift.md",
-    "drafts/TODO.md",
-    "drafts/Untitled.md",
-    "drafts/hardware-tools.md",
-    "drafts/macOS.md",
-    "ready/algorithms_and_data/index.md",
-    "ready/binary_operations/index.md"
+    "drafts/TODO.md"
   ]
 }
