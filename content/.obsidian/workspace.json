@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "929b0fcada89ed0e",
+        "id": "da1c1c5ba8d6b94f",
         "type": "tabs",
         "children": [
           {
-            "id": "28c9848f88828495",
+            "id": "ab03f7100c1ce0fb",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -19,18 +19,6 @@
               },
               "icon": "lucide-file",
               "title": "index"
-            }
-          },
-          {
-            "id": "5b5978f088ca6b22",
-            "type": "leaf",
-            "state": {
-              "type": "image",
-              "state": {
-                "file": "notes/ready/how_to_computer/input_selector.png"
-              },
-              "icon": "lucide-image",
-              "title": "input_selector"
             }
           }
         ]
@@ -167,7 +155,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 249.5
+    "width": 200
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -181,26 +169,22 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "b73f137a8a755c19",
+  "active": "ab03f7100c1ce0fb",
   "lastOpenFiles": [
-    "notes/ready/how_to_computer/input_selector.png",
+    "3bit_decoder.png",
     "notes/ready/how_to_computer/index.md",
-    "notes/ready/how_to_computer/bit_switch.png",
-    "notes/ready/how_to_computer/bus.png",
-    "notes/ready/how_to_computer/signed_negator.png",
-    "notes/ready/how_to_computer/full_adder_8bit.png",
-    "notes/ready/how_to_computer/full_adder.png",
-    "notes/ready/how_to_computer/half_adder.png",
-    "notes/ready/binary_operations/index.md",
-    "notes/ready/how_to_computer/image.png",
-    "notes/ready/how_to_computer/OR_gates_big.png",
-    "notes/ready/how_to_computer/image4.png",
-    "TODO.md",
-    "notes/ready/transistors/index.md",
-    "notes/ready/diodes.md",
-    "notes/drafts/nvim.md",
-    "notes/drafts/linux/index.md",
+    "decoder.png",
+    "Pasted image 20250224154920.png",
+    "Pasted image 20250224154916.png",
+    "transistor_latch.png",
+    "8bit_register.png",
+    "notes/ready/memory/index.md",
     "posts/notes-update.md",
+    "notes/ready/how_to_computer/signed_negator.png",
+    "notes/ready/how_to_computer/input_selector.png",
+    "notes/ready/how_to_computer/image49.png",
+    "notes/ready/how_to_computer/image47.png",
+    "notes/ready/how_to_computer",
     "_Templates/post.md",
     "_Templates/note.md",
     "posts/personal-web.md",
@@ -208,15 +192,20 @@
     "posts/local-llm.md",
     "posts/nix-starter-guide.md",
     "posts/dotfiles.md",
+    "notes/drafts/linux/index.md",
+    "TODO.md",
     "notes/ready/flask.md",
     "notes/ready/gdb.md",
     "notes/ready/git.md",
     "notes/ready/http.md",
     "notes/ready/html.md",
+    "notes/ready/binary_operations/index.md",
     "notes/ready/firewall.md",
     "drafts/nvim.md",
     "drafts/rust.md",
     "drafts/swift.md",
-    "drafts/TODO.md"
+    "drafts/TODO.md",
+    "drafts/Untitled.md",
+    "drafts/hardware-tools.md"
   ]
 }
