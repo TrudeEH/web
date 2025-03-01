@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "posts/notes-update.md",
+                "file": "notes/ready/pass.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "notes-update"
+              "title": "pass"
             }
           }
         ]
@@ -141,13 +141,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "posts/notes-update.md",
+                "file": "notes/ready/pass.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of notes-update"
+              "title": "Outline of pass"
             }
           }
         ],
@@ -171,8 +171,8 @@
   },
   "active": "ab03f7100c1ce0fb",
   "lastOpenFiles": [
-    "_Templates/post.md",
     "posts/notes-update.md",
+    "_Templates/post.md",
     "_Templates/note.md",
     "posts/personal-web.md",
     "posts/linux-starter-guide.md",
