@@ -33,7 +33,7 @@ pass init email@example.com
 
 #### Import an Existing Password Set
 
-Download and run the appropriate [official migration script](https://git.zx2c4.com/password-store/tree/contrib/importers/).
+You can either use the `pass-import` extension, or download and run the appropriate [official migration script](https://git.zx2c4.com/password-store/tree/contrib/importers/).
 
 #### Clone a `password-store` Repository
 
