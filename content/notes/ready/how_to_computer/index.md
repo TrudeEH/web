@@ -153,11 +153,11 @@ A PNP transistor receives energy through the `emitter` pin, and then divides it 
 ## Basic Logic
 
 A logic gate is a device that performs one boolean operation: Two binary inputs produce a single binary output. These building blocks are the foundations of modern computing.  
-Each gate has its own truth table, which shows every possible input and output variations.
+Each gate has its own truth table, which defines every possible input and output variations.
 
 ### NAND
 
-A NAND gate, although not the simplest one, can be used to build all other basic gates. 
+A NAND gate can be used to build all other basic gates. It always outputs, unless both inputs are active.
 
 ![image45](image45.png)
 
@@ -174,7 +174,7 @@ A NAND gate, although not the simplest one, can be used to build all other basic
 
 ##### Electronics
 
-Implementation using switches and a pull-up resistor:  
+Implementation using switches (transistors could be used instead) and a pull-up resistor:  
 ![[NAND_circuit.png]]
 
 ### NOT
@@ -350,30 +350,37 @@ Inverted `XOR`.
 
 ##### Logic Gates
 
-![[XNOR_gates.png]]
+![[XNOR_gates.png]]  
+
+Although this circuits works, it can be further optimized to save `1` gate.  
+
+![[Pasted image 20250306105245.png]]
+
+> From this point on, circuits will become exponentially more complex. Optimizations like this one can be found almost everywhere, however, when the choice between efficiency and readability arises, I will choose to keep things simple. If you found a way to optimize any of my circuits, please let me know. I'd be happy to keep improving these notes, and credit you for your findings.
 
 ## Binary
 
-Binary is a base-2 numeral system: A simple way to represent numbers using only two states.
+Binary is a base-2 numeral system: A simple way to represent numbers using only two states. Each binary 'digit' is called a *bit*, and 8 bits together form a *byte*.  
+To represent large binary values, it's common to use hexadecimal as well, to shorten them into a more readable format.
 
-|Binary|Decimal|Hexadecimal|
-|---|---|---|
-|0000|00|00|
-|0001|01|01|
-|0010|02|02|
-|0011|03|03|
-|0100|04|04|
-|0101|05|05|
-|0110|06|06|
-|0111|07|07|
-|1000|08|08|
-|1001|09|09|
-|1010|10|0A|
-|1011|11|0B|
-|1100|12|0C|
-|1101|13|0D|
-|1110|14|0E|
-|1111|15|0F|
+| Binary | Decimal | Hexadecimal |
+| ------ | ------- | ----------- |
+| 0000   | 00      | 0           |
+| 0001   | 01      | 1           |
+| 0010   | 02      | 2           |
+| 0011   | 03      | 3           |
+| 0100   | 04      | 4           |
+| 0101   | 05      | 5           |
+| 0110   | 06      | 6           |
+| 0111   | 07      | 7           |
+| 1000   | 08      | 8           |
+| 1001   | 09      | 9           |
+| 1010   | 10      | A           |
+| 1011   | 11      | B           |
+| 1100   | 12      | C           |
+| 1101   | 13      | D           |
+| 1110   | 14      | E           |
+| 1111   | 15      | F           |
 
 ![Binary Calculations](binarycalc.png)
 
@@ -381,7 +388,7 @@ Binary is a base-2 numeral system: A simple way to represent numbers using only 
 
 ### Addition
 
-Adding two numbers can be done using a simple, manual algorithm: By adding the last bit of both numbers first, carry if necessary, then move on to the next number, and so on.
+Adding two numbers can be done using a simple, manual algorithm: By adding the last *bit* of both numbers first, carry if necessary, then move to the next number, and so on.
 
 | **+** | 0 | 1  |
 | ------- | --- | ---- |
@@ -416,7 +423,7 @@ To solve this issue, a `full adder` accepts 3 inputs.
 #### 8-Bit Adder
 
 To add two bytes, chain 8 full-adders.  
-(The dark blue lines are buses: 8 bits in parallel, simplified for better readability)
+(The dark blue lines are equivalent to 8 bits in parallel, simplified for better readability. The blue rectangles split the wire into 8 bits, or vice versa.)
 
 ![[full_adder_8bit.png]]
 
@@ -434,45 +441,11 @@ To switch between negative and positive numbers, flip all bits, then add 1.
 
 ![[signed_negator.png]]
 
----
-
 ### Subtraction
 
-Subtraction can result in negative numbers. Like how additions need a carry, subtraction needs a borrow.
+Subtraction is as easy as negating (inverting the sign of) the second input.
 
-#### Half Subtractor
-
-Subtract 2, single-digit binary numbers.
-
-| **A** | **B** | Diff | **Borrow** |
-| ----- | ----- | ---- | ---------- |
-| 0     | 0     | 0    | 0          |
-| 0     | 1     | 1    | 1          |
-| 1     | 0     | 1    | 0          |
-| 1     | 1     | 0    | 0          |
-
-![image72](image72.png)
-
-#### Full Subtractor
-
-A `full subtractor` accepts the borrow value, allowing us to chain results.
-
-| **A** | **B** | **B**in | **Diff** | **B**out |
-| ----- | ----- | ------- | -------- | -------- |
-| 0     | 0     | 0       | 0        | 0        |
-| 0     | 0     | 1       | 1        | 1        |
-| 0     | 1     | 0       | 1        | 1        |
-| 0     | 1     | 1       | 0        | 1        |
-| 1     | 0     | 0       | 1        | 0        |
-| 1     | 0     | 1       | 0        | 0        |
-| 1     | 1     | 0       | 0        | 0        |
-| 1     | 1     | 1       | 1        | 1        |
-
-![image73](image73.png)
-
-#### 8-Bit Subtractor
-
-![image74](image74.png)
+![[Pasted image 20250306113013.png]]
 
 ### Multiplication
 
@@ -491,7 +464,16 @@ First, multiply the top number to every digit of the bottom one, and then add th
 
 ![image75](image75.png)
 
+#### 4-Bit By 4-Bit Multiplier
+
+![[Pasted image 20250306113821.png]]
+
 ### Division
+
+Division is more complex. So much so, that it is often implemented in code, instead of hardware. For example, *ARM* CPUs don't have an instruction for division.  
+Harder doesn't mean impossible of course, and if you are curious, there are many resources you can see. For example: [This Reddit post](https://www.reddit.com/r/TuringComplete/comments/1eqo00i/my_multiplier_and_divider_in_turing_complete/); [YouTube Video](https://www.youtube.com/watch?v=Wf_1mf6yCoc).
+
+The steps for binary division are as follows:
 
 1. Find the smallest part of the dividend greater than or equal to the **divisor**.![d1](d1.png)
 
@@ -501,26 +483,29 @@ First, multiply the top number to every digit of the bottom one, and then add th
   
 3. Subtract the **aligned dividend digits** by **the digits under the dividend**.![d3](d3.png)
 
-4. Lower **the next dividend digit**.![d4](d4.png)
+4. Lower **the next dividend digit**.  
+   ![d4](d4.png)
 
-5. Is **the total** greater or equal to the **divisor**? If so, add a `1` to the answer. If not, **add a `0` to the answer and return to step 4**.![d5](d5.png)
+5. Is **the total** greater or equal to the **divisor**? If so, add a `1` to the answer. If not, **add a `0` to the answer and return to step 4**.  
+   ![d5](d5.png)
 
 
-6. Return to step 2, until you reach the end of the number. If you reached the end, you found **the answer**.![d6](d6.png)
+6. Return to step 2, until you reach the end of the number. If you reached the end, you found **the answer**.  
+   ![d6](d6.png)
 
 ## Memory
 
 ### Byte Switch (SWC)
 
-A bit switch, also known as transistor, toggles a given input, using a separate bit.
+A bit switch, also known as a transistor, toggles a given input, using a second bit.
 
 ![[bit_switch.png]]
 
-If 8 transistors are controlled by the same bit in parallel a Byte Switch is created.
+If 8 transistors are controlled by the same bit in parallel, a Byte Switch is created.
 
 ### Input Selector
 
-Using a switch, we can select which input to use.
+Using byte switches, we can select which input to use.
 
 ![[input_selector.png]]
 
@@ -532,19 +517,23 @@ A Bus is useful to simplify wiring. One bit controls which input should be selec
 
 ### 1 Bit of Memory
 
-There are many ways to achieve a bit of memory.
+There are [many ways](https://www.geeksforgeeks.org/latches-in-digital-logic/#sr-latch) to achieve a bit of memory.
 
 #### Using Transistors and a Tick Delay
 
-The oval component is a delay. This replaces the concept of a clock, however, in an electronic circuit, the save and load states are attached to a clock.
+The oval component is a delay. This replaces the concept of a clock, however, in an electronic circuit, the save and load states are attached to a clock instead.
 
 ![[transistor_latch.png]]
 
-#### AND-OR Latch
+#### SR Latch
 
-TODO!!!
+A Set-Reset Latch is the simplest one. The `S` input sets the output to `1`, and the `R` input, to `0`. If both inputs are on, the latch is in an undefined state, and outputs `0`.
 
-![image80](image80.png)
+![[Pasted image 20250306120537.png]]
+
+#### D Latch
+
+
 
 ### 8bit Register
 
@@ -563,30 +552,6 @@ A decoder splits two states of a bit into two separate outputs.
 ![[3bit_decoder.png]]
 
 ---
-
-## Remembering Data
-
-An `OR` gate could be used to store a single bit.  
-![image76](image76.png)  
-If the input `A` is changed to `1`, the `OR` gate will output `1`, and then receive it.  
-![image77](image77.png)  
-Even after the input `A` is set to `0`, the output does not change. The `OR` gate "remembers" that, at one point in the past, the `A` input was set to `1`.  
-![image78](image78.png)  
-The inverse can be done with an `AND` gate.  
-![image79](image79.png)  
-To remember either a `1` or a `0`, we can do the following:  
-  
-
-### AND-OR LATCH
-
-The input `A` sets the output to `1`, and the input `B` sets the output to `0`. This circuit is able to store a bit of information, while powered on, even after both inputs are set to `0`.  
-A slightly more advanced and intuitive version can be built as follows:  
-![image81](image81.png)  
-
-### GATED LATCH
-
-The input `A` is the value to store, and when `B` is set to `1`, the value is stored.  
-This is not the only way to store data using logic gates, but it is one of the simplest.
 
 ## Registers
 
