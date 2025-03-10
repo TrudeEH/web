@@ -533,17 +533,19 @@ A Set-Reset Latch is the simplest one. The `S` input sets the output to `1`, and
 
 #### D Latch
 
+A Data Latch has two inputs: `D` (Data) and `E` (Enable). When the `E` input is high, the output `Q` follows the input `D`. When the `E` input is low, the output `Q` holds the last value of `D`.
 
+![[image.png]]
 
 ### 8bit Register
 
-After obtaining one bit of memory, a byte of memory can be built.
+After obtaining one bit of memory (the hexagon component), a byte of memory can be built.
 
 ![[8bit_register.png]]
 
 ### Binary Decoder
 
-A decoder splits two states of a bit into two separate outputs.
+A decoder splits the two states of a bit into two separate outputs.
 
 ![[decoder.png]]
 
@@ -551,28 +553,22 @@ A decoder splits two states of a bit into two separate outputs.
 
 ![[3bit_decoder.png]]
 
----
+### Counter
 
-## Registers
+A counter adds 1 every tick (clock cycle) to its output. If needed, it can also be overwritten to any given value.
 
-A single bit isn't very useful, so we can use the previous circuit to create an 8bit register.  
-![image82](image82.png)
+![[Pasted image 20250307115740.png]]
 
-## Binary Decoder
+### RAM
 
-Select which circuit to activate, depending on the task at hand.  
-![image83](image83.png)
+We could add more registers to store as much data as needed, however, these don't scale well, as storing a lot of data would require millions of wires. To solve this issue, we can organize latches in a matrix instead of a long, horizontal line.  
 
-## RAM
-
-Registers don't scale well, however, as storing a large amount of data would require millions of wires.  
-We can organize latches in a matrix instead of a long, horizontal line.  
 ![image84](image84.png)  
 To access a specific latch, binary decoders can be used.  
 ![image85](image85.png)  
 This way, a single, short memory address can select any latch in the matrix.
 
-### Reading and Writing to the Matrix
+#### Reading and Writing to the Matrix
 
 We can modify the latch to reduce the amount of wires needed.  
 ![image86](image86.png)  
@@ -582,16 +578,208 @@ This circuit would store the same value on every latch, which isn't useful. With
 ![image88](image88.png)  
 ![image89](image89.png)
 
-### Storing Bytes Instead of Bits
+#### Storing Bytes Instead of Bits
 
 ![image90](image90.png)  
 In this example, we can provide 1 byte of information, a `write` or `read` signal, and a memory address. Since we are storing a full byte, the same memory address applies for all 8, single bit circuits.  
-This configuration is more commonly known as **RAM**.  
-To make it easier to understand, we can abstract these concepts further.  
-![image91](image91.png)  
-The largest the Address Bus is, the more bits can be managed. This is why a 32bit CPU can't manage more than 4 GB of RAM.  
+To make it easier to understand, we can abstract these concepts further:  
+![[Pasted image 20250307134315.png]]
+  
+The larger the Address Bus is, the more bits can be managed. This is why a 32bit CPU can't manage more than 4 GB of RAM.  
+
 ![image92](image92.png)  
-This kind of RAM is Static RAM (**S**RAM), which uses many transistors, making it faster, but more expensive to produce than **D**RAM.
+
+This kind of RAM is Static RAM (**S**RAM), which uses many transistors, making it faster, but is more expensive to produce than **D**RAM.
+
+## CPU Architecture
+
+### ALU
+
+An ALU (Arithmetic Logic Unit) performs bitwise operations (OR, AND, NOR, NAND) and basic math (ADD, SUB). You can also add any other arithmetic functionality to it, such as multiplication and division.
+
+This circuit uses the following instructions:
+- `0` OR
+- `1` NAND
+- `2` NOR
+- `3` AND
+- `4` ADD
+- `5` SUB
+
+![[Pasted image 20250307131641.png]]
+
+This ALU can also be optimized to use fewer gates:
+
+![[Pasted image 20250307131757.png]]
+
+### Conditions
+
+Conditions allow the CPU to compare values. In this case, values are compared against 0.
+
+Instructions:
+- `0` Never (Always output 0)
+- `1` If value = 0
+- `2` If value < 0
+- `3` If value ≤ 0
+- `4` Always (Always output 1)
+- `5` If value ≠ 0
+- `6` If value ≥ 0
+- `7` If value > 0
+
+![[Pasted image 20250307135207.png]]
+
+### Instruction Decoder
+
+A binary decoder, adapted to use the last 2 bits of a byte.
+
+Instructions:
+- `0` Immediate
+- `64` Calculation
+- `128` Copy 
+- `192` Condition
+
+![[Pasted image 20250307140353.png]]
+
+## Putting it All Together
+
+### Upgraded Register
+
+Adding an output pin to always output the register's value will prove to be useful in the future.
+
+![[Pasted image 20250307164854.png]]
+
+### Registers
+
+TODO
+
+![[Pasted image 20250307165834.png]]
+
+---
+
+### Assembly
+
+Assembly is a human-friendly representation of code: binary values that a computer can understand.
+
+![image10](image10.png)  
+
+An assembler converts ASM instructions into machine code, which is given to the CPU as input.
+
+For example, a simple computer architecture could use `00` to represent arithmetic operations.  
+
+![image11](image11.png)  
+
+These instructions are then read by the ALU we built previously, and this is how the computer 'knows' which operation to perform.
+
+Of course, assembly can also provide instructions to store or load values from memory.
+
+![image14](image14.png)
+
+#### Select Which Instruction to Execute (first 2 bits)
+
+A binary decoder is the perfect component to decide which instruction to execute.
+
+![image17](image17.png)  
+
+For memory operations, the 3rd and 4th bits are used to select which register to use.  
+
+![image18](image18.png)  
+
+The last 4 bits represent the memory address to read/write to.  
+
+![image19](image19.png)
+
+### Instruction Register
+
+For the instruction to be given, it is stored in a special register: An Instruction Register.  
+![image20](image20.png)
+
+### Optimization
+
+We can use a single Binary Decoder instead of two, to achieve the same result. (Optimization on the right pane)  
+![image21](image21.png)  
+Different architectures can have the exact same functionality, while being implemented differently, or even having different instructions. This is why code that is compiled for Intel x64 is not compatible with ARM or RISC-V.
+
+## Control Unit
+
+We can finally add the ALU (Arithmetic Logic Unit) we built before into the new circuit, like so:  
+![image22](image22.png)  
+The gray trapezoids are multiplexers:  
+![image23](image23.png)  
+The output value is then stored in a temporary register, before replacing the first operand register's value.  
+The component we just built to control the `ALU` is part of a `Control Unit`. The full `control unit` is very complex, as it needs to handle every possible instruction. (So far, we have seen how to implement the `ALU` and `RAM`.)  
+![image24](image24.png)  
+Each register in the `CU` has a specific purpose, unlike `RAM`, which can be used to store any values.  
+![image25](image25.png)  
+To read the first instruction, the `CU` will **fetch** data from the first address in memory.  
+![image26](image26.png)  
+After **fetching**, the `CU` will **decode** the instruction: interpret the bit sequence in the `instruction register`, to send the necessary signals to the components that will **execute** the instruction. We can finally load instructions into the instruction register.  
+![image27](image27.png)  
+Then, the `CU` increments 1 byte, to point the `address register` to the next instruction. (Modern architectures increment different values, as the instruction set is more complex)  
+If the instruction is an arithmetic operation, the steps are similar. The ALU stores the output in a temporary register, which overwrites the register 0 with the result. The result can then be stored in `RAM`.  
+![image28](image28.png)
+
+## Load a Program Into Memory
+
+So far, we can store instructions in memory, but it is also necessary to store values, besides from the instructions themselves.  
+For example:  
+![image29](image29.png)  
+This program uses 2 numeric values. The first 2 instructions load these values into the registers, and then, these values are added together and stored in another memory address. The final instruction, `HALT`, marks the end of the program, to make sure the `CU` does not attempt to read the number 20 as an instruction.  
+If the program is extended, all memory addresses must be altered. To fix this issue, we can instead store values at the end of the memory stack.  
+![image30](image30.png)
+
+## Conditions and Loops
+
+To create a loop, we can simply jump to a smaller address in memory.  
+![image31](image31.png)  
+Internally, the `JMP` command overwrites the Address Register, making it so that the next CPU **cycle** *fetches* the chosen memory address, instead of the next one.  
+![image32](image32.png)
+
+### Flags
+
+Sometimes, we might want to loop only if a certain condition is met.  
+For context, imagine subtracting a number from itself. In this case, the ALU will provide some extra information, using 1 bit registers called `flags`.  
+![image33](image33.png)  
+
+| N   | Flag         | Description                                               |
+| --- | ------------ | --------------------------------------------------------- |
+| 0   | **O**verflow | When a number is too large to fit in the output register. |
+| 1   | **Z**ero     | When the result is zero.                                  |
+| 0   | **N**egative | When a number is negative.                                |
+
+This additional information can be used to make decisions, and make **conditional jumps** possible.  
+
+| ASM            | Command       | Description                                                                                                                                                                               |
+| -------------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `JMP_OFW XXXX` | Jump Overflow | Overwrites the `Address Register` with the value `XXXX` if the `O_FLAG` is **ON**. If the flag is **OFF**, the `Address Register`'s value is incremented by **1**.                        |
+| `JMP_ZRO XXXX` | Jump Zero     | Overwrites the `Address Register` with the value `XXXX` if the `Z_FLAG` is **ON**. If the flag is **OFF**, the `Address Register`'s value is incremented by **1**.                        |
+| `JMP_NEG XXXX` | Jump Negative | Overwrites the `Address Register` with the value `XXXX` if the `N_FLAG` is **ON**. If the flag is **OFF**, the `Address Register`'s value is incremented by **1**.                        |
+| `JMP_ABV XXXX` | Jump Above    | Overwrites the `Address Register` with the value `XXXX` if **neither** the `Z_FLAG` nor `N_FLAG` are **ON**. If either is **ON,** the `Address Register`'s value is incremented by **1**. |
+
+Comparing two numbers is the same as subtracting them.  
+
+$$a - 5 = b$$
+
+| **b** is negative | **b** is zero | **b** is positive |
+| ----------------- | ------------- | ----------------- |
+| then              | then          | then              |
+| a < 5             | a == 5        | a > 5             |
+
+For example:  
+![image34](image34.png)  
+An `IF` statement works in the exact same way, but without the need to loop:  
+![image35](image35.png)  
+Note: These instructions are not from any real architecture. These are examples for this simple, custom architecture.
+
+## Clock
+
+The final piece of the puzzle is the clock. A clock can give us time before a circuit loops.  
+![image36](image36.png)  
+This is necessary, because energy travels extremely quickly, and so, all memory would be reset before we could even use the stored values. Each clock tick corresponds to an action the `CU` performs (fetch, decode and execute).  
+A `Data FLIP-FLOP`, for example, uses the clock to store data, acting as the manual `RESET` input.  
+![image37](image37.png)  
+This circuit can be used to build a single bit register.  
+![image38](image38.png)  
+To generate a clock pulse, we can use a circuit similar to this one:  
+![image39](image39.png)
 
 ## ASCII
 
