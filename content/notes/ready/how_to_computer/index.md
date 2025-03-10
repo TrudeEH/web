@@ -127,7 +127,7 @@ Base --(--|<)
 #### Switch
 
 If the `base` pin is provided with energy, the transistor allows current to flow in the main circuit.  
-![[image.png]]
+![image](image%201.png)
 
 #### Amplifier
 
@@ -175,7 +175,7 @@ A NAND gate can be used to build all other basic gates. It always outputs, unles
 ##### Electronics
 
 Implementation using switches (transistors could be used instead) and a pull-up resistor:  
-![[NAND_circuit.png]]
+![NAND_circuit](NAND_circuit.png)
 
 ### NOT
 
@@ -194,7 +194,7 @@ Invert any given input.
 
 ##### Logic Gates
 
-![[NOT_gates.png]]
+![NOT_gates](NOT_gates.png)
 
 ##### Electronics
 
@@ -219,7 +219,7 @@ Outputs `1` only when both inputs are `1`.
 
 ##### Logic Gates
 
-![[AND_gates.png]]
+![AND_gates](AND_gates.png)
 
 ##### Electronics
 
@@ -230,7 +230,7 @@ Outputs `1` only when both inputs are `1`.
 
 AND gates can be chained to accept more inputs.  
 
-![[AND_gates_big.png]]
+![AND_gates_big](AND_gates_big.png)
 
 ##### Truth Table
 
@@ -264,7 +264,7 @@ Outputs `1` if at least one input is `1`.
 
 ##### Logic Gates
 
-![[OR_gates.png]]
+![OR_gates](OR_gates.png)
 
 ##### Electronics
 
@@ -272,7 +272,7 @@ Outputs `1` if at least one input is `1`.
 
 #### Bigger OR Gate
 
-![[OR_gates_big.png]]
+![OR_gates_big](OR_gates_big.png)
 
 ##### Truth Table
 
@@ -308,7 +308,7 @@ A NOR gate is can also be used to build every other gate, just like NAND. Howeve
 
 ##### Logic Gates
 
-![[NOR_gates.png]]
+![NOR_gates](NOR_gates.png)
 
 ### XOR
 
@@ -329,7 +329,7 @@ Either input is `1`, exclusively. (OR, but if both inputs are on, it turns off.)
 
 ##### Logic Gates
 
-![[XOR_gates.png]]
+![XOR_gates](XOR_gates.png)
 
 ### XNOR
 
@@ -350,11 +350,11 @@ Inverted `XOR`.
 
 ##### Logic Gates
 
-![[XNOR_gates.png]]  
+![XNOR_gates](XNOR_gates.png)  
 
 Although this circuits works, it can be further optimized to save `1` gate.  
 
-![[Pasted image 20250306105245.png]]
+![Pasted image 20250306105245](Pasted%20image%2020250306105245.png)
 
 > From this point on, circuits will become exponentially more complex. Optimizations like this one can be found almost everywhere, however, when the choice between efficiency and readability arises, I will choose to keep things simple. If you found a way to optimize any of my circuits, please let me know. I'd be happy to keep improving these notes, and credit you for your findings.
 
@@ -408,7 +408,7 @@ Add 2, single-digit binary numbers.
 | 1     | 0     | 0         | 1       |
 | 1     | 1     | 1         | 0       |
 
-![[half_adder.png]]
+![half_adder](half_adder.png)
 
 #### Full Adder (ADD)
 
@@ -418,14 +418,14 @@ When adding 2 binary numbers, one operation might return a carry value, which th
 
 To solve this issue, a `full adder` accepts 3 inputs.
 
-![[full_adder.png]]
+![full_adder](full_adder.png)
 
 #### 8-Bit Adder
 
 To add two bytes, chain 8 full-adders.  
 (The dark blue lines are equivalent to 8 bits in parallel, simplified for better readability. The blue rectangles split the wire into 8 bits, or vice versa.)
 
-![[full_adder_8bit.png]]
+![full_adder_8bit](full_adder_8bit.png)
 
 ### Two's Complement
 
@@ -439,13 +439,13 @@ The main advantage of the Two's Complement system is that the adder built previo
 
 To switch between negative and positive numbers, flip all bits, then add 1.  
 
-![[signed_negator.png]]
+![signed_negator](signed_negator.png)
 
 ### Subtraction
 
 Subtraction is as easy as negating (inverting the sign of) the second input.
 
-![[Pasted image 20250306113013.png]]
+![Pasted image 20250306113013](Pasted%20image%2020250306113013.png)
 
 ### Multiplication
 
@@ -466,7 +466,7 @@ First, multiply the top number to every digit of the bottom one, and then add th
 
 #### 4-Bit By 4-Bit Multiplier
 
-![[Pasted image 20250306113821.png]]
+![Pasted image 20250306113821](Pasted%20image%2020250306113821.png)
 
 ### Division
 
@@ -499,7 +499,7 @@ The steps for binary division are as follows:
 
 A bit switch, also known as a transistor, toggles a given input, using a second bit.
 
-![[bit_switch.png]]
+![bit_switch](bit_switch.png)
 
 If 8 transistors are controlled by the same bit in parallel, a Byte Switch is created.
 
@@ -507,13 +507,13 @@ If 8 transistors are controlled by the same bit in parallel, a Byte Switch is cr
 
 Using byte switches, we can select which input to use.
 
-![[input_selector.png]]
+![input_selector](input_selector.png)
 
 ### Bus
 
 A Bus is useful to simplify wiring. One bit controls which input should be selected, and a second one, the output. This way, a single wire can transfer twice as much information.
 
-![[bus.png]]
+![bus](bus.png)
 
 ### 1 Bit of Memory
 
@@ -523,41 +523,41 @@ There are [many ways](https://www.geeksforgeeks.org/latches-in-digital-logic/#sr
 
 The oval component is a delay. This replaces the concept of a clock, however, in an electronic circuit, the save and load states are attached to a clock instead.
 
-![[transistor_latch.png]]
+![transistor_latch](transistor_latch.png)
 
 #### SR Latch
 
 A Set-Reset Latch is the simplest one. The `S` input sets the output to `1`, and the `R` input, to `0`. If both inputs are on, the latch is in an undefined state, and outputs `0`.
 
-![[Pasted image 20250306120537.png]]
+![Pasted image 20250306120537](Pasted%20image%2020250306120537.png)
 
 #### D Latch
 
 A Data Latch has two inputs: `D` (Data) and `E` (Enable). When the `E` input is high, the output `Q` follows the input `D`. When the `E` input is low, the output `Q` holds the last value of `D`.
 
-![[image.png]]
+![image](image%201.png)
 
 ### 8bit Register
 
 After obtaining one bit of memory (the hexagon component), a byte of memory can be built.
 
-![[8bit_register.png]]
+![8bit_register](8bit_register.png)
 
 ### Binary Decoder
 
 A decoder splits the two states of a bit into two separate outputs.
 
-![[decoder.png]]
+![decoder](decoder.png)
 
 ### 3bit Decoder
 
-![[3bit_decoder.png]]
+![3bit_decoder](3bit_decoder.png)
 
 ### Counter
 
 A counter adds 1 every tick (clock cycle) to its output. If needed, it can also be overwritten to any given value.
 
-![[Pasted image 20250307115740.png]]
+![Pasted image 20250307115740](Pasted%20image%2020250307115740.png)
 
 ### RAM
 
@@ -583,7 +583,7 @@ This circuit would store the same value on every latch, which isn't useful. With
 ![image90](image90.png)  
 In this example, we can provide 1 byte of information, a `write` or `read` signal, and a memory address. Since we are storing a full byte, the same memory address applies for all 8, single bit circuits.  
 To make it easier to understand, we can abstract these concepts further:  
-![[Pasted image 20250307134315.png]]
+![Pasted image 20250307134315](Pasted%20image%2020250307134315.png)
   
 The larger the Address Bus is, the more bits can be managed. This is why a 32bit CPU can't manage more than 4 GB of RAM.  
 
@@ -605,11 +605,11 @@ This circuit uses the following instructions:
 - `4` ADD
 - `5` SUB
 
-![[Pasted image 20250307131641.png]]
+![Pasted image 20250307131641](Pasted%20image%2020250307131641.png)
 
 This ALU can also be optimized to use fewer gates:
 
-![[Pasted image 20250307131757.png]]
+![Pasted image 20250307131757](Pasted%20image%2020250307131757.png)
 
 ### Conditions
 
@@ -625,7 +625,7 @@ Instructions:
 - `6` If value ≥ 0
 - `7` If value > 0
 
-![[Pasted image 20250307135207.png]]
+![Pasted image 20250307135207](Pasted%20image%2020250307135207.png)
 
 ### Instruction Decoder
 
@@ -637,281 +637,189 @@ Instructions:
 - `128` Copy 
 - `192` Condition
 
-![[Pasted image 20250307140353.png]]
+![Pasted image 20250307140353](Pasted%20image%2020250307140353.png)
 
 ## Putting it All Together
+
+We can now use the previous components to build and OVERTURE architecture computer!
 
 ### Upgraded Register
 
 Adding an output pin to always output the register's value will prove to be useful in the future.
 
-![[Pasted image 20250307164854.png]]
+![Pasted image 20250307164854](Pasted%20image%2020250307164854.png)
 
 ### Registers
 
-TODO
+This circuit copies information between registers. To do this, it uses the lowest 3 bits of a byte as the destination, and the next 3 bits as the source. 
 
-![[Pasted image 20250307165834.png]]
+![Pasted image 20250307165834](Pasted%20image%2020250307165834.png)
 
----
+### Program
 
-### Assembly
+The RAM we built previously can be used as a program. To move the memory address forward, simply attach it to our clock. You may notice that many pins are missing on the RAM component: This it to simplify the schematic, as this RAM is read-only and pre-programmed. Despite it having 4 outputs, this computer will only use the first one.
 
-Assembly is a human-friendly representation of code: binary values that a computer can understand.
+Every tick of the clock, the next instruction is passed to the registers, allowing the copy of values to be scripted.
 
-![image10](image10.png)  
+![Pasted image 20250310095309](Pasted%20image%2020250310095309.png)
 
-An assembler converts ASM instructions into machine code, which is given to the CPU as input.
+### Math
 
-For example, a simple computer architecture could use `00` to represent arithmetic operations.  
+Copying values between registers isn't very useful by itself. 
 
-![image11](image11.png)  
+Our ALU can perform basic bitwise operations, given an instruction. To implement it, a few modifications had to be made:
+1. The Instruction Decoder was added, as well as the ALU;
+2. Register decoders should be disabled when not performing a copy operation;
+3. The ALU was wired to the OPCODE (instruction) byte as well, since, in this context, the first 3 bits represent which arithmetic operation to execute;
+4. Finally the ALU was wired to register 3 (4th), to store the result of the operation, as well as to the register 1 and 2, to act as inputs.  
 
-These instructions are then read by the ALU we built previously, and this is how the computer 'knows' which operation to perform.
+![Pasted image 20250310101018](Pasted%20image%2020250310101018.png)  
 
-Of course, assembly can also provide instructions to store or load values from memory.
+So far, our computer can copy information and perform calculations on that data.  
+For example, to add 2 numbers from input, and then output the result:
 
-![image14](image14.png)
+```
+177 # Input -> REG1
+178 # Input -> REG2
+68  # ADD REG1 and REG2
+158 # REG3 -> Output
+```
 
-#### Select Which Instruction to Execute (first 2 bits)
+### Immediate Values
 
-A binary decoder is the perfect component to decide which instruction to execute.
+Sometimes it's useful to insert values directly from code (hard-code values).  
+If the two highest bits are both off, the value provided in the lowest 6 bits is stored in the register 0.
 
-![image17](image17.png)  
+![Pasted image 20250310112300](Pasted%20image%2020250310112300.png)
 
-For memory operations, the 3rd and 4th bits are used to select which register to use.  
+### Conditions
 
-![image18](image18.png)  
+Finally, we can add conditions to the computer.  
+Our condition component can only compare a value against 0, but together with subtraction and addition, it allows for any comparison to be executed.
 
-The last 4 bits represent the memory address to read/write to.  
+Any instruction given to the condition circuit will use `REG3` as input, and the output overrides the counter's value. This allows for jumping to any line in the program, and thus, create loops. 
 
-![image19](image19.png)
+![Pasted image 20250310113000](Pasted%20image%2020250310113000.png)
 
-### Instruction Register
+Adding conditions was the last step to build a simple, but fully capable computer! Although slow, this computer can execute any 256 bytes program. 
 
-For the instruction to be given, it is stored in a special register: An Instruction Register.  
-![image20](image20.png)
+> Keep in mind that loops are still very limited, and because immediate values only supports saving 6 bits, you can't jump past the 63rd instruction.
 
-### Optimization
+## Assembly
 
-We can use a single Binary Decoder instead of two, to achieve the same result. (Optimization on the right pane)  
-![image21](image21.png)  
-Different architectures can have the exact same functionality, while being implemented differently, or even having different instructions. This is why code that is compiled for Intel x64 is not compatible with ARM or RISC-V.
+Now that the computer is finished, we can start programming it. 
 
-## Control Unit
+Remembering the value for each instruction can be difficult, and so, it's useful to assign a name to each. This layer of abstraction is called *assembly*.
 
-We can finally add the ALU (Arithmetic Logic Unit) we built before into the new circuit, like so:  
-![image22](image22.png)  
-The gray trapezoids are multiplexers:  
-![image23](image23.png)  
-The output value is then stored in a temporary register, before replacing the first operand register's value.  
-The component we just built to control the `ALU` is part of a `Control Unit`. The full `control unit` is very complex, as it needs to handle every possible instruction. (So far, we have seen how to implement the `ALU` and `RAM`.)  
-![image24](image24.png)  
-Each register in the `CU` has a specific purpose, unlike `RAM`, which can be used to store any values.  
-![image25](image25.png)  
-To read the first instruction, the `CU` will **fetch** data from the first address in memory.  
-![image26](image26.png)  
-After **fetching**, the `CU` will **decode** the instruction: interpret the bit sequence in the `instruction register`, to send the necessary signals to the components that will **execute** the instruction. We can finally load instructions into the instruction register.  
-![image27](image27.png)  
-Then, the `CU` increments 1 byte, to point the `address register` to the next instruction. (Modern architectures increment different values, as the instruction set is more complex)  
-If the instruction is an arithmetic operation, the steps are similar. The ALU stores the output in a temporary register, which overwrites the register 0 with the result. The result can then be stored in `RAM`.  
-![image28](image28.png)
+Before a program written in assembly can be executed, it must be compiled; Transcoded back into bytes.
 
-## Load a Program Into Memory
+### Instructions
 
-So far, we can store instructions in memory, but it is also necessary to store values, besides from the instructions themselves.  
-For example:  
-![image29](image29.png)  
-This program uses 2 numeric values. The first 2 instructions load these values into the registers, and then, these values are added together and stored in another memory address. The final instruction, `HALT`, marks the end of the program, to make sure the `CU` does not attempt to read the number 20 as an instruction.  
-If the program is extended, all memory addresses must be altered. To fix this issue, we can instead store values at the end of the memory stack.  
-![image30](image30.png)
+#### Immediate
 
-## Conditions and Loops
+| Command | Instruction | Description                           |
+| ------- | ----------- | ------------------------------------- |
+| `0-63`  | 0-63        | Insert a hard-coded value into `REG0` |
 
-To create a loop, we can simply jump to a smaller address in memory.  
-![image31](image31.png)  
-Internally, the `JMP` command overwrites the Address Register, making it so that the next CPU **cycle** *fetches* the chosen memory address, instead of the next one.  
-![image32](image32.png)
+#### Calculation
 
-### Flags
+| Command | Instruction | Description                              |
+| ------- | ----------- | ---------------------------------------- |
+| `OR`    | 0           | Bitwise OR `REG1` and `REG2` to `REG3`   |
+| `NAND`  | 1           | Bitwise NAND `REG1` and `REG2` to `REG3` |
+| `NOR`   | 2           | Bitwise NOR `REG1` and `REG2` to `REG3`  |
+| `AND`   | 3           | Bitwise AND `REG1` and `REG2` to `REG3`  |
+| `ADD`   | 4           | Add `REG1` and `REG2` to `REG3`          |
+| `SUB`   | 5           | Subtract `REG1` and `REG2` to `REG3`     |
 
-Sometimes, we might want to loop only if a certain condition is met.  
-For context, imagine subtracting a number from itself. In this case, the ALU will provide some extra information, using 1 bit registers called `flags`.  
-![image33](image33.png)  
+#### Copy
 
-| N   | Flag         | Description                                               |
-| --- | ------------ | --------------------------------------------------------- |
-| 0   | **O**verflow | When a number is too large to fit in the output register. |
-| 1   | **Z**ero     | When the result is zero.                                  |
-| 0   | **N**egative | When a number is negative.                                |
+| Command          | Instruction   | Description                       |
+| ---------------- | ------------- | --------------------------------- |
+| `r0r1` - `r0out` | 129-134       | Copy `REG0` to `REG1-5`/`output`  |
+| `r1r0` - `r1out` | 136-142       | Copy `REG1` to `REG0-5`/`output`  |
+| `r2r0` - `r2out` | 144-150       | Copy `REG2` to `REG0-5`/`output`  |
+| `r3r0` - `r3out` | 152-158       | Copy `REG3` to `REG0-5`/`output`  |
+| `r4r0` - `r4out` | 160-166       | Copy `REG4` to `REG0-5`/`output`  |
+| `r5r0` - `r5out` | 168-172 & 174 | Copy `REG5` to `REG0-4`/`output`  |
+| `inr0` - `inout` | 176-182       | Copy `input` to `REG0-5`/`output` |
 
-This additional information can be used to make decisions, and make **conditional jumps** possible.  
+#### Condition
 
-| ASM            | Command       | Description                                                                                                                                                                               |
-| -------------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `JMP_OFW XXXX` | Jump Overflow | Overwrites the `Address Register` with the value `XXXX` if the `O_FLAG` is **ON**. If the flag is **OFF**, the `Address Register`'s value is incremented by **1**.                        |
-| `JMP_ZRO XXXX` | Jump Zero     | Overwrites the `Address Register` with the value `XXXX` if the `Z_FLAG` is **ON**. If the flag is **OFF**, the `Address Register`'s value is incremented by **1**.                        |
-| `JMP_NEG XXXX` | Jump Negative | Overwrites the `Address Register` with the value `XXXX` if the `N_FLAG` is **ON**. If the flag is **OFF**, the `Address Register`'s value is incremented by **1**.                        |
-| `JMP_ABV XXXX` | Jump Above    | Overwrites the `Address Register` with the value `XXXX` if **neither** the `Z_FLAG` nor `N_FLAG` are **ON**. If either is **ON,** the `Address Register`'s value is incremented by **1**. |
+| Command  | Instruction | Description        |
+| -------- | ----------- | ------------------ |
+| `never`  | 192         | Never jumps        |
+| `is0`    | 193         | Jump if `REG3` = 0 |
+| `less0`  | 194         | Jump if `REG3` < 0 |
+| `leq0`   | 195         | Jump if `REG3` ≤ 0 |
+| `always` | 196         | Always jumps       |
+| `not0`   | 197         | Jump if `REG3` ≠ 0 |
+| `meq0`   | 198         | Jump if `REG3` ≥ 0 |
+| `more0`  | 199         | Jump if `REG3` > 0 |
 
-Comparing two numbers is the same as subtracting them.  
+## Representing Data
 
-$$a - 5 = b$$
+You might be wondering how computers can display text, images, and play sound. 
 
-| **b** is negative | **b** is zero | **b** is positive |
-| ----------------- | ------------- | ----------------- |
-| then              | then          | then              |
-| a < 5             | a == 5        | a > 5             |
+Just like how, for negative numbers, the value stored is the same, and only its *context* changes, the same logic applies to represent anything else.
 
-For example:  
-![image34](image34.png)  
-An `IF` statement works in the exact same way, but without the need to loop:  
-![image35](image35.png)  
-Note: These instructions are not from any real architecture. These are examples for this simple, custom architecture.
+For example, to represent text, it's very common to use either ASCII or UNICODE.
 
-## Clock
+The table below is only part of the ASCII standard, used for capitalized letters:
 
-The final piece of the puzzle is the clock. A clock can give us time before a circuit loops.  
-![image36](image36.png)  
-This is necessary, because energy travels extremely quickly, and so, all memory would be reset before we could even use the stored values. Each clock tick corresponds to an action the `CU` performs (fetch, decode and execute).  
-A `Data FLIP-FLOP`, for example, uses the clock to store data, acting as the manual `RESET` input.  
-![image37](image37.png)  
-This circuit can be used to build a single bit register.  
-![image38](image38.png)  
-To generate a clock pulse, we can use a circuit similar to this one:  
-![image39](image39.png)
+| Dec | Hex | Binary   | HTML     | Char |
+| --- | --- | -------- | -------- | ---- |
+| 65  | 41  | 01000001 | `&#65;`  | A    |
+| 66  | 42  | 01000010 | `&#66;`  | B    |
+| 67  | 43  | 01000011 | `&#67;`  | C    |
+| 68  | 44  | 01000100 | `&#68;`  | D    |
+| 69  | 45  | 01000101 | `&#69;`  | E    |
+| 70  | 46  | 01000110 | `&#70;`  | F    |
+| 71  | 47  | 01000111 | `&#71;`  | G    |
+| 72  | 48  | 01001000 | `&#72;`  | H    |
+| 73  | 49  | 01001001 | `&#73;`  | I    |
+| 74  | 4A  | 01001010 | `&#74;`  | J    |
+| 75  | 4B  | 01001011 | `&#75;`  | K    |
+| 76  | 4C  | 01001100 | `&#76;`  | L    |
+| 77  | 4D  | 01001101 | `&#77;`  | M    |
+| 78  | 4E  | 01001110 | `&#78;`  | N    |
+| 79  | 4F  | 01001111 | `&#79;`  | O    |
+| 80  | 50  | 01010000 | `&#80;`  | P    |
+| 81  | 51  | 01010001 | `&#81;`  | Q    |
+| 82  | 52  | 01010010 | `&#82;`  | R    |
+| 83  | 53  | 01010011 | `&#83;`  | S    |
+| 84  | 54  | 01010100 | `&#84;`  | T    |
+| 85  | 55  | 01010101 | `&#85;`  | U    |
+| 86  | 56  | 01010110 | `&#86;`  | V    |
+| 87  | 57  | 01010111 | `&#87;`  | W    |
+| 88  | 58  | 01011000 | `&#88;`  | X    |
+| 89  | 59  | 01011001 | `&#89;`  | Y    |
+| 90  | 5A  | 01011010 | `&#90;`  | Z    |  
 
-## ASCII
+You may have used RGB values before. These are used to represent a color:
 
-Binary can also be used to represent characters.
+```
+RGB(0-255; 0-255; 0-255)
+```
 
-| Dec | Hex | Binary   | HTML     | Char        | Description               |
-| --- | --- | -------- | -------- | ----------- | ------------------------- |
-| 0   | 00  | 00000000 | `&#0;`   | NUL         | Null                      |
-| 1   | 01  | 00000001 | `&#1;`   | SOH         | Start of Heading          |
-| 2   | 02  | 00000010 | `&#2;`   | STX         | Start of Text             |
-| 3   | 03  | 00000011 | `&#3;`   | ETX         | End of Text               |
-| 4   | 04  | 00000100 | `&#4;`   | EOT         | End of Transmission       |
-| 5   | 05  | 00000101 | `&#5;`   | ENQ         | Enquiry                   |
-| 6   | 06  | 00000110 | `&#6;`   | ACK         | Acknowledge               |
-| 7   | 07  | 00000111 | `&#7;`   | BEL         | Bell                      |
-| 8   | 08  | 00001000 | `&#8;`   | BS          | Backspace                 |
-| 9   | 09  | 00001001 | `&#9;`   | HT          | Horizontal Tab            |
-| 10  | 0A  | 00001010 | `&#10;`  | LF          | Line Feed                 |
-| 11  | 0B  | 00001011 | `&#11;`  | VT          | Vertical Tab              |
-| 12  | 0C  | 00001100 | `&#12;`  | FF          | Form Feed                 |
-| 13  | 0D  | 00001101 | `&#13;`  | CR          | Carriage Return           |
-| 14  | 0E  | 00001110 | `&#14;`  | SO          | Shift Out                 |
-| 15  | 0F  | 00001111 | `&#15;`  | SI          | Shift In                  |
-| 16  | 10  | 00010000 | `&#16;`  | DLE         | Data Link Escape          |
-| 17  | 11  | 00010001 | `&#17;`  | DC1         | Device Control 1          |
-| 18  | 12  | 00010010 | `&#18;`  | DC2         | Device Control 2          |
-| 19  | 13  | 00010011 | `&#19;`  | DC3         | Device Control 3          |
-| 20  | 14  | 00010100 | `&#20;`  | DC4         | Device Control 4          |
-| 21  | 15  | 00010101 | `&#21;`  | NAK         | Negative Acknowledge      |
-| 22  | 16  | 00010110 | `&#22;`  | SYN         | Synchronize               |
-| 23  | 17  | 00010111 | `&#23;`  | ETB         | End of Transmission Block |
-| 24  | 18  | 00011000 | `&#24;`  | CAN         | Cancel                    |
-| 25  | 19  | 00011001 | `&#25;`  | EM          | End of Medium             |
-| 26  | 1A  | 00011010 | `&#26;`  | SUB         | Substitute                |
-| 27  | 1B  | 00011011 | `&#27;`  | ESC         | Escape                    |
-| 28  | 1C  | 00011100 | `&#28;`  | FS          | File Separator            |
-| 29  | 1D  | 00011101 | `&#29;`  | GS          | Group Separator           |
-| 30  | 1E  | 00011110 | `&#30;`  | RS          | Record Separator          |
-| 31  | 1F  | 00011111 | `&#31;`  | US          | Unit Separator            |
-| 32  | 20  | 00100000 | `&#32;`  | space       | Space                     |
-| 33  | 21  | 00100001 | `&#33;`  | !           | exclamation mark          |
-| 34  | 22  | 00100010 | `&#34;`  | "           | double quote              |
-| 35  | 23  | 00100011 | `&#35;`  | #           | number                    |
-| 36  | 24  | 00100100 | `&#36;`  | $           | dollar                    |
-| 37  | 25  | 00100101 | `&#37;`  | %           | percent                   |
-| 38  | 26  | 00100110 | `&#38;`  | &           | ampersand                 |
-| 39  | 27  | 00100111 | `&#39;`  | '           | single quote              |
-| 40  | 28  | 00101000 | `&#40;`  | (           | left parenthesis          |
-| 41  | 29  | 00101001 | `&#41;`  | )           | right parenthesis         |
-| 42  | 2A  | 00101010 | `&#42;`  | *           | asterisk                  |
-| 43  | 2B  | 00101011 | `&#43;`  | +           | plus                      |
-| 44  | 2C  | 00101100 | `&#44;`  | ,           | comma                     |
-| 45  | 2D  | 00101101 | `&#45;`  | -           | minus                     |
-| 46  | 2E  | 00101110 | `&#46;`  | .           | period                    |
-| 47  | 2F  | 00101111 | `&#47;`  | /           | slash                     |
-| 48  | 30  | 00110000 | `&#48;`  | 0           | zero                      |
-| 49  | 31  | 00110001 | `&#49;`  | 1           | one                       |
-| 50  | 32  | 00110010 | `&#50;`  | 2           | two                       |
-| 51  | 33  | 00110011 | `&#51;`  | 3           | three                     |
-| 52  | 34  | 00110100 | `&#52;`  | 4           | four                      |
-| 53  | 35  | 00110101 | `&#53;`  | 5           | five                      |
-| 54  | 36  | 00110110 | `&#54;`  | 6           | six                       |
-| 55  | 37  | 00110111 | `&#55;`  | 7           | seven                     |
-| 56  | 38  | 00111000 | `&#56;`  | 8           | eight                     |
-| 57  | 39  | 00111001 | `&#57;`  | 9           | nine                      |
-| 58  | 3A  | 00111010 | `&#58;`  | :           | colon                     |
-| 59  | 3B  | 00111011 | `&#59;`  | ;           | semicolon                 |
-| 60  | 3C  | 00111100 | `&#60;`  | <           | less than                 |
-| 61  | 3D  | 00111101 | `&#61;`  | =           | equality sign             |
-| 62  | 3E  | 00111110 | `&#62;`  | >           | greater than              |
-| 63  | 3F  | 00111111 | `&#63;`  | ?           | question mark             |
-| 64  | 40  | 01000000 | `&#64;`  | @           | at sign                   |
-| 65  | 41  | 01000001 | `&#65;`  | A           |                           |
-| 66  | 42  | 01000010 | `&#66;`  | B           |                           |
-| 67  | 43  | 01000011 | `&#67;`  | C           |                           |
-| 68  | 44  | 01000100 | `&#68;`  | D           |                           |
-| 69  | 45  | 01000101 | `&#69;`  | E           |                           |
-| 70  | 46  | 01000110 | `&#70;`  | F           |                           |
-| 71  | 47  | 01000111 | `&#71;`  | G           |                           |
-| 72  | 48  | 01001000 | `&#72;`  | H           |                           |
-| 73  | 49  | 01001001 | `&#73;`  | I           |                           |
-| 74  | 4A  | 01001010 | `&#74;`  | J           |                           |
-| 75  | 4B  | 01001011 | `&#75;`  | K           |                           |
-| 76  | 4C  | 01001100 | `&#76;`  | L           |                           |
-| 77  | 4D  | 01001101 | `&#77;`  | M           |                           |
-| 78  | 4E  | 01001110 | `&#78;`  | N           |                           |
-| 79  | 4F  | 01001111 | `&#79;`  | O           |                           |
-| 80  | 50  | 01010000 | `&#80;`  | P           |                           |
-| 81  | 51  | 01010001 | `&#81;`  | Q           |                           |
-| 82  | 52  | 01010010 | `&#82;`  | R           |                           |
-| 83  | 53  | 01010011 | `&#83;`  | S           |                           |
-| 84  | 54  | 01010100 | `&#84;`  | T           |                           |
-| 85  | 55  | 01010101 | `&#85;`  | U           |                           |
-| 86  | 56  | 01010110 | `&#86;`  | V           |                           |
-| 87  | 57  | 01010111 | `&#87;`  | W           |                           |
-| 88  | 58  | 01011000 | `&#88;`  | X           |                           |
-| 89  | 59  | 01011001 | `&#89;`  | Y           |                           |
-| 90  | 5A  | 01011010 | `&#90;`  | Z           |                           |
-| 91  | 5B  | 01011011 | `&#91;`  | [           | left square bracket       |
-| 92  | 5C  | 01011100 | `&#92;`  | \|backslash |                           |
-| 93  | 5D  | 01011101 | `&#93;`  | ]           | right square bracket      |
-| 94  | 5E  | 01011110 | `&#94;`  | ^           | caret / circumflex        |
-| 95  | 5F  | 01011111 | `&#95;`  | _           | underscore                |
-| 96  | 60  | 01100000 | `&#96;`  | `           | grave / accent            |
-| 97  | 61  | 01100001 | `&#97;`  | a           |                           |
-| 98  | 62  | 01100010 | `&#98;`  | b           |                           |
-| 99  | 63  | 01100011 | `&#99;`  | c           |                           |
-| 100 | 64  | 01100100 | `&#100;` | d           |                           |
-| 101 | 65  | 01100101 | `&#101;` | e           |                           |
-| 102 | 66  | 01100110 | `&#102;` | f           |                           |
-| 103 | 67  | 01100111 | `&#103;` | g           |                           |
-| 104 | 68  | 01101000 | `&#104;` | h           |                           |
-| 105 | 69  | 01101001 | `&#105;` | i           |                           |
-| 106 | 6A  | 01101010 | `&#106;` | j           |                           |
-| 107 | 6B  | 01101011 | `&#107;` | k           |                           |
-| 108 | 6C  | 01101100 | `&#108;` | l           |                           |
-| 109 | 6D  | 01101101 | `&#109;` | m           |                           |
-| 110 | 6E  | 01101110 | `&#110;` | n           |                           |
-| 111 | 6F  | 01101111 | `&#111;` | o           |                           |
-| 112 | 70  | 01110000 | `&#112`  | p           |                           |
-| 113 | 71  | 01110001 | `&#113;` | q           |                           |
-| 114 | 72  | 01110010 | `&#114;` | r           |                           |
-| 115 | 73  | 01110011 | `&#115;` | s           |                           |
-| 116 | 74  | 01110100 | `&#116;` | t           |                           |
-| 117 | 75  | 01110101 | `&#117;` | u           |                           |
-| 118 | 76  | 01110110 | `&#118;` | v           |                           |
-| 119 | 77  | 01110111 | `&#119;` | w           |                           |
-| 120 | 78  | 01111000 | `&#120;` | x           |                           |
-| 121 | 79  | 01111001 | `&#121;` | y           |                           |
-| 122 | 7A  | 01111010 | `&#122;` | z           |                           |
-| 123 | 7B  | 01111011 | `&#123;` | {           | left curly bracket        |
-| 124 | 7C  | 01111100 | `&#124;` | \|          | vertical bar              |
-| 125 | 7D  | 01111101 | `&#125;` | }           | right curly bracket       |
-| 126 | 7E  | 01111110 | `&#126;` | ~           | tilde                     |
-| 127 | 7F  | 01111111 | `&#127;` | DEL         | delete                    |
+As the name suggests, the first value represents Red, the second, Green, and the last, Blue.
+
+To create images, simply chain RGB values in a grid; Videos are nothing more than many images chained together.
+
+## LEG
+
+The LEG computer is similar to OVERTURE, but instead of a single byte per instructions, LEG uses 4. This makes it much easier to program, and allows for immediate values and jumps up to `256`.
+
+Even though OVERTURE is fully functional, there are still many useful concepts we skipped over, such as functions, writable RAM, and comparisons between two numbers.
+
+### The Main Board
+
+![Pasted image 20250310165158](Pasted%20image%2020250310165158.png)
+
+### ALU
+
+### Conditional (IF)
+
+### Functions (FN)
+
+## Parting Thoughts

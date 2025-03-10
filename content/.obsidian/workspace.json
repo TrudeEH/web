@@ -11,14 +11,12 @@
             "id": "ab03f7100c1ce0fb",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "image",
               "state": {
-                "file": "notes/ready/how_to_computer/index.md",
-                "mode": "source",
-                "source": false
+                "file": "notes/ready/how_to_computer/multiplication.png"
               },
-              "icon": "lucide-file",
-              "title": "index"
+              "icon": "lucide-image",
+              "title": "multiplication"
             }
           }
         ]
@@ -141,13 +139,23 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "notes/ready/how_to_computer/index.md",
+                "file": "notes/ready/how_to_computer/multiplication.png",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of index"
+              "title": "Outline of multiplication"
+            }
+          },
+          {
+            "id": "7f8f8508a01e0795",
+            "type": "leaf",
+            "state": {
+              "type": "advanced-tables-toolbar",
+              "state": {},
+              "icon": "spreadsheet",
+              "title": "Advanced Tables"
             }
           }
         ],
@@ -169,25 +177,25 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "ab03f7100c1ce0fb",
+  "active": "b73f137a8a755c19",
   "lastOpenFiles": [
-    "Pasted image 20250307165834.png",
-    "Pasted image 20250307164854.png",
-    "Pasted image 20250307140353.png",
-    "Pasted image 20250307135207.png",
-    "Pasted image 20250307134315.png",
-    "notes/ready/binary_operations/index.md",
+    "notes/ready/how_to_computer/Pasted image 20250310165158.png",
     "notes/ready/how_to_computer/index.md",
-    "Pasted image 20250307131757.png",
-    "Pasted image 20250307131641.png",
+    "Pasted image 20250310165135.png",
+    "Pasted image 20250310164507.png",
+    "notes/ready/c-language.md",
+    "notes/ready/how_to_computer/Pasted image 20250310113000.png",
+    "notes/ready/how_to_computer/Pasted image 20250310112300.png",
+    "notes/ready/how_to_computer/Pasted image 20250310101018.png",
+    "notes/ready/how_to_computer/Pasted image 20250310095309.png",
+    "notes/ready/how_to_computer/d6.png",
+    "notes/ready/how_to_computer/d5.png",
+    "notes/ready/binary_operations/image70.png",
+    "notes/ready/binary_operations/index.md",
     "notes/ready/cpu_architecture/index.md",
-    "Pasted image 20250307115740.png",
     "Clippings/Latches in Digital Logic - GeeksforGeeks.md",
     "Clippings",
-    "image.png",
     "notes/ready/git.md",
-    "transistor_latch.png",
-    "notes/ready/how_to_computer/signed_negator.png",
     "notes/ready/how_to_computer",
     "notes/ready/pass.md",
     "posts/notes-update.md",
@@ -207,7 +215,6 @@
     "notes/ready/firewall.md",
     "drafts/nvim.md",
     "drafts/rust.md",
-    "drafts/swift.md",
-    "drafts/TODO.md"
+    "drafts/swift.md"
   ]
 }
