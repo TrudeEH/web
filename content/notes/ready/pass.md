@@ -33,10 +33,7 @@ pass init email@example.com
 
 #### Import an Existing Password Set
 
-```Shell
-pass import <path_to_csv> # Import decrypted passwords
-gpg --decrypt passwords.pgp | pass import # Decrypt pass export file
-```
+You can either use the `pass-import` extension, or download and run the appropriate [official migration script](https://git.zx2c4.com/password-store/tree/contrib/importers/).
 
 #### Clone a `password-store` Repository
 
