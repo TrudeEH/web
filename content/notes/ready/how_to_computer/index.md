@@ -1,6 +1,6 @@
 ---
 title: Building a Computer From Scratch
-description: 
+description: From diodes and transistors, to a Turing complete computer.
 draft: false
 tags:
   - electronics
@@ -65,7 +65,7 @@ Si Si Si Si Si Si Si Si Si Si Si
 
 ##### N-Type
 
-Some Phosphorus is added to the Silicon. ==`p`== has one extra electron in its valence shell.  
+Some Phosphorus is added to the Silicon. `p` has one extra electron in its valence shell.  
 These electrons are not needed, and so, they flow freely from atom to atom.  
 
 ```Plain
@@ -814,12 +814,194 @@ Even though OVERTURE is fully functional, there are still many useful concepts w
 
 ### The Main Board
 
+Instead of a single output, this program component outputs the selected byte, as well as the 3 following ones. To support 4 byte instructions, the clock increments by 4 instead of 1 each tick.
+
+Each 'chip' built previously had to be re-built, but without the limitations OVERTURE had, they were also much improved.
+
+Connecting RAM is as easy as wiring it to replace the last register. This means that now the computer only has 5 usable registers instead of 6, but the RAM provides 256 more, although slower.  
+`REG4` stores the memory address for the RAM, however, outside of memory operations, it can still be used as a regular register.
+
 ![Pasted image 20250310165158](Pasted%20image%2020250310165158.png)
 
 ### ALU
 
+Aside from the previous, simple operations, the LEG ALU can also `XOR` and `MUL` (multiply) values. Division, exponentiation, and other operations could be added, although those can be performed through code as well.
+
+Instructions:
+- `0` ADD
+- `1` SUB
+- `2` AND
+- `3` OR
+- `4` NOT
+- `5` XOR
+- `6` MUL(TIPLY)
+
+![Pasted image 20250311083348](Pasted%20image%2020250311083348.png)
+
+#### Multiplication
+
+The following circuit is a 4 bit by 4 bit multiplier. It can then be scaled to use 4 bytes instead of bits.
+
+![Pasted image 20250311102143](Pasted%20image%2020250311102143.png)
+
 ### Conditional (IF)
+
+The new conditional chip takes two numbers, and then uses two new components: `Equal` and `Unsigned Less` as a base to compare values. From them alone, all other instructions can be achieved.
+
+Instructions:
+- `32` Equal
+- `33` Not equal
+- `34` Less than
+- `35` Less or equal to
+- `36` Greater than
+- `37` Greater or equal to
+- `38` Always true
+
+![Pasted image 20250311082902](Pasted%20image%2020250311082902.png)
+
+#### Equal
+
+Calculating equality can be done by subtracting both inputs, then verifying that the result is 0.
+
+![Pasted image 20250311091659](Pasted%20image%2020250311091659.png)
+
+#### Less (unsigned)
+
+To verify if the first input is less than the second, invert the first input, then add it with the second. Notice how the output is connected to `ADD`'s `CARRY` pin, instead of the result. The goal is to check if `ADD` overflows.
+
+> Note: `NEG` and `NOT` are different components. `NEG` converts its input to a negative value, while `NOT` inverts the input. For example, if the input is 6, `NEG` outputs 250 (-6), while `NOT` outputs 249 (-7).
+
+![Pasted image 20250311091929](Pasted%20image%2020250311091929.png)
 
 ### Functions (FN)
 
-## Parting Thoughts
+Although the previous computer was already Turing complete, functions are not only much easier to use than simple jumps, but they allow for function calls to be chained, and to call another function from within a function.
+
+When a function is called, its value needs to be stored, and then the computer will either encounter a return statement and `POP` the function's address away, or `PUSH` a new value on top. This is the exact behavior of a stack.
+
+The stack could be implemented in two (or even more) ways:
+- Having a separate RAM component just for the stack;
+- Using the system RAM, and starting from the last byte, up.
+
+The latter option is how most modern computers work. The memory allocated to a program is split, eliminating the need for a physical stack. On our LEG computer, though, we only have 256 bytes of RAM, so I decided to implement a physical stack.
+
+![Pasted image 20250311083221](Pasted%20image%2020250311083221.png)
+
+#### The Stack
+
+You may notice how the stack is being populated from the last byte instead of the first. This is to make the `STACK` reusable, if system RAM was to be used instead.
+
+![Pasted image 20250311091203](Pasted%20image%2020250311091203.png)
+
+### Assembly
+
+The assembly for LEG might even be simpler than OVERTURE's. There are a few things to keep in mind, though:
+- `REG4` was renamed to `ADDR`, as it is more commonly used as the memory address, opposed to a regular register.
+- There is no `COPY` statement. Instead, `ADD` a value with 0 to select a destination to copy to. Keep in mind that 0 is `REG0` in this context, so it must be kept empty while copying values.
+- If a value in a command is 0, it must be typed with an actual 0 in that place. This is because the clock is fixed, and if an instruction only uses 2 or 3 bytes instead of 4, the unused bytes must be set to 0, to not misalign the next clock cycle. A solution to this problem would be to implement a variable counter, capable of skipping unused bytes. This would complicate the physical circuit quite a bit, and so I decided against implementing it.
+
+#### Assembly Codes
+
+- 32 - 39 `IF`
+- 0 - 6 `MATH`
+- 64 - 70 `IMMEDIATE`
+- 16 - 17 `STACK/FUNCTIONS`
+
+#### Manual
+
+All instructions are 4 bytes long.  
+`OPCODE ARG1 ARG2 DEST`
+
+
+**COPY** - Copy data between `IO`, `REG0-3`, and `ADDR/RAM`.
+
+```asm
+ADD <from> 0 <to>
+
+ADD REG0 0 REG1 # Example
+```
+
+**MATH** - Perform arithmetic operations.
+- `ADD`
+- `SUB`
+- `AND`
+- `OR`
+- `NOT`
+- `XOR`
+- `MUL` (multiplication)
+
+```asm
+ADD <ARG1> <ARG2> <destination>
+
+SUB REG2 REG1 IO # Example
+```
+
+**IMMEDIATE** - Insert data directly from the program.  
+Every arithmetic operation has an `i` variant.
+
+```asm
+ADDi <ARG1> <number> <destination>
+
+ADDi REG0 10 REG2 # Example
+```
+
+**LOGIC** - Conditionals  
+If a condition is met, jump to `n` line.
+- `EQ` Equal
+- `NEQ` Not equal
+- `LES` Less than
+- `LEQ` Less or equal to
+- `MOR` Greater than
+- `MOQ` Greater or equal to
+- `JMP` Always true; Jump no matter the inputs' values
+
+```asm
+EQ <ARG1> <ARG2> <jump>
+
+MOQ REG1 REG2 12 # Example
+JMP 0 0 12       # Example - Jumping with no condition
+```
+
+**MEMORY** - Store data  
+The RAM module can hold 256 bytes.  
+To use RAM:
+1. Select a memory address (0-256), and copy it to `ADDR`.
+2. Read or Write to `RAM`.
+
+> The `ADDR` register can be used as a regular register outside of memory operations.  
+
+Example:
+
+```asm
+ADDi 0 10 ADDR # Address 10
+ADD IO 0 RAM   # Write Input to RAM
+ADD RAM 0 REG0 # Address 10 is still selected; output its contents to REG0
+```
+
+**FUNCTIONS** - Reuse code  
+Create a function:
+
+```asm
+label functionName
+  ...
+RET
+```
+
+> Label resolves to the next instruction.
+
+Replace `...` with the function contents.  
+To call the function:
+
+```asm
+CALL 0 0 functionName
+```
+
+## Sources and Contributors
+
+Every circuit in this post was designed by me, mostly through trial and error, so the source would quite literally be: I made it up. `¯\_(ツ)_/¯`
+
+Most screenshots were taken from Turing Complete, a simulator/game on Steam. As the name suggests, the simulator attempts to teach you the basics of computing, and give you a platform to test and develop on. If you read this far, I highly recommend you to try it!
+
+If you find that I made a mistake, want to improve one of my circuits, or have any constructive feedback to share, please contact me, and I will happily add your name to the credits.
+
+Everything in this website, including other notes and posts (and the website itself) are open-source, licensed under the `MIT`. Feel free to use it for your own research. If you'd like to submit a PR or Issue on [GitHub](https://github.com/TrudeEH/web), I would appreciate it!

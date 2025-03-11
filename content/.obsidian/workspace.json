@@ -11,12 +11,14 @@
             "id": "ab03f7100c1ce0fb",
             "type": "leaf",
             "state": {
-              "type": "image",
+              "type": "markdown",
               "state": {
-                "file": "notes/ready/how_to_computer/multiplication.png"
+                "file": "notes/ready/how_to_computer/index.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-image",
-              "title": "multiplication"
+              "icon": "lucide-file",
+              "title": "index"
             }
           }
         ]
@@ -76,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 331.5
   },
   "right": {
     "id": "f049c1d8215eafd9",
@@ -139,13 +141,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "notes/ready/how_to_computer/multiplication.png",
+                "file": "notes/ready/how_to_computer/index.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of multiplication"
+              "title": "Outline of index"
             }
           },
           {
@@ -177,25 +179,32 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "b73f137a8a755c19",
+  "active": "ab03f7100c1ce0fb",
   "lastOpenFiles": [
-    "notes/ready/how_to_computer/Pasted image 20250310165158.png",
+    "notes/ready/c-snippets.md",
+    "notes/ready/encryption.md",
+    "notes/ready/firewall.md",
+    "notes/ready/gdb.md",
+    "notes/ready/git.md",
+    "notes/ready/http.md",
+    "notes/ready/https-ssl-certs.md",
+    "notes/ready/irc.md",
+    "notes/ready/how_to_computer/d1.png",
     "notes/ready/how_to_computer/index.md",
-    "Pasted image 20250310165135.png",
-    "Pasted image 20250310164507.png",
+    "notes/ready/how_to_computer/Pasted image 20250306105245.png",
+    "notes/ready/how_to_computer/Pasted image 20250311102143.png",
+    "Pasted image 20250311101850.png",
+    "Pasted image 20250311100411.png",
+    "notes/ready/how_to_computer/Pasted image 20250311091929.png",
+    "notes/ready/how_to_computer/Pasted image 20250311091659.png",
+    "notes/ready/how_to_computer/Pasted image 20250311091203.png",
+    "notes/ready/how_to_computer/Pasted image 20250311083348.png",
+    "notes/ready/how_to_computer/Pasted image 20250311083221.png",
     "notes/ready/c-language.md",
-    "notes/ready/how_to_computer/Pasted image 20250310113000.png",
-    "notes/ready/how_to_computer/Pasted image 20250310112300.png",
-    "notes/ready/how_to_computer/Pasted image 20250310101018.png",
-    "notes/ready/how_to_computer/Pasted image 20250310095309.png",
-    "notes/ready/how_to_computer/d6.png",
-    "notes/ready/how_to_computer/d5.png",
-    "notes/ready/binary_operations/image70.png",
     "notes/ready/binary_operations/index.md",
     "notes/ready/cpu_architecture/index.md",
     "Clippings/Latches in Digital Logic - GeeksforGeeks.md",
     "Clippings",
-    "notes/ready/git.md",
     "notes/ready/how_to_computer",
     "notes/ready/pass.md",
     "posts/notes-update.md",
@@ -209,12 +218,6 @@
     "notes/drafts/linux/index.md",
     "TODO.md",
     "notes/ready/flask.md",
-    "notes/ready/gdb.md",
-    "notes/ready/http.md",
-    "notes/ready/html.md",
-    "notes/ready/firewall.md",
-    "drafts/nvim.md",
-    "drafts/rust.md",
-    "drafts/swift.md"
+    "notes/ready/html.md"
   ]
 }
