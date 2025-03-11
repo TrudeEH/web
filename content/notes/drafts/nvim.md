@@ -1,13 +1,17 @@
 ---
-title: "nvim"
+title: nvim
 description: 
 draft: true
-tags: 
+tags:
+  - tools
+  - nvim
+  - vim
 author: TrudeEH
 showToc: true
 ---
 
 ## VIM Bindings
+
 
 ## Using Neovim
 
