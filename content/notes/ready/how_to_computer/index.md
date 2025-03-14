@@ -1000,7 +1000,7 @@ CALL 0 0 functionName
 
 Every circuit in this post was designed by me, mostly through trial and error, so the source would quite literally be: I made it up. `¯\_(ツ)_/¯`
 
-Most screenshots were taken from Turing Complete, a simulator/game on Steam. As the name suggests, the simulator attempts to teach you the basics of computing, and give you a platform to test and develop on. If you read this far, I highly recommend you to try it!
+Most screenshots were taken from Turing Complete, a simulator/game on Steam. As the name suggests, the simulator attempts to teach you the basics of computing, and give you a platform to test and develop on. If you've read this far, I highly recommend you to try it!
 
 If you find that I made a mistake, want to improve one of my circuits, or have any constructive feedback to share, please contact me, and I will happily add your name to the credits.
 
