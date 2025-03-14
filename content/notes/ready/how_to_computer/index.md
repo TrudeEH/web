@@ -8,6 +8,8 @@ tags:
 author: TrudeEH
 showToc: true
 weight: "1"
+cover:
+  image: LEG.png
 ---
 
 ## Diodes
@@ -821,7 +823,7 @@ Each 'chip' built previously had to be re-built, but without the limitations OVE
 Connecting RAM is as easy as wiring it to replace the last register. This means that now the computer only has 5 usable registers instead of 6, but the RAM provides 256 more, although slower.  
 `REG4` stores the memory address for the RAM, however, outside of memory operations, it can still be used as a regular register.
 
-![Pasted image 20250310165158](Pasted%20image%2020250310165158.png)
+![Pasted image 20250310165158](LEG.png)
 
 ### ALU
 
