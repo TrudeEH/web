@@ -35,7 +35,7 @@ params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
   title: trude.dev
   description: "TrudeEH's Blog and Personal Website"
-  keywords: [Blog, Portfolio, Trude, TrudeEH]
+  keywords: [Blog, Portfolio, Trude, TrudeEH, computer, cs, software, computer science, programming, linux, tech, technology]
   author: "TrudeEH"
   images: ["logo.svg"]
   DateFormat: "January 2, 2006"
@@ -122,7 +122,6 @@ params:
     hiddenInList: true # hide on list pages and home
     hiddenInSingle: false # hide on single page
     linkFullImages: true
-    
 
   # for search
   # https://fusejs.io/api/options.html

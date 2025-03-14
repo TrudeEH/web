@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "posts/linux-starter-guide/index.md",
+                "file": "notes/ready/how_to_computer/index.md",
                 "mode": "source",
                 "source": false
               },
@@ -141,7 +141,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "posts/linux-starter-guide/index.md",
+                "file": "notes/ready/how_to_computer/index.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -181,15 +181,17 @@
   },
   "active": "ab03f7100c1ce0fb",
   "lastOpenFiles": [
+    "_Templates/note.md",
+    "notes/ready/how_to_computer/index.md",
+    "_Templates/post.md",
+    "notes/ready/c-language.md",
+    "posts/jcionx-favorite-macos-utilities.md",
+    "posts/linux-starter-guide/index.md",
     "posts/linux-starter-guide/gnome46.jpeg",
     "posts/linux-starter-guide/plasma6.jpg",
     "posts/linux-starter-guide",
     "posts/linux-vs-freebsd-vs-openbsd.md",
     "posts/local-llm.md",
-    "posts/linux-starter-guide/index.md",
-    "_Templates/post.md",
-    "_Templates/note.md",
-    "notes/ready/how_to_computer/index.md",
     "notes/ready/how_to_computer/LEG.png",
     "notes/ready/how_to_computer/Pasted image 20250310113000.png",
     "notes/ready/how_to_computer/Pasted image 20250311082902.png",
@@ -198,7 +200,6 @@
     "notes/ready/how_to_computer/Pasted image 20250311091203.png",
     "notes/ready/how_to_computer/Pasted image 20250311091659.png",
     "notes/ready/how_to_computer/Pasted image 20250311091929.png",
-    "notes/ready/how_to_computer/Pasted image 20250311102143.png",
     "notes/ready/c-snippets.md",
     "notes/ready/encryption.md",
     "notes/ready/firewall.md",
@@ -207,7 +208,6 @@
     "notes/ready/http.md",
     "notes/ready/https-ssl-certs.md",
     "notes/ready/irc.md",
-    "notes/ready/c-language.md",
     "notes/ready/binary_operations/index.md",
     "notes/ready/cpu_architecture/index.md",
     "Clippings/Latches in Digital Logic - GeeksforGeeks.md",

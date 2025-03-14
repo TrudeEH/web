@@ -4,7 +4,7 @@ draft: false
 searchHidden: false
 showToc: true # Table of Contents
 author: "JCionx"
-title: "JCionx Favorite macOS Utilities"
+title: "JCionx's Favorite macOS Utilities"
 date: 2024-12-14T14:45:34Z
 tags: ["macos","apps","software"]
 description: "My top 8 favorite macOS utilities"
@@ -23,7 +23,7 @@ These are my top 8 favorite macOS utilities that I can't live without.
 
 This app is the best app to make your non-Apple mouse behave like one. I use it with my Logitech MX Master 3s instead of Logitech's own software, and it is amazing!
 
-This app let's you assign any kind of trackpad gesture to your extra mouse buttons. I have a button navigate Spaces and Mission Control when dragging, just like the three finger drag on a trackpad. I also have the forward button on the mouse to scroll with two fingers on drag, and on scroll, it zooms. Finally, I have the forward and back buttons go forward and back on apps.  
+This app lets you assign any kind of trackpad gesture to your extra mouse buttons. I have a button navigate Spaces and Mission Control when dragging, just like the three finger drag on a trackpad. I also have the forward button on the mouse to scroll with two fingers on drag, and on scroll, it zooms. Finally, I have the forward and back buttons go forward and back on apps.  
 ![Mac Mouse Fix - General tab](../../images/macmousefix1.png)  
 Mac Mouse Fix also allows for scrolling options. I like to enable Reverse Direction so the mouse scrolls in the direction it is meant to. And I disable smooth scroll, because I use another app for that.  
 ![Mac Mouse Fix - Scrolling tab](../../images/macmousefix2.png)  

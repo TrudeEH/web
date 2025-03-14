@@ -1,6 +1,7 @@
 ---
 title: Building a Computer From Scratch
 description: From diodes and transistors, to a Turing complete computer.
+summary: From diodes and transistors, to a Turing complete computer.
 draft: false
 tags:
   - electronics
