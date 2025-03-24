@@ -78,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 312.5
+    "width": 224.5
   },
   "right": {
     "id": "f049c1d8215eafd9",
@@ -161,7 +161,7 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
@@ -179,7 +179,7 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "ab03f7100c1ce0fb",
+  "active": "91a2b2f8427bd50b",
   "lastOpenFiles": [
     "textgenerator/templates/awesomePrompts/statisticianAwesome.md",
     "textgenerator/templates/awesomePrompts/techreviewerAwesome.md",

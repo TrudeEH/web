@@ -188,7 +188,7 @@ Implementation using switches (transistors could be used instead) and a pull-up 
 
 ### NOT
 
-Invert any given input.  
+Invert a given input.  
 
 ![image42](image42.png)
 
@@ -300,7 +300,7 @@ Outputs `1` if at least one input is `1`.
 
 An OR gate followed by a NOT gate.  
 
-A NOR gate is can also be used to build every other gate, just like NAND. However, NAND gates are preferred over NOR gates, as, in modern computers, they occupy less area and have less delay.
+A NOR gate is can also be used to build every other gate, just like NAND. However, NAND gates are preferred over NOR gates, as, in modern computers, they occupy less area and cause less delay.
 
 ![image46](image46.png)
 
@@ -321,7 +321,7 @@ A NOR gate is can also be used to build every other gate, just like NAND. Howeve
 
 ### XOR
 
-Either input is `1`, exclusively. (OR, but if both inputs are on, it turns off.)
+Either input is `1`, exclusively. (Similar to `OR`, but if both inputs are on, it turns off.)
 
 ![image47](image47.png)  
 
@@ -598,7 +598,7 @@ The larger the Address Bus is, the more bits can be managed. This is why a 32bit
 
 ![image92](image92.png)  
 
-This kind of RAM is Static RAM (**S**RAM), which uses many transistors, making it faster, but is more expensive to produce than **D**RAM.
+This kind of RAM is called Static RAM (**S**RAM), which uses many transistors, making it faster, but is more expensive to produce than **D**RAM.
 
 ## CPU Architecture
 
@@ -650,7 +650,7 @@ Instructions:
 
 ## Putting it All Together
 
-We can now use the previous components to build and OVERTURE architecture computer!
+We can now use the previous components to build an OVERTURE architecture computer!
 
 ### Upgraded Register
 
@@ -776,34 +776,34 @@ For example, to represent text, it's very common to use either ASCII or UNICODE.
 
 The table below is only part of the ASCII standard, used for capitalized letters:
 
-| Dec | Hex | Binary   | HTML     | Char |
-| --- | --- | -------- | -------- | ---- |
-| 65  | 41  | 01000001 | `&#65;`  | A    |
-| 66  | 42  | 01000010 | `&#66;`  | B    |
-| 67  | 43  | 01000011 | `&#67;`  | C    |
-| 68  | 44  | 01000100 | `&#68;`  | D    |
-| 69  | 45  | 01000101 | `&#69;`  | E    |
-| 70  | 46  | 01000110 | `&#70;`  | F    |
-| 71  | 47  | 01000111 | `&#71;`  | G    |
-| 72  | 48  | 01001000 | `&#72;`  | H    |
-| 73  | 49  | 01001001 | `&#73;`  | I    |
-| 74  | 4A  | 01001010 | `&#74;`  | J    |
-| 75  | 4B  | 01001011 | `&#75;`  | K    |
-| 76  | 4C  | 01001100 | `&#76;`  | L    |
-| 77  | 4D  | 01001101 | `&#77;`  | M    |
-| 78  | 4E  | 01001110 | `&#78;`  | N    |
-| 79  | 4F  | 01001111 | `&#79;`  | O    |
-| 80  | 50  | 01010000 | `&#80;`  | P    |
-| 81  | 51  | 01010001 | `&#81;`  | Q    |
-| 82  | 52  | 01010010 | `&#82;`  | R    |
-| 83  | 53  | 01010011 | `&#83;`  | S    |
-| 84  | 54  | 01010100 | `&#84;`  | T    |
-| 85  | 55  | 01010101 | `&#85;`  | U    |
-| 86  | 56  | 01010110 | `&#86;`  | V    |
-| 87  | 57  | 01010111 | `&#87;`  | W    |
-| 88  | 58  | 01011000 | `&#88;`  | X    |
-| 89  | 59  | 01011001 | `&#89;`  | Y    |
-| 90  | 5A  | 01011010 | `&#90;`  | Z    |  
+| Dec | Hex | Binary   | HTML    | Char |
+| --- | --- | -------- | ------- | ---- |
+| 65  | 41  | 01000001 | `&#65;` | A    |
+| 66  | 42  | 01000010 | `&#66;` | B    |
+| 67  | 43  | 01000011 | `&#67;` | C    |
+| 68  | 44  | 01000100 | `&#68;` | D    |
+| 69  | 45  | 01000101 | `&#69;` | E    |
+| 70  | 46  | 01000110 | `&#70;` | F    |
+| 71  | 47  | 01000111 | `&#71;` | G    |
+| 72  | 48  | 01001000 | `&#72;` | H    |
+| 73  | 49  | 01001001 | `&#73;` | I    |
+| 74  | 4A  | 01001010 | `&#74;` | J    |
+| 75  | 4B  | 01001011 | `&#75;` | K    |
+| 76  | 4C  | 01001100 | `&#76;` | L    |
+| 77  | 4D  | 01001101 | `&#77;` | M    |
+| 78  | 4E  | 01001110 | `&#78;` | N    |
+| 79  | 4F  | 01001111 | `&#79;` | O    |
+| 80  | 50  | 01010000 | `&#80;` | P    |
+| 81  | 51  | 01010001 | `&#81;` | Q    |
+| 82  | 52  | 01010010 | `&#82;` | R    |
+| 83  | 53  | 01010011 | `&#83;` | S    |
+| 84  | 54  | 01010100 | `&#84;` | T    |
+| 85  | 55  | 01010101 | `&#85;` | U    |
+| 86  | 56  | 01010110 | `&#86;` | V    |
+| 87  | 57  | 01010111 | `&#87;` | W    |
+| 88  | 58  | 01011000 | `&#88;` | X    |
+| 89  | 59  | 01011001 | `&#89;` | Y    |
+| 90  | 5A  | 01011010 | `&#90;` | Z    |
 
 You may have used RGB values before. These are used to represent a color:
 
@@ -870,7 +870,7 @@ Instructions:
 
 #### Equal
 
-Calculating equality can be done by subtracting both inputs, then verifying that the result is 0.
+Calculating equality can be done by subtracting both inputs, then verifying if the result is 0.
 
 ![Pasted image 20250311091659](Pasted%20image%2020250311091659.png)
 
@@ -907,7 +907,7 @@ You may notice how the stack is being populated from the last byte instead of th
 The assembly for LEG might even be simpler than OVERTURE's. There are a few things to keep in mind, though:
 - `REG4` was renamed to `ADDR`, as it is more commonly used as the memory address, opposed to a regular register.
 - There is no `COPY` statement. Instead, `ADD` a value with 0 to select a destination to copy to. Keep in mind that 0 is `REG0` in this context, so it must be kept empty while copying values.
-- If a value in a command is 0, it must be typed with an actual 0 in that place. This is because the clock is fixed, and if an instruction only uses 2 or 3 bytes instead of 4, the unused bytes must be set to 0, to not misalign the next clock cycle. A solution to this problem would be to implement a variable counter, capable of skipping unused bytes. This would complicate the physical circuit quite a bit, and so I decided against implementing it.
+- If a value in a command is 0, it must be typed with an actual 0 in that place. This is because the clock is fixed, and if an instruction only uses 2 or 3 bytes instead of 4, the unused bytes must be set to 0, to not misalign the next clock cycle. A solution to this problem would be to implement a variable counter, capable of skipping unused bytes. This would complicate the physical circuit quite a bit, and so I decided against implementing it for this example.
 
 #### Assembly Codes
 
@@ -1009,8 +1009,8 @@ CALL 0 0 functionName
 
 Every circuit in this post was designed by me, mostly through trial and error, so the source would quite literally be: I made it up. `¯\_(ツ)_/¯`
 
-Most screenshots were taken from Turing Complete, a simulator/game on Steam. As the name suggests, the simulator attempts to teach you the basics of computing, and give you a platform to test and develop on. If you've read this far, I highly recommend you to try it!
+Most screenshots were taken from Turing Complete, a simulator available for purchase on Steam. As the name suggests, the simulator attempts to teach you the basics of computing, and give you a platform to test and develop on. If you've read this far, I highly recommend you to try it!
 
-If you find that I made a mistake, want to improve one of my circuits, or have any constructive feedback to share, please contact me, and I will happily add your name to the credits.
+If you found that I made a mistake, want to improve one of my circuits, or have any constructive feedback to share, please contact me, and I will happily add your name to the credits.
 
-Everything in this website, including other notes and posts (and the website itself) are open-source, licensed under the `MIT`. Feel free to use it for your own research. If you'd like to submit a PR or Issue on [GitHub](https://github.com/TrudeEH/web), I would appreciate it!
+Everything in this website, including other notes and posts (and the website itself) is open-source, licensed under the `MIT`. Feel free to use it for your own research. If you'd like to submit a PR or Issue on [GitHub](https://github.com/TrudeEH/web), I would appreciate it!
