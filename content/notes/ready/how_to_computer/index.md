@@ -1,7 +1,7 @@
 ---
 title: Building a Computer From Scratch
 description: From diodes and transistors, to a Turing complete computer.
-summary: From diodes and transistors, to a Turing complete computer.
+summary: "[CS 0] From diodes and transistors, to a Turing complete computer."
 draft: false
 tags:
   - electronics
@@ -27,37 +27,41 @@ Anode (+) --|>|-- Cathode (-)
 
 ```Plain
 [Conventional Current (+) -> (-)]
-(+)------|>|------(-)   Current can flow - The diode is now a conductor.
-(+)------|<|------(-)   Current can't flow - The diode is now an insulator.
+(+)------|>|------(-)   Current can flow - The diode became a conductor.
+(+)------|<|------(-)   Current can't flow - The diode became an insulator.
 ```
 
 ### Use Cases
 
 - Protect a circuit (if a battery is connected incorrectly, for example)
 - Convert AC to DC current  
-Fun fact: An LED, for example, is a Light-Emitting Diode.
+
+> An LED, for example, is a Light-Emitting Diode.
 
 ### How a Diode Works
 
 #### Conductors and Insulators
 
-An atom contains the following elements:
-- Nucleus (Protons - Neutrons)
-- Orbital Shells (Holds the electrons, which orbit around the nucleus)
+An atom is composed of the following elements:
+- Nucleus (Protons and Neutrons)
+- Orbital Shells (Holds electrons, which orbit around the nucleus)
 - Conduction band  
-The electrons closest to the nucleus hold the most energy.  
-The outermost shell is the valence shell. A conductor has 1-3 electrons in the valence shell.  
+
+The outermost shell is the valence shell. A conductor can have between 1 and 3 electrons in its valence shell.  
+
 If an electron reaches the conduction band, it can break free and move to another atom.  
-An insulator, however, has a conduction band that is far from the valence shell, making it difficult for an electron to escape.  
-For example, for copper (a great conductor), the valence shell and conduction band overlap, so it's very easy for an electron to jump between atoms.  
-Semiconductors have a conduction band close to the valence shell, but have one extra electron in it, making it an insulator. However, given some external energy, some electrons will gain enough energy to reach the conduction band and become free.
+
+An insulator, however, has its conduction band far from the valence shell, making it difficult for an electron to escape. 
+
+Silicon is an example of a semiconductor. Its conduction band is close to its valence shell, but silicon has 4 electrons in it, making it act as an insulator. However, given some external power, some electrons will gain enough energy to reach the conduction band and free themselves.
+
+![Pasted image 20250318102600](Pasted%20image%2020250318102600.png)
 
 #### P-Type and N-Type Doping
 
-Silicon is a good semiconductor, having 4 electrons in its valence shell. When close to other `Si` atoms, they share 4 electrons with their neighbors, thus, having 8, each, and becoming stable.
+Silicon (`Si`) atoms, when close together, share 4 electrons with their neighbors, thus, 'having' 8 electrons each, and becoming stable.
 
 ```Plain
-Silicon:
 Si Si Si Si Si Si Si Si Si Si Si
 Si Si Si Si Si Si Si Si Si Si Si
 Si Si Si Si Si Si Si Si Si Si Si
@@ -82,7 +86,7 @@ Si p Si Si Si Si Si Si p Si Si
 
 ##### P-Type
 
-Some Aluminum is added to the Silicon. `Al` is missing one electron, so it can't provide its 4 neighbors with an electron to share.
+Some Aluminum is added to the Silicon base. `Al` is missing one electron, so it can't provide its 4 neighbors with an electron to share.
 
 ```Plain
 Si Si Al Si Si Si Si Si Si Si Al
@@ -95,11 +99,11 @@ Si Al Si Si Si Si Si Si Al Si Si
 
 #### Combining both Types
 
-When an N-Type is combined with a P-Type, some electrons from the N-Type side will move over to the P-Type side and occupy the missing electrons there. This creates a barrier between both types, creating an electric field that prevents more electrons from switching sides.
+When an `N-Type` is combined with a `P-Type`, some electrons from the `N-Type` side move over to the `P-Type` side, and replace the missing electrons there. This creates a barrier between both types: An electric field that prevents more electrons from switching sides.
 
 ##### Forward Bias
 
-If energy is provided to the Cathode, the electrons flow, as the voltage is superior to the barrier's.
+If energy is provided to the Cathode (`+`), electrons flow, as the voltage is superior to the barrier's.
 
 ```Plain
 (-)-----[P|N]-----(+)
@@ -107,7 +111,7 @@ If energy is provided to the Cathode, the electrons flow, as the voltage is supe
 
 ##### Reverse Bias
 
-If energy is provided to the Anode, the electrons can't flow, as the barrier expands.
+If energy is provided to the Anode (`-`), electrons can't flow, as the barrier expands, instead.
 
 ```Plain
 (-)--[P]      [N]--(+)
@@ -115,7 +119,7 @@ If energy is provided to the Anode, the electrons can't flow, as the barrier exp
 
 ## Transistor
 
-Transistors are electronic components that behave like a `switch`, or `amplifier`.
+Transistors are electronic components that behave as a `switch`, or `amplifier`.
 
 ### Schematic
 
@@ -130,18 +134,21 @@ Base --(--|<)
 #### Switch
 
 If the `base` pin is provided with energy, the transistor allows current to flow in the main circuit.  
-![image](image%201.png)
+
+![Pasted image 20250319161431](Pasted%20image%2020250319161431.png)
 
 #### Amplifier
 
-Altering the voltage given to the `base` pin allows us to control a larger voltage in the main circuit.  
+Altering the voltage given to the `base` pin allows us to control a larger voltage in the main circuit. 
+
 ![image1](image1.png)
 
 ### Types of Transistor
 
 #### NPN
 
-An NPN transistor combines the `base` pin and `collector` pin.  
+An NPN transistor combines the `base` pin and `collector` pin.
+
 ![image2](image2.png)
 
 > Note: Even if the collector pin is disconnected from the circuit, a small amount of current still passes through. ![image3](image3.png)
@@ -150,12 +157,11 @@ An NPN transistor combines the `base` pin and `collector` pin.
 
 A PNP transistor receives energy through the `emitter` pin, and then divides it to the remaining pins.  
 
-
 ![image4](image4.png)
 
 ## Basic Logic
 
-A logic gate is a device that performs one boolean operation: Two binary inputs produce a single binary output. These building blocks are the foundations of modern computing.  
+A logic gate is a device that performs one boolean operation: Two binary inputs produce a single binary output. These building blocks are the foundation of modern computing.  
 Each gate has its own truth table, which defines every possible input and output variations.
 
 ### NAND
