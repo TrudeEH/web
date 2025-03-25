@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "notes/ready/c-language.md",
+                "file": "notes/ready/compiling.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "c-language"
+              "title": "compiling"
             }
           }
         ]
@@ -141,13 +141,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "notes/ready/c-language.md",
+                "file": "notes/ready/compiling.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of c-language"
+              "title": "Outline of compiling"
             }
           },
           {
@@ -179,11 +179,12 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "91a2b2f8427bd50b",
+  "active": "ab03f7100c1ce0fb",
   "lastOpenFiles": [
-    "notes/ready/how_to_computer/index.md",
     "notes/ready/c-language.md",
     "notes/ready/compiling.md",
+    "notes/ready/c-snippets.md",
+    "notes/ready/how_to_computer/index.md",
     "posts/dotfiles.md",
     "posts/exploring-freebsd.md",
     "posts/nix-starter-guide.md",
@@ -206,7 +207,6 @@
     "textgenerator/templates/awesomePrompts/stackoverflowpostAwesome.md",
     "textgenerator/templates/awesomePrompts/spokenenglishteacherandimproverAwesome.md",
     "textgenerator/templates/awesomePrompts/softwarequalityassurancetesterAwesome.md",
-    "textgenerator/templates/awesomePrompts/proofreaderAwesome.md",
     "textgenerator/templates/awesomePrompts",
     "textgenerator/templates",
     "textgenerator",
