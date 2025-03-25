@@ -1,19 +1,21 @@
 ---
 title: C Language
-description: 
+description: The C Programming Language
+summary: The C Programming Language
 draft: false
 tags:
   - c
   - programming
 author: TrudeEH
 showToc: true
+weight: "2"
 ---
 
 ## Tools
 
 - `indent` (format code)
 - `gcc` / `clang` (compile code)
-- `man <function>` (see function documentation)
+- `man <function/topic>` (read documentation)
 - `tldr <command>` (quick command usage examples)
 - `valgrind` (Look for memory leaks)
 - `valgrind —tool=massif` (check a program's RAM usage)
@@ -98,11 +100,12 @@ printf("Item1: %-8.2\n", item1);
 
 ## Numbers
 
-`C` can handle multiple numeric bases.
+`C` handles multiple numeric bases.
 
 ```C
 int x = 255;  // Decimal
 int y = 0xff; // Hexadecimal
+int z = 0b10; // Binary (not native for C, but GCC and Clang support this syntax)
 ```
 
 ### Type Casting
@@ -146,13 +149,40 @@ Add `const` before a variable declaration to prevent the value from being change
 const float PI 3.14159;
 ```
 
-Another option is to use `define`.
+## Macros
+
+### Object-Like Macros
+
+Another alternative to `const` is to use `define`.
 
 ```C
 #define MAX 9
+int test = MAX;
+
+#undef MAX     # Delete the macro
+#define MAX 11 # Create a new macro with the same name
 ```
 
-This command replaces the 'MAX' word with '9', using the preprocessor (before compiling). No extra memory required.
+This command replaces the 'MAX' word with '9', using the preprocessor (before compiling); No memory is required.
+
+### Function-Like Macros
+
+Function-Like Macros behave in the same way as previous macros, but they can accept arguments to replace in the final code:
+
+```c
+#define Max(a,b)  ((a)>(b)) ? (a):(b))
+int i = Max(4,5);
+```
+
+In this example, the code pre-compiles to:
+
+```c
+int i = ((4)>(5)) ? (4):(5));
+```
+
+Read the [GNU's C Preprocessor](https://gcc.gnu.org/onlinedocs/cpp/) manual for more details.
+
+> Macros have no type safety checks, so, if possible, avoid using them. To build the final C code (before it is compiled), use `gcc -E`.
 
 ## Arithmetic Operators
 
@@ -179,7 +209,7 @@ x*=2; // x = x * 2
 ### Boolean Values
 
 In `C`, there are no `true` or `false` keywords, so integers are used instead.
-- `0` generally represents `false`.
+- `0` usually represents `false`.
 - Any non-zero value (`1`, `-1`, etc…) represents `true`.
 
 ### IF Statement
@@ -204,7 +234,7 @@ else{
 
 ### Switch Statement
 
-Faster than IF when over 5 cases.
+Generally faster than `IF` when over 5 cases.
 
 ```C
 switch(grade){
@@ -346,7 +376,7 @@ void plusOne(int n) {
 ### Function Prototypes
 
 Function declaration without a body, before `main()`.  
-Prototypes ensure that calls to a function are made with the correct arguments, and allow functions to be defined under the function call.
+Prototypes ensure that calls to a function are made with the correct arguments, and allow functions to be defined after the function call.
 
 ```C
 void hello(char[], int); // Function Prototype
@@ -472,6 +502,7 @@ typedef struct {
 	char password[12];
 	int id;
 } User;
+
 int main(){
 	User user1 = {"Trude", "hello123", 12335};
 }
@@ -487,7 +518,7 @@ int main(){
 ## Command-Line Arguments
 
 - `argc` is the number of arguments in `argv`.
-- `argv[0]` is the name of the program, all others are the user arguments.
+- `argv[0]` is the name of the program, all others are the user arguments (the entire command used to initialize the program is stored).
 
 ```C
 int main(int argc, char argv[]) {
@@ -520,7 +551,7 @@ int main(){
 ## Memory Management
 
 - `a` - A variable
-- `&a` - The address of the variable `a` in memory. (The format is `%p`)
+- `&a` - The address of the variable `a` in memory. (The formatter is `%p`)
 - `int *p` - A pointer. Holds the memory address of another variable. (8 bits usually, depends on the CPU architecture (max RAM supported).
 - `*p` - Dereference a pointer. Returns the value in the address stored. (go to address's variable)
 
@@ -531,7 +562,7 @@ int valueOfAge = *pAge;
 printf("%p and %p are the same.", &age, pAge);
 ```
 
-NOTE: A pointer must be `int`, as it points to a memory address.
+> A pointer must be `int`, as it stores a memory address.
 
 ### Strings
 
@@ -636,13 +667,9 @@ int main(void){
 ```C
 #include <stdio.h>
 #include <string.h>
-int age;
 char name[25];
-printf("What is your name? ");
 fgets(name, 25, stdin); // name of variable, max size, input.
 name[strlen(name)-1] = '\0'; // removes the line break fgets adds. String library is required.
-printf("How old are you? ");
-scanf("%d", &age);
 ```
 
 ## Files

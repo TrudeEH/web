@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "notes/ready/how_to_computer/index.md",
+                "file": "notes/ready/c-language.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "index"
+              "title": "c-language"
             }
           }
         ]
@@ -78,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 224.5
+    "width": 200
   },
   "right": {
     "id": "f049c1d8215eafd9",
@@ -141,13 +141,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "notes/ready/how_to_computer/index.md",
+                "file": "notes/ready/c-language.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of index"
+              "title": "Outline of c-language"
             }
           },
           {
@@ -165,7 +165,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 246.5
+    "width": 200
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -181,6 +181,13 @@
   },
   "active": "91a2b2f8427bd50b",
   "lastOpenFiles": [
+    "notes/ready/how_to_computer/index.md",
+    "notes/ready/c-language.md",
+    "notes/ready/compiling.md",
+    "posts/dotfiles.md",
+    "posts/exploring-freebsd.md",
+    "posts/nix-starter-guide.md",
+    "posts/wayland-vs-xorg.md",
     "textgenerator/templates/awesomePrompts/statisticianAwesome.md",
     "textgenerator/templates/awesomePrompts/techreviewerAwesome.md",
     "textgenerator/templates/awesomePrompts/pythoninterpreterAwesome.md",
@@ -200,13 +207,6 @@
     "textgenerator/templates/awesomePrompts/spokenenglishteacherandimproverAwesome.md",
     "textgenerator/templates/awesomePrompts/softwarequalityassurancetesterAwesome.md",
     "textgenerator/templates/awesomePrompts/proofreaderAwesome.md",
-    "textgenerator/templates/awesomePrompts/technologytransfererAwesome.md",
-    "textgenerator/templates/awesomePrompts/wikipediapageAwesome.md",
-    "textgenerator/templates/awesomePrompts/plagiarismcheckerAwesome.md",
-    "textgenerator/templates/awesomePrompts/socratAwesome.md",
-    "textgenerator/templates/awesomePrompts/webbrowserAwesome.md",
-    "textgenerator/templates/awesomePrompts/selfhelpbookAwesome.md",
-    "textgenerator/templates/awesomePrompts/speechlanguagepathologistslpAwesome.md",
     "textgenerator/templates/awesomePrompts",
     "textgenerator/templates",
     "textgenerator",
