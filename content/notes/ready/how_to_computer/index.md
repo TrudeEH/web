@@ -8,7 +8,6 @@ tags:
   - computer-science
 author: TrudeEH
 showToc: true
-weight: "10"
 cover:
   image: LEG.png
 ---

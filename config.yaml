@@ -44,7 +44,7 @@ params:
   social: true
   mainSections:
     - posts
-    - notes # Notes don't have a date, so only the selected ones rise to the top
+    #- notes # Notes don't have a date, so only the selected ones rise to the top
 
   label:
     text: "TrudeEH"
@@ -95,6 +95,8 @@ params:
         url: /portfolio/
       - name: My Notes
         url: /notes/
+      - name: Computer Science Guide
+        url: /notes/index/
 
   # home-info mode
   homeInfoParams:

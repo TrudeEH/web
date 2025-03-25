@@ -8,7 +8,6 @@ tags:
   - programming
 author: TrudeEH
 showToc: true
-weight: "30"
 ---
 
 ## Tools
