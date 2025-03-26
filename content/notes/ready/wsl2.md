@@ -56,7 +56,7 @@ sudo install -o ${USER} -g ${USER} -d "/home/.${USER}"
 
 Next, the file has to be populated. Usually, `EXT4` filesystems use 4kB block sizes. With this in mind, use the following formula to determine the number of blocks needed to fill the disk, where x is the result and y is the amount of space, in GB, that you want the disk to occupy.  
 
-$$x = y * 1024^2 / 4$$
+`x = y * 1024^2 / 4`
 
 ```Bash
 dd if=/dev/zero of="/home/.${USER}/disk.img" bs=4k count=<X> # Replace <X> with the result.
