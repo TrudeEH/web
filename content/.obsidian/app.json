@@ -3,7 +3,8 @@
   "tabSize": 2,
   "alwaysUpdateLinks": true,
   "spellcheckDictionary": [
-    "bruteforce"
+    "bruteforce",
+    "filesystem"
   ],
   "spellcheck": false,
   "vimMode": false
