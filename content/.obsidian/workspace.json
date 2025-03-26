@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "notes/drafts/linux/index.md",
+                "file": "notes/index/index.md",
                 "mode": "source",
                 "source": false
               },
@@ -141,7 +141,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "notes/drafts/linux/index.md",
+                "file": "notes/index/index.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -181,10 +181,10 @@
   },
   "active": "2fdb7f37153cc3f1",
   "lastOpenFiles": [
+    "notes/drafts/linux/index.md",
     "notes/drafts/linux-encrypt/index.md",
     "notes/ready/encryption.md",
     "notes/ready/firewall.md",
-    "notes/drafts/linux/index.md",
     "notes/ready/wsl2.md",
     "notes/ready/encrypt-files.md",
     "notes/drafts/linux/EXT3.png",

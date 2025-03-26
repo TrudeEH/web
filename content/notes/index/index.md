@@ -23,7 +23,7 @@ weight: "1"
 - [Databases](../ready/databases/) `SQL`
 - Networking
 	- [HTTP](../ready/http/) `CURL`
-	- [Encryption](../ready/encryption/) `GPG`
+	- [Encryption](../ready/encryption/) `GPG` `Cryptsetup`
 	- [HTTPS and SSL Certificates](../ready/https-ssl-certs/) `Certbot`
 	- [SSH](../ready/ssh/)
 	- [Firewall](../ready/firewall/) `UFW`
