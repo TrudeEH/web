@@ -4,7 +4,8 @@
   "alwaysUpdateLinks": true,
   "spellcheckDictionary": [
     "bruteforce",
-    "filesystem"
+    "filesystem",
+    "Syscalls"
   ],
   "spellcheck": false,
   "vimMode": false

@@ -8,17 +8,31 @@
         "type": "tabs",
         "children": [
           {
-            "id": "2fdb7f37153cc3f1",
+            "id": "c01600dff17cd347",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "notes/index/index.md",
+                "file": "notes/drafts/linux/index.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
               "title": "index"
+            }
+          },
+          {
+            "id": "2fdb7f37153cc3f1",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "notes/ready/bash.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "bash"
             }
           }
         ]
@@ -141,7 +155,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "notes/index/index.md",
+                "file": "notes/drafts/linux/index.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -156,8 +170,8 @@
             "state": {
               "type": "advanced-tables-toolbar",
               "state": {},
-              "icon": "spreadsheet",
-              "title": "Advanced Tables"
+              "icon": "lucide-file",
+              "title": "Plugin no longer active"
             }
           }
         ],
@@ -179,19 +193,28 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "2fdb7f37153cc3f1",
+  "active": "c01600dff17cd347",
   "lastOpenFiles": [
-    "notes/drafts/linux/index.md",
+    "notes/drafts/rust.md",
+    "notes/drafts/swift.md",
     "notes/drafts/linux-encrypt/index.md",
-    "notes/ready/encryption.md",
+    "notes/drafts/linux/index.md",
+    "notes/ready/bash.md",
+    "notes/index/index.md",
+    "notes/ready/c-language.md",
+    "notes/ready/compiling.md",
     "notes/ready/firewall.md",
+    "notes/ready/git.md",
+    "notes/ready/gdb.md",
+    "notes/drafts/linux/Pasted image 20250401143509.png",
+    "Pasted image 20250401143252.png",
+    "debian-12.10.0-amd64-netinst.iso",
+    "notes/ready/encryption.md",
     "notes/ready/wsl2.md",
     "notes/ready/encrypt-files.md",
     "notes/drafts/linux/EXT3.png",
-    "notes/index/index.md",
     "notes/ready/algorithms_and_data/index.md",
     "notes/ready/how_to_computer/index 1.md",
-    "notes/ready/c-language.md",
     "notes/index",
     "notes/cs/index.md",
     "notes/cs",
@@ -201,15 +224,9 @@
     "notes/ready/how_to_computer/index.md",
     "notes/ready/databases/index.md",
     "notes/ready/python.md",
-    "notes/ready/compiling.md",
     "notes/Untitled.md",
-    "notes/ready/gdb.md",
     "notes/ready/c-snippets.md",
     "posts/dotfiles.md",
-    "posts/exploring-freebsd.md",
-    "posts/nix-starter-guide.md",
-    "posts/wayland-vs-xorg.md",
-    "textgenerator/templates/awesomePrompts/statisticianAwesome.md",
     "textgenerator/templates/awesomePrompts",
     "textgenerator/templates",
     "textgenerator",
@@ -221,11 +238,8 @@
     "posts/jcionx-mac-utils/syncthing.png",
     "posts/jcionx-mac-utils/stats.png",
     "posts/jcionx-mac-utils/keka.png",
-    "posts/jcionx-mac-utils/appcleaner.png",
-    "posts/jcionx-mac-utils/alfred.png",
     "posts/jcionx-mac-utils",
     "posts/linux-starter-guide",
-    "Clippings",
-    "notes/ready/how_to_computer"
+    "Clippings"
   ]
 }

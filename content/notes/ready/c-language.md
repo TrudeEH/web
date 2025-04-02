@@ -116,7 +116,7 @@ int x = 1, y = 10;
 float z = (float) x / (float) y;
 ```
 
-## Escape Sequences
+## ANSI Escape Sequences
 
 Escape sequences are used to allow typing characters in a string that would otherwise be interpreted as `C` instructions.
 

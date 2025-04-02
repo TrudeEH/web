@@ -11,6 +11,7 @@ weight: "1"
 
 - [Building a Computer From Scratch](../ready/how_to_computer/)
 - Linux - `Coming Soon!`
+- Shell Scripting `BASH` - `Coming Soon!`
 - [C](../ready/c-language/)
 	- [Compiling](../ready/compiling/) `Make` `GCC` `Clang`
 	- [Debugging](../ready/gdb/) `GDB`
