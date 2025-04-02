@@ -14,7 +14,7 @@ showToc: true
 
 - `""` Defines a string which supports substitutions (`$` and `\`, for example).
 - `''` Defines a string, but preserves its actual value (substitutions are treated as regular characters).
-- [ANSI Escape Sequences](../../ready/c-language.md#ANSI%20Escape%20Sequences) apply when using `""`.
+- [ANSI Escape Sequences](c-language.md#ANSI%20Escape%20Sequences) apply when using `""`.
 
 ### Comments
 

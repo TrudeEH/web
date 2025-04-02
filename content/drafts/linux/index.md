@@ -91,7 +91,7 @@ Uses linked lists to store and lookup data, to keep the implementation of the fi
 
 ##### HTrees
 
-`EXT3` can also use a [index](ready/algorithms_and_data/index.md) instead of a linked list to store directory entries, making lookup times much faster. To build the HTree, all filenames are hashed and ordered, making the implementation more complex. This feature is disabled by default.
+`EXT3` can also use a [index](notes/algorithms_and_data/index.md) instead of a linked list to store directory entries, making lookup times much faster. To build the HTree, all filenames are hashed and ordered, making the implementation more complex. This feature is disabled by default.
 
 ##### Scalability
 
@@ -451,7 +451,7 @@ These APIs are code functions that forward the requests to a library such as `Me
 `Mesa` then calls the Kernel's DRM (Direct Rendering Engine), which then calls the GPU driver to provide GPU capabilities.  
 The GPU still has a device file, which is used by the Kernel's DRM and Mesa, but most commands are delivered to the GPU driver directly.
 
-## Shell ([bash](../../ready/bash.md))
+## Shell ([bash](bash.md))
 
 The kernel by itself isn't intractable, so a shell is needed for the user to be able to execute programs and run commands. Bash is not only a prompt, but also an interpreter for its own programming language, which can be used to write scripts and automate tasks.
 

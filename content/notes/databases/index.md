@@ -14,7 +14,7 @@ showToc: true
 A "table" written into a single file. The most common file type for this purpose is `CSV`.  
 The `CSV` format reads each line as a row, and each comma-separated value as a column.  
 The first row on a `CSV` file is used to describe the data in each column. If a `,` is present on the dataset, surround that entry with `"` to 'escape' it.  
-These files can be read and written to using languages like [c-language](../c-language.md) and [python](../python.md).
+These files can be read and written to using languages like [c-language](c-language.md) and [python](python.md).
 
 ## Relational Databases
 

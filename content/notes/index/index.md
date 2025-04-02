@@ -9,32 +9,32 @@ showToc: true
 weight: "1"
 ---
 
-- [Building a Computer From Scratch](../ready/how_to_computer/)
+- [Building a Computer From Scratch](../how_to_computer/)
 - Linux - `Coming Soon!`
 - Shell Scripting `BASH` - `Coming Soon!`
-- [C](../ready/c-language/)
-	- [Compiling](../ready/compiling/) `Make` `GCC` `Clang`
-	- [Debugging](../ready/gdb/) `GDB`
-	- [Snippets](../ready/c-snippets/)
-- [Algorithms & Data Structures](../ready/algorithms_and_data/)
+- [C](../c-language/)
+	- [Compiling](../compiling/) `Make` `GCC` `Clang`
+	- [Debugging](../gdb/) `GDB`
+	- [Snippets](../c-snippets/)
+- [Algorithms & Data Structures](../algorithms_and_data/)
 - Rust Lang - `Coming Soon!`
 - GUI Apps `GTK4` - `Coming Soon!`
-- [Python](../ready/python/)
-	- [Flask](../ready/flask/) 
-- [Databases](../ready/databases/) `SQL`
+- [Python](../python/)
+	- [Flask](../flask/) 
+- [Databases](../databases/) `SQL`
 - Networking
-	- [HTTP](../ready/http/) `CURL`
-	- [Encryption](../ready/encryption/) `GPG` `Cryptsetup`
-	- [HTTPS and SSL Certificates](../ready/https-ssl-certs/) `Certbot`
-	- [SSH](../ready/ssh/)
-	- [Firewall](../ready/firewall/) `UFW`
-	- [IRC](../ready/irc/)
+	- [HTTP](../http/) `CURL`
+	- [Encryption](../encryption/) `GPG` `Cryptsetup`
+	- [HTTPS and SSL Certificates](../https-ssl-certs/) `Certbot`
+	- [SSH](../ssh/)
+	- [Firewall](../firewall/) `UFW`
+	- [IRC](../irc/)
 - Web Development
-	- [HTML](../ready/html/)
+	- [HTML](../html/)
 	- CSS - `Coming Soon!`
 	- JS - `Coming Soon!`
 - Tools
-	- [Version Control](../ready/git/) `GIT`
-	- [Password Manager](../ready/pass/) `PASS`
-	- [Terminal Multiplexer](../ready/tmux/) `TMUX`
-	- [Linux on Windows](../ready/wsl2/) `WSL2`
+	- [Version Control](../git/) `GIT`
+	- [Password Manager](../pass/) `PASS`
+	- [Terminal Multiplexer](../tmux/) `TMUX`
+	- [Linux on Windows](../wsl2/) `WSL2`
