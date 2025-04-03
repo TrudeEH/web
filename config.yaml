@@ -3,7 +3,7 @@ title: trude.dev
 pagination:
   pagerSize: 5
 theme: PaperMod
-copyright: "Source Code available on [GitHub](https://github.com/TrudeEH/web)"
+copyright: "by TrudeEH | Source Code available on [GitHub](https://github.com/TrudeEH/web)"
 #canonifyURLs: true
 
 # Search

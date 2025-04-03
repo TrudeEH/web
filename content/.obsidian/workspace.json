@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "notes/index/index.md",
+                "file": "drafts/bash.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "index"
+              "title": "bash"
             }
           },
           {
@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "notes/c-language.md",
+                "file": "drafts/linux/index.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "c-language"
+              "title": "index"
             }
           }
         ]
@@ -155,13 +155,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "notes/index/index.md",
+                "file": "drafts/bash.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of index"
+              "title": "Outline of bash"
             }
           },
           {
@@ -193,10 +193,13 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "b73f137a8a755c19",
+  "active": "c01600dff17cd347",
   "lastOpenFiles": [
-    "drafts/linux-encrypt/index.md",
+    "notes/c-language.md",
+    "drafts/bash.md",
     "drafts/linux/index.md",
+    "notes/index/index.md",
+    "drafts/linux-encrypt/index.md",
     "drafts/linux/image7.png",
     "drafts/linux/image6.png",
     "drafts/linux/image5.png",
@@ -211,17 +214,14 @@
     "drafts/linux-encrypt",
     "drafts/linux",
     "drafts/hardware-tools.md",
-    "drafts/bash.md",
     "drafts/assembly.md",
     "drafts",
     "notes/drafts/bash.md",
     "notes/bash.md",
-    "notes/index/index.md",
     "notes/drafts/linux/index.md",
     "notes/drafts/rust.md",
     "notes/drafts/swift.md",
     "notes/drafts/linux-encrypt/index.md",
-    "notes/c-language.md",
     "notes/compiling.md",
     "notes/firewall.md",
     "notes/git.md",

@@ -5,7 +5,14 @@
   "spellcheckDictionary": [
     "bruteforce",
     "filesystem",
-    "Syscalls"
+    "Syscalls",
+    "pathname",
+    "mapfile",
+    "readarray",
+    "builtin",
+    "builtins",
+    "builtin",
+    "Readline"
   ],
   "spellcheck": false,
   "vimMode": false
