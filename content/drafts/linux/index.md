@@ -289,7 +289,6 @@ git clone --depth 1 https://github.com/torvalds/linux # GitHub mirror
 cd linux
 make tinyconfig # OPTIONAL: Creates the most minimal configuration possible.
 make nconfig # Configure the kernel before compiling
-make -j$(nproc) # Compile the kernel 
 ```
 
 The kernel binary compiles to `arch/x86/boot/bzImage` on `x64` systems.
@@ -451,29 +450,163 @@ These APIs are code functions that forward the requests to a library such as `Me
 `Mesa` then calls the Kernel's DRM (Direct Rendering Engine), which then calls the GPU driver to provide GPU capabilities.  
 The GPU still has a device file, which is used by the Kernel's DRM and Mesa, but most commands are delivered to the GPU driver directly.
 
-## Shell ([bash](bash.md))
+## Shell (`bash`)
 
-The kernel by itself isn't intractable, so a shell is needed for the user to be able to execute programs and run commands. Bash is not only a prompt, but also an interpreter for its own programming language, which can be used to write scripts and automate tasks.
+The kernel by itself isn't intractable, so a shell is needed for the user to be able to execute programs and run commands. Bash is not only a prompt, but also an interpreter for [its own programming language](bash.md), which can be used to write scripts and automate tasks.
 
 ### Compiling
 
-TODO
+Dependencies:
+
+```sh
+sudo apt build-dep bash
+```
+
+#### Compile Latest
+
+```sh
+git clone --depth 1 https://git.savannah.gnu.org/git/bash
+mkdir bash-build && cd bash-build
+../bash/configure
+make -j$(nproc)
+sudo make install # To specify the destination, use DESTDIR=...
+```
+
+#### Recompile Debian Package
+
+```bash
+sudo apt install devscripts debhelper
+mkdir bash-build && cd bash-build
+apt source bash # Download bash source
+cd bash-*
+debuild -j$(nproc) -uc -b
+sudo apt install ../bash*.deb
+```
 
 ## Programs
 
-### `coreutils`
+*Bash* includes a set of *builtins*: Command-line utilities that come within bash itself. However, these are very limited, and to actually make the computer useful, more programs are needed.
+
+> To learn more about a specific program, use: `man program_name`.
+
+### Coreutils
+
+*Coreutils* are a collection of small command-line utilities, which are essential for text, file and shell manipulation.
+
+|           |            |            |             |            |
+| --------- | ---------- | ---------- | ----------- | ---------- |
+| `arch`    | `base64`   | `basename` | `cat`       | `chcon`    |
+| `chgrp`   | `chmod`    | `chown`    | `chroot`    | `cksum`    |
+| `comm`    | `cp`       | `csplit`   | `cut`       | `date`     |
+| `dd`      | `df`       | `dir`      | `dircolors` | `dirname`  |
+| `du`      | `echo`     | `env`      | `expand`    | `expr`     |
+| `factor`  | `false`    | `fmt`      | `fold`      | `groups`   |
+| `head`    | `hostid`   | `hostname` | `id`        | `install`  |
+| `join`    | `kill`     | `link`     | `ln`        | `logname`  |
+| `ls`      | `md5sum`   | `mkdir`    | `mkfifo`    | `mknod`    |
+| `mktemp`  | `mv`       | `nice`     | `nl`        | `nohup`    |
+| `nproc`   | `numfmt`   | `od`       | `paste`     | `pathchk`  |
+| `pinky`   | `pr`       | `printenv` | `printf`    | `ptx`      |
+| `pwd`     | `readlink` | `realpath` | `rm`        | `rmdir`    |
+| `runcon`  | `seq`      | `shred`    | `shuf`      | `sleep`    |
+| `sort`    | `split`    | `stat`     | `stdbuf`    | `stty`     |
+| `sum`     | `tac`      | `tail`     | `tee`       | `test`     |
+| `timeout` | `touch`    | `tr`       | `true`      | `truncate` |
+| `tsort`   | `tty`      | `uname`    | `unexpand`  | `uniq`     |
+| `unlink`  | `uptime`   | `users`    | `vdir`      | `wc`       |
+| `who`     | `whoami`   | `yes`      |             |            |
+
+The most popular set of *coreutils* by far is [GNU's coreutils](https://www.gnu.org/software/coreutils/). For embedded systems, it's common to use [BusyBox](https://www.busybox.net/) instead. There is also an ongoing effort to port *GNU's coreutils* to Rust: [uutils coreutils]().
 
 ### `util-linux`
 
-### `vi/nano`
+*Util-Linux*, much like *coreutils*, is a collection of smaller programs. These are used mainly for maintenance, and interface with the kernel, filesystems, the clock, etc.
+
+Unlike the *coreutils*, which are present in almost every system, distributions often pick which programs to ship from the `util-linux` package. For example, Debian doesn't ship `rename`, `hwclock`, and `cal` by default, among others.
+
+| Path       | Utility                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `bin/`     | `dmesg` `kill` `lsblk` `more` `mountpoint` `su` `wdctlfindmnt` `login` `lsfd` `mount` `pipesz` `umount`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| `sbin/`    | `agetty` `cfdisk` `fsck.cramfs` `mkfs` `pivot_root` `swapon` `blkdiscard` `chcpu` `fsck.minix` `mkfs.bfs` `runuser` `switch_root` `blkid`  `ctrlaltdel` `fsfreeze` `mkfs.cramfs` `sfdisk` `wipefs` `blkpr` `fdisk` `fstrim` `mkfs.minix` `sulogin` `zramctl` `blkzone` `findfs` `hwclock` `mkswap` `swaplabel` `blockdev` `fsck` `losetup` `nologin` `swapoff`                                                                                                                                                                                                                                                                                            |
+| `usr/bin/` | `bits` `column` `hardlink` `logger` `mcookie` `scriptreplay` `utmpdump` `cal` `coresched` `hexdump` `look` `mesg` `setarch` `uuidgen` `chfn` `eject` `ionice` `lsclocks` `namei` `setpgid` `uuidparse` `chmem` `enosys` `ipcmk` `lscpu` `nsenter` `setpriv` `waitpid` `choom` `exch` `ipcrm` `lsipc` `prlimit` `setsid` `wall` `chrt` `fadvise` `ipcs` `lsirq` `rename` `setterm` `whereis` `chsh` `fallocate` `irqtop` `lslocks` `renice` `taskset` `col` `fincore` `isosize` `lslogins` `rev` `uclampset` `colcrt` `flock` `last` `lsmem` `script` `ul` `colrm` `getopt` `lastlog2` `lsns` `scriptlive` `unshare` |
+| `usr/sbin` | `addpart` `ldattach` `readprofile` `rfkill` `uuidd` `delpart` `partx` `resizepart` `rtcwake`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+
+### Text Editor
+
+To read and write files on the system, we can make use of *coreutils*:
+
+```bash
+touch file.txt         # Create a file
+echo "Data" > file.txt # Write to file
+cat file.txt           # Read from file
+```
+
+Although these commands do work, this workflow is not practical, especially for editing large, multi-line files, or even writing new software. There are many text editors, and which you decide to use is a matter of preference.
+
+Most distributions ship a stripped-down version of `vim`, but other editors such as `nano` and regular `vim` are available in virtually all software repositories.
+
+#### Vim
+
+The original Vi editor was included with Unix as proprietary software. Vim was created as an open-source alternative, which improved Vi with many new features, including syntax highlighting, plugin support, and multiple undo/redo levels, among others.
+
+Vim is still widely used due to its efficiency, as it uses modal editing to implement the following modes:
+- **Normal Mode**: Navigate the file; delete; copy; paste; etc.
+- **Insert Mode**: Type new text.
+- **Visual Mode**: Select text.
+
+To use these modes effectively, one must learn Vim's keyboard shortcuts. Vim provides a tutorial to help new users get started:
+
+```bash
+sudo apt install vim
+vimtutor
+```
+
+Vim can be heavily customized and extended. Many of its own features can be toggled at compile time. To see which features your installation has enabled, run: `vim --version`.
+
+#### Vi (`vim.tiny`)
+
+The `/bin/vi` path on Debian is a symlink to `vim.tiny`, which is a version of Vim that was compiled with many optional features disabled to keep the binary very small. At the time of writing, `vim.tiny` is only ~1.9 MB in size for `x64` systems (`apt info vim-tiny`).
+
+#### Nano
+
+Nano is a more friendly and simpler alternative to Vim. It is not nearly as efficient, but it's more approachable for new users who might not be willing to learn Vim's complex keyboard shortcuts.
+
+Debian also provides a tiny version of Nano, `nano-tiny`, at only 139 kB.
 
 ## Libraries
 
-### `glibc`
+Libraries are collections of reusable code that programs can access. On Linux systems, there are **static libraries**, which are compiled with the program and increase the binary's size, and **dynamic libraries**, which are linked at runtime and can be shared by multiple processes to save disk space and memory.
 
-### `ncurses`
+### Glibc
+
+Glibc is the GNU's implementation of the C standard library, which is needed for almost all C programs. It provides wrappers for system calls, and bundles `ld-linux`, which is the dynamic linker/loader for ELF executables.
+
+To see which dynamic libraries are linked to a binary, run: `ldd /path/to/executable`.
+
+### Ncurses
+
+Different terminals have their own control sequences to move the cursor and format text. `ncurses` acts as an abstraction layer and facilitates creating TUIs (Terminal User Interfaces).
 
 ## Init System
+
+The init system is started by the kernel as soon as it boots. It is resposible for managing services, starting the shell, and reboot/shutdown of the system.
+
+The bare minimum init script to start the system could be as follows:
+
+```bash
+#! /bin/bash
+
+mount -t proc none /proc
+mount -t sysfs none /sys
+
+exec /bin/bash
+```
+
+Debian uses Systemd, and so, `systemctl` is used to manage services.
+
+A service is a unit file that specifies how to start, stop, reload and manage the processes associated with the service. After starting a service, it runs in the background until stopped.
+
+Unit files are usually located under `/lib/systemd/system/` and `/etc/systemd/system/`.
 
 ## GRUB
 
