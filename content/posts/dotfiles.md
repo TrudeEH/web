@@ -1,19 +1,22 @@
 ---
-# Post
 draft: false
 searchHidden: false
-showToc: true # Table of Contents
-author: "TrudeEH"
+showToc: true
+author: TrudeEH
 title: "Dotfiles: Configuration Files"
 date: 2024-05-30T17:35:03+01:00
-tags: ["linux", "macos", "github", "git"]
-description: "How to I set up my dotfiles in a UNIX system."
+tags:
+  - linux
+  - macos
+  - github
+  - git
+description: How I set up my dotfiles in a UNIX system.
 cover:
-    image: "" # image path/url
-    alt: "" # alt text
-    caption: "" # display caption under cover
-    relative: false # when using page bundles set this to true
-    hidden: true # only hide on current single page
+  image: ""
+  alt: ""
+  caption: ""
+  relative: false
+  hidden: true
 ---
 
 ## What Are Dotfiles and why Should I Care?

@@ -1,277 +1,22 @@
 ---
-title: Linux Architecture
+title: index
 description: 
-date: 2025-02-17T08:32:33+00:00
 draft: true
 tags:
   - computer-science
   - os
 author: TrudeEH
 showToc: true
+summary:
 ---
-
-## What is Linux
-
-TODO
-
-## Disk & Data Storage
-
-### Disk Partitions
-
-Except for the `/boot` and `/root` partitions, all partitions are optional and flexible. You can add any partitions to your disk, however, these are the most common ones:
-
-| Partition    | Needed                                 | File System      | Recommended Size      | Description                                                                                 |
-| ------------ | -------------------------------------- | ---------------- | --------------------- | ------------------------------------------------------------------------------------------- |
-| `/boot`      | Yes                                    | `ext2`           | 512 MB                | Store kernels and boot info. This should always be the first partition on the drive.        |
-| `/boot/efi`  | Depends                                | `FAT-32`         | 512 MB                | Needed to boot with UEFI.                                                                   |
-| `/BIOS Boot` | Depends                                | Not formatted    | 1 MB                  | Only applies to GPT, and is usually a 1 MB partition for GRUB to install the bootloader on. |
-| `/root`      | Yes                                    | `ext4`           | 20+ GB                | Stores system files.                                                                        |
-| `/swap`      | No                                     | `swap` (header)  | 2x RAM; at least 2 GB | Use the disk as 'slower RAM', if the system RAM is full.                                    |
-| `/tmp`       | No (can be mounted on the `/root` dir) | `tmpfs` / `ext3` | 10 GB                 | Temporary file system.                                                                      |
-| `/home`      | No (can be mounted on the `/root` dir) | `ext4`           | max                   | Stores user files.                                                                          |
-
-#### Manage Partitions
-
-One of the most common programs to manage partitions is `fdisk`.
-
-```sh
-sudo fdisk /dev/sdX
-```
-
-Then, type `m` to read the manual.
-
-#### Format Partitions
-
-Use the `mkfs` command to format existing partitions.
-
-```sh
-mkfs -v -t ext4 /dev/sdX
-```
-
-For initializing `swap`, use `mkswap /dev/sdX` instead.
-
-#### Mount Partitions
-
-A partition must be mounted for the host system to be able to access it.
-
-```sh
-mkdir -p <dir>
-mount /dev/sdX <dir>
-```
-
-> Use the `-t <fs>` flag to specify the file system if `mount` fails to detect it automatically.
-
-### File Systems
-
-> This section is heavily simplified and only covers `EXT2-4`.
-
-#### Concepts
-
-- An `inode` provides the following information:
-    - Pointer to the file
-    - Creation date / Modified times
-    - Permissions
-- A `directory (table)` contains the data before the current directory, the directory itself, and every file inside that directory.
-- A `block` is the standard data unit for data in a hard drive. (Same size as memory pages. Ex `x86` CPU would use `4 KB` as the block size.)
-  
-
-#### EXT2
-
-Uses linked lists to store and lookup data, to keep the implementation of the filesystem itself as simple as possible. A simple filesystem makes it easier to repair (or skip) broken sectors on the hard drive.
-
-#### Partition Layout
-
-![EXT2](EXT2.png)
-
-#### EXT3
-
-##### Journal
-
-`EXT3` implements a journal to act as a buffer after a crash. If any operation in the journal fails, because it was logged, the filesystem is able to recover and finish any pending operations quickly, and not lose data. `EXT2` had another issue, where if an opened directory were deleted, its `inode` wouldn't be deleted, leaving an orphaned, empty `inode` on the filesystem. If the program holding it was to be closed, the `inode` would be deleted, but in the event of a crash, the `inode` would be left in the filesystem, with no way to be freed.
-
-##### HTrees
-
-`EXT3` can also use a [index](notes/algorithms_and_data/index.md) instead of a linked list to store directory entries, making lookup times much faster. To build the HTree, all filenames are hashed and ordered, making the implementation more complex. This feature is disabled by default.
-
-##### Scalability
-
-Before, only one core could write to the *superblock* at a time, but `EXT3` updates `inode` and `block` count at the *block group descrip_t_or* level. The superblock is only updated through a system call: `statfs()`, or if the filesystem is unmounted.  
-`EXT3` also removed *big kernel locks* (deprecated feature that added the ability to freeze the kernel), and `sleep_on()`, which was replaced with `wait_event()`, preventing infinite loops.  
-These patches improved multicore performance by over 10x.
-
-##### Preallocation / Reservation
-
-Writing two files simultaneously can create noncontinuous space.  
-![image6](image6.png)  
-Because `EXT3` was designed to be used with HDDs, and separate portions of a file would slow down read speeds, `EXT3` implemented a preallocation/reservation system.  
-Inside the block bitmap, a few extra blocks were preallocated, storing both files in separate locations.  
-![image7](image7.png)  
-Instead of `EXT2`, where errors were corrected directly in the hard drive, `EXT3` reserves space for each specific `inode` in memory. In the event of a crash, all data would be stored in memory, and thus, not corrupting the HDD itself.
-
-##### Online Resizer
-
-`EXT3` also implements a protocol to support `LVM`, which allows for many disks to be used as a single partition. The largest possible space `EXT3` supports without patches is 16 GB.
-
-##### Partition Layout
-
-![EXT3](EXT3.png)
-
-#### EXT4
-
-##### Larger FS
-
-`EXT3` can only support up to 16 TB. This is why `EXT4` was created.  
-Instead of ==32 bits== capacity to count blocks, `EXT4` divides each entry in the block descriptor table in two parts: An upper, and a lower entry. This lower entry extends the upper one, and since each supports up to ==32 bits==, the total supported block count (in the block descriptor table) rises to ==64 bits== (16 TB → 1,000,000,000 TB).
-
-##### Extents
-
-Instead of using block mapping (the filesystem allocates blocks individually for each file), which can lead to fragmentation, `EXT4` uses **extents**, a range of contiguous blocks, allocated to each file.  
-This uses a 48 bit system, which limits the FS capacity to 1 EB (1,000,000 TB).  
-Each extent can point to 128 MB of data, or 1 block group.
-
-##### Compatibility
-
-The `EXT4` driver supports `EXT3` as well, and so, the Linux kernel only uses the `EXT2` and `EXT4` drivers. The `EXT3` driver was removed as the new one is more performant.
-
-##### HTrees
-
-HTrees are now enabled by default, allowing up to 10 million subdirectories. However, `EXT4` implements a Three Level HTree, which can be enabled using the `large_dir` flag, and extends this limit to 2 Billion subdirectories.
-
-##### Fast FS Check
-
-The `big_itable_unused` field was added to the block descriptor table, allowing for fast filesystem checks and error correction, as well as some other improvements.
-
-##### Multiblock Allocation
-
-Previously, each block needed one call to be allocated. `EXT4` added support for multi-block allocation, which means that only one call is needed to allocate multiple blocks.
-
-##### Delayed Allocation
-
-Every write command is delayed for as long as possible, making it so that changes can be made in memory before they affect (and possible fragment) the actual drive.
-
-##### Persistent PreAllocaition
-
-The FS can now be called to preallocate an empty extent, so, once that file is populated, it stays as a contiguous space.
-
-##### Metadata Checksums
-
-Metadata is checked often, which helps find any issues with the file system, as each data structure is now properly 'documented'.
-
-##### Better Times
-
-- A creation time was added;
-- The time precision was increased to nanoseconds instead of only seconds;
-- The maximum supported time was increased as well (the standard UNIX time can only go up to 2038).
-
-##### Extended Attributes
-
-The filesystem can also be customized with new entries at the end of each `inode`.
-
-##### Quotas
-
-`EXT4` also supports adding limits to the size of a file, or even multiple files spread across the filesystem.
-
-##### Barriers
-
-Some hard drives have caches, which impact the journal, sometimes causing it to be written after the cache, which would create conflicts. To fix this issue, `EXT4` creates a 'barrier', preventing the disk from writing data before the journal is written to the drive. This feature impacts performance, but is also very needed.
-
-##### Flexible Block Groups
-
-Groups blocks together, isolating chucks to write data on, which helps make data more contiguous.
-
-##### Meta Block Groups
-
-If the whole filesystem was only a single block group, it would max out at 256 TB of total data. Using meta block groups, this limit is increased to 32 bits of block group descriptor, which makes the **total capacity of the filesystem** ==**512 PB**==.
-
-##### Partition Layout
-
-[https://maplecircuit.dev/linux/fs/ext/ext4.html](https://maplecircuit.dev/linux/fs/ext/ext4.html)
-
-### File Permissions
-
-TODO
-
-```sh
-chown root:root $LFS 
-chmod 755 $LFS
-```
-
-### `/root` Directory Structure
-
-Root directories might vary slightly between distributions (and other UNIX systems), however, the 'base' is always the same. For example, a Debian root directory would be the following:
-
-```
-/
-├── bin   -> /usr/bin
-├── boot (Mount point for /boot partition)
-│   ├── grub/grub2    (GRUB configuration and modules)
-│   ├── efi           (EFI System Partition - UEFI systems)
-│   └── kernels       (Kernel images - may be under grub)
-├── dev
-│   ├── pts           (Pseudo-terminals)
-│   ├── shm           (Shared memory)
-│   ├── null          (Null device)
-│   ├── zero          (Zero device)
-│   ├── random        (Random number generator)
-│   └── urandom       (Non-blocking random number generator)
-├── etc (Configuration files)
-│   ├── network       (Networking configuration)
-│   ├── systemd       (Systemd configuration)
-│   ├── default       (Default settings for programs)
-│   ├── init.d        (Legacy init scripts / systemd link)
-│   ├── ssh           (SSH server and client configuration)
-│   ├── X11           (X Window System configuration)
-│   ├── pam.d         (PAM configuration)
-│   └── security      (Security-related configuration)
-├── home (Home Directories)
-├── lib   -> /usr/lib
-├── lib64 -> /usr/lib64
-├── media    (Mount Point for Removable Media)
-├── mnt      (Temporary Mount Point)
-├── opt      (Optional Packages)
-├── proc     (Process Information - Virtual Filesystem)
-│   ├── self          (Symbolic link to the current process's directory)
-│   ├── cpuinfo       (CPU information)
-│   ├── meminfo       (Memory information)
-│   ├── mounts        (Mounted file systems)
-│   ├── cmdline       (Kernel command line)
-│   ├── <PID>         (Directories for each process, named by PID)
-├── root (Root User's Home Directory)
-├── run
-│   ├── systemd       (Systemd runtime data)
-│   ├── user          (User-specific runtime data)
-│   └── lock          (Lock files)
-├── sbin  -> /usr/sbin
-├── srv (Service Data)
-├── sys (System Information - Virtual Filesystem)
-│   ├── devices       (Device tree)
-│   ├── firmware      (Firmware information)
-│   ├── power         (Power management settings)
-│   ├── kernel        (Kernel parameters)
-│   └── module        (Kernel modules)
-├── tmp (Temporary Files)
-├── usr (User Programs and Data)
-│   ├── bin           (User binaries)
-│   ├── sbin          (Non-essential system administration commands)
-│   ├── lib           (Libraries for /usr/bin and /usr/sbin)
-│   ├── include       (Header files for C/C++ development)
-│   ├── share         (Architecture-independent data)
-│   └── local         (Locally installed software)
-└── var (Variable Data)
-    ├── log           (System log files)
-    ├── tmp           (Temporary files that persist across reboots)
-    ├── lib           (Variable data for installed programs)
-    ├── cache         (Cached data for applications)
-    └── spool         (Spool directories)
-```
 
 ## Kernel
 
-Linux is a kernel: the core of an operative system. OSes that use the Linux kernel are called Linux Distros (Distributions).  
-A Kernel does the following:
-- Executes first when the computer boots up and has full access to the hardware.
+Linux is a kernel: the core of an operative system. Operating systems that use the Linux kernel are called Linux Distros (Distributions).  
+A Kernel:
+- Executes first when the computer finishes booting up and has full access to the hardware.
 - Implements drivers to control peripherals, network devices and other resources.
-- Runs other programs (userland software) and allows them to communicate with each other and with the hardware.
+- Runs other programs (userland software) and allows them to communicate with each other and with the hardware through system calls.
 
 ### Compiling
 
@@ -399,7 +144,7 @@ make clean # Delete the object files created at compile time
 
 ### Syscalls
 
-To "ask" the kernel to perform a hardware task, to access the file system or access other resources, a program executes a `syscall`.  
+To "ask" the kernel to perform a hardware task and to access the file system or another resource, a program executes a `syscall`.  
 
 For example, in x64 assembly:
 
@@ -418,12 +163,19 @@ A C program generally uses libraries, which then implement system calls to perfo
 
 ### Processes
 
-TODO - How does the kernel execute programs? What are processes?  
-Executables can either be ELF files, or a script starting with `#!` (`script_format`).
+A process is an instance of a running program: When a program is executed, the kernel assigns a **PID** (Process ID) to it, defines a **state** (wether it is running, stopped, etc), defines which process spawned the program, and assigns it **memory space** (or address space): Virtual memory, preventing the program from accessing the memory assigned to other processes.  
+
+![[image5.png]]  
+
+After creating the process, the kernel loads the program into memory and starts it. Once the program finishes or is terminated, the kernel reclaims its resources.
+
+When a program is compiled, it is turned into an executable, which is usually an ELF file. Scripts starting with `#!` (`script_format`) are also valid executables.
 
 #### Execute Programs
 
-When executing a program, the kernel first parses the executable to detect whether it is a script or ELF executable, then, CPU registers are updated (the `instruction pointer` -> `ELF entry point`, etc). Finally, the program is executed, instruction by instruction, on the CPU.
+To execute a program, the kernel first parses the executable to detect whether it is a script or ELF file, and then, CPU registers are updated (`instruction pointer` -> `ELF entry point`, etc). Finally, the program is executed, instruction by instruction, on the CPU.
+
+To run multiple processes concurrently, the kernel takes a "snapshot" of the CPU state (registers) of the current process, and loads the next process with its own state. This cycle is repeated to alternate between threads. Modern CPUs have multiple cores, which often have two threads each, and it's the kernel scheduler's job to manage these resources efficiently.
 
 ### Devices
 
@@ -485,7 +237,7 @@ sudo apt install ../bash*.deb
 
 ## Programs
 
-*Bash* includes a set of *builtins*: Command-line utilities that come within bash itself. However, these are very limited, and to actually make the computer useful, more programs are needed.
+Bash includes a set of *builtins*: Command-line utilities that come within bash itself. However, these are very limited, and to actually make the computer useful, more programs are needed.
 
 > To learn more about a specific program, use: `man program_name`.
 
@@ -516,20 +268,20 @@ sudo apt install ../bash*.deb
 | `unlink`  | `uptime`   | `users`    | `vdir`      | `wc`       |
 | `who`     | `whoami`   | `yes`      |             |            |
 
-The most popular set of *coreutils* by far is [GNU's coreutils](https://www.gnu.org/software/coreutils/). For embedded systems, it's common to use [BusyBox](https://www.busybox.net/) instead. There is also an ongoing effort to port *GNU's coreutils* to Rust: [uutils coreutils]().
+The most popular set of *coreutils* by far is [GNU's coreutils](https://www.gnu.org/software/coreutils/). For embedded systems, it's common to use [BusyBox](https://www.busybox.net/) instead, as it is much lighter on resources. There is also an ongoing effort to port *GNU's coreutils* to Rust: [uutils coreutils]().
 
 ### `util-linux`
 
-*Util-Linux*, much like *coreutils*, is a collection of smaller programs. These are used mainly for maintenance, and interface with the kernel, filesystems, the clock, etc.
+*Util-Linux*, much like *coreutils*, is a collection of smaller programs. These are used mainly for maintenance and interfacing with the kernel, filesystems, the clock, etc.
 
-Unlike the *coreutils*, which are present in almost every system, distributions often pick which programs to ship from the `util-linux` package. For example, Debian doesn't ship `rename`, `hwclock`, and `cal` by default, among others.
+Unlike the *coreutils*, which are present in almost every system, distributions often pick which programs to ship from the `util-linux` package. For example, Debian doesn't ship `rename`, `hwclock`, and `cal` by default, among some others.
 
-| Path       | Utility                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `bin/`     | `dmesg` `kill` `lsblk` `more` `mountpoint` `su` `wdctlfindmnt` `login` `lsfd` `mount` `pipesz` `umount`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| `sbin/`    | `agetty` `cfdisk` `fsck.cramfs` `mkfs` `pivot_root` `swapon` `blkdiscard` `chcpu` `fsck.minix` `mkfs.bfs` `runuser` `switch_root` `blkid`  `ctrlaltdel` `fsfreeze` `mkfs.cramfs` `sfdisk` `wipefs` `blkpr` `fdisk` `fstrim` `mkfs.minix` `sulogin` `zramctl` `blkzone` `findfs` `hwclock` `mkswap` `swaplabel` `blockdev` `fsck` `losetup` `nologin` `swapoff`                                                                                                                                                                                                                                                                                            |
+| Path       | Utility                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `bin/`     | `dmesg` `kill` `lsblk` `more` `mountpoint` `su` `wdctlfindmnt` `login` `lsfd` `mount` `pipesz` `umount`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| `sbin/`    | `agetty` `cfdisk` `fsck.cramfs` `mkfs` `pivot_root` `swapon` `blkdiscard` `chcpu` `fsck.minix` `mkfs.bfs` `runuser` `switch_root` `blkid`  `ctrlaltdel` `fsfreeze` `mkfs.cramfs` `sfdisk` `wipefs` `blkpr` `fdisk` `fstrim` `mkfs.minix` `sulogin` `zramctl` `blkzone` `findfs` `hwclock` `mkswap` `swaplabel` `blockdev` `fsck` `losetup` `nologin` `swapoff`                                                                                                                                                                                                                                                      |
 | `usr/bin/` | `bits` `column` `hardlink` `logger` `mcookie` `scriptreplay` `utmpdump` `cal` `coresched` `hexdump` `look` `mesg` `setarch` `uuidgen` `chfn` `eject` `ionice` `lsclocks` `namei` `setpgid` `uuidparse` `chmem` `enosys` `ipcmk` `lscpu` `nsenter` `setpriv` `waitpid` `choom` `exch` `ipcrm` `lsipc` `prlimit` `setsid` `wall` `chrt` `fadvise` `ipcs` `lsirq` `rename` `setterm` `whereis` `chsh` `fallocate` `irqtop` `lslocks` `renice` `taskset` `col` `fincore` `isosize` `lslogins` `rev` `uclampset` `colcrt` `flock` `last` `lsmem` `script` `ul` `colrm` `getopt` `lastlog2` `lsns` `scriptlive` `unshare` |
-| `usr/sbin` | `addpart` `ldattach` `readprofile` `rfkill` `uuidd` `delpart` `partx` `resizepart` `rtcwake`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| `usr/sbin` | `addpart` `ldattach` `readprofile` `rfkill` `uuidd` `delpart` `partx` `resizepart` `rtcwake`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 
 ### Text Editor
 
@@ -569,9 +321,9 @@ The `/bin/vi` path on Debian is a symlink to `vim.tiny`, which is a version of V
 
 #### Nano
 
-Nano is a more friendly and simpler alternative to Vim. It is not nearly as efficient, but it's more approachable for new users who might not be willing to learn Vim's complex keyboard shortcuts.
+Nano is a more friendly and simple alternative to Vim. It isn't nearly as efficient, but it's more approachable for new users who might not be willing to learn Vim's complex keyboard shortcuts.
 
-Debian also provides a tiny version of Nano, `nano-tiny`, at only 139 kB.
+Debian also provides a tiny version of Nano in its repositories, `nano-tiny`, at only 139 kB.
 
 ## Libraries
 
@@ -579,7 +331,7 @@ Libraries are collections of reusable code that programs can access. On Linux sy
 
 ### Glibc
 
-Glibc is the GNU's implementation of the C standard library, which is needed for almost all C programs. It provides wrappers for system calls, and bundles `ld-linux`, which is the dynamic linker/loader for ELF executables.
+Glibc is the GNU's implementation of the C standard library, which is needed for almost all C programs. It provides wrappers for system calls and bundles `ld-linux`, which is the dynamic linker/loader for ELF executables.
 
 To see which dynamic libraries are linked to a binary, run: `ldd /path/to/executable`.
 
@@ -610,25 +362,330 @@ Unit files are usually located under `/lib/systemd/system/` and `/etc/systemd/sy
 
 ## GRUB
 
+GRUB allows the user to select which kernel to boot to, load kernel modules before the kernel starts, and is responsible for loading the initial RAM disk (initrd), and thus, starting the system.
+
+Once GRUB finishes, it is no longer loaded, and the kernel takes control of the system.
+
+To change GRUB configurations, edit `/etc/default/grub`, and then run `update-grub` to generate the configuration file that GRUB reads at boot time (`/boot/grub/grub.cfg`).
+
+## Disk & Data Storage
+
+The previous building blocks are all that is needed for the system to boot, however, those files must be loaded from somewhere: The disk.
+
+When the computer starts, the motherboard's firmware (BIOS or UEFI) initialize the hardware. It then performs a POST check to verify if every component is functioning correctly. Then, the firmware determines which disk (or another storage device) to boot from, and executes the bootloader (GRUB in our case).
+
+### Disk Partitions
+
+Except for the `/boot` and `/root` partitions, all partitions are optional and flexible. Any optional partitions can be added to the disk, however, these are the most common ones:
+
+| Partition    | File System     | Description                                                                                 |
+| ------------ | --------------- | ------------------------------------------------------------------------------------------- |
+| `/boot`      | `ext2`          | Store kernels and boot info. This should always be the first partition on the drive.        |
+| `/boot/efi`  | `FAT-32`        | Needed to boot with UEFI.                                                                   |
+| `/BIOS Boot` |                 | Only applies to GPT, and is usually a 1 MB partition for GRUB to install the bootloader on. |
+| `/root`      | `ext4`          | Stores system files.                                                                        |
+| `/swap`      | `swap` (header) | Use the disk as 'slower RAM', if the system RAM is full.                                    |
+| `/tmp`       | `tmpfs`/`ext3`  | Temporary file system.                                                                      |
+| `/home`      | `ext4`          | Stores user files.                                                                          |
+
+#### Manage Partitions
+
+`fdisk` (from *util-linux*) is one of the most common programs to manage partitions.
+
+```sh
+sudo fdisk /dev/sdX
+```
+
+Then, type `m` to read the manual.
+
+#### Format Partitions
+
+Use the `mkfs` command to format existing partitions.
+
+```sh
+mkfs -v -t ext4 /dev/sdX
+```
+
+For initializing `swap`, use `mkswap /dev/sdX` instead.
+
+#### Mount Partitions
+
+A partition must be mounted for the host system to be able to access it.
+
+```sh
+mkdir -p <dir>
+mount /dev/sdX <dir>
+```
+
+> Use the `-t <fs>` flag to specify the file system if `mount` fails to detect it automatically.
+
+### File Systems
+
+#### Concepts
+
+- An `inode` provides the following information:
+    - Pointer to the file
+    - Creation date / Modified times
+    - Permissions
+- A `directory (table)` contains the data before the current directory, the directory itself, and every file inside that directory.
+- A `block` is the standard data unit for data in a hard drive. (Same size as memory pages. Ex `x86` CPU would use `4 KB` as the block size.)
+  
+
+#### EXT2
+
+Uses linked lists to store and lookup data, to keep the implementation of the filesystem itself as simple as possible. A simple filesystem makes it easier to repair (or skip) broken sectors on the hard drive.
+
+#### Partition Layout
+
+![EXT2](EXT2.png)
+
+#### EXT3
+
+##### Journal
+
+`EXT3` implements a journal to act as a buffer after a crash. If any operation in the journal fails, because it was logged, the filesystem is able to recover and finish any pending operations quickly, and not lose data. `EXT2` had another issue, where if an opened directory were deleted, its `inode` wouldn't be deleted, leaving an orphaned, empty `inode` on the filesystem. If the program holding it was to be closed, the `inode` would be deleted, but in the event of a crash, the `inode` would be left in the filesystem, with no way to be freed.
+
+##### HTrees
+
+`EXT3` can also use a [index](notes/algorithms_and_data/index.md) instead of a linked list to store directory entries, making lookup times much faster. To build the HTree, all filenames are hashed and ordered, making the implementation more complex. This feature is disabled by default.
+
+##### Scalability
+
+Before, only one core could write to the *superblock* at a time, but `EXT3` updates `inode` and `block` count at the *block group descrip_t_or* level. The superblock is only updated through a system call: `statfs()`, or if the filesystem is unmounted.  
+`EXT3` also removed *big kernel locks* (deprecated feature that added the ability to freeze the kernel), and `sleep_on()`, which was replaced with `wait_event()`, preventing infinite loops.  
+These patches improved multicore performance by over 10x.
+
+##### Preallocation / Reservation
+
+Writing two files simultaneously can create noncontinuous space.
+
+![image6](image6.png)  
+
+Because `EXT3` was designed to be used with HDDs, and separate portions of a file would slow down read speeds, `EXT3` implemented a preallocation/reservation system.  
+Inside the block bitmap, a few extra blocks were preallocated, storing both files in separate locations. 
+
+![image7](image7.png)  
+
+Instead of `EXT2`, where errors were corrected directly in the hard drive, `EXT3` reserves space for each specific `inode` in memory. In the event of a crash, all data would be stored in memory, and thus, not corrupting the HDD itself.
+
+##### Online Resizer
+
+`EXT3` also implements a protocol to support `LVM`, which allows for many disks to be used as a single partition. The largest possible space `EXT3` supports without patches is 16 GB.
+
+##### Partition Layout
+
+![EXT3](EXT3.png)
+
+#### EXT4
+
+##### Larger FS
+
+`EXT3` can only support up to 16 TB. This is why `EXT4` was created.  
+Instead of ==32 bits== capacity to count blocks, `EXT4` divides each entry in the block descriptor table in two parts: An upper, and a lower entry. This lower entry extends the upper one, and since each supports up to ==32 bits==, the total supported block count (in the block descriptor table) rises to ==64 bits== (16 TB → 1,000,000,000 TB).
+
+##### Extents
+
+Instead of using block mapping (the filesystem allocates blocks individually for each file), which can lead to fragmentation, `EXT4` uses **extents**, a range of contiguous blocks, allocated to each file.  
+This uses a 48 bit system, which limits the FS capacity to 1 EB (1,000,000 TB).  
+Each extent can point to 128 MB of data, or 1 block group.
+
+##### Compatibility
+
+The `EXT4` driver supports `EXT3` as well, and so, the Linux kernel only uses the `EXT2` and `EXT4` drivers. The `EXT3` driver was removed as the new one is more performant.
+
+##### HTrees
+
+HTrees are now enabled by default, allowing up to 10 million subdirectories. However, `EXT4` implements a Three Level HTree, which can be enabled using the `large_dir` flag, and extends this limit to 2 Billion subdirectories.
+
+##### Fast FS Check
+
+The `big_itable_unused` field was added to the block descriptor table, allowing for fast filesystem checks and error correction, as well as some other improvements.
+
+##### Multiblock Allocation
+
+Previously, each block needed one call to be allocated. `EXT4` added support for multi-block allocation, which means that only one call is needed to allocate multiple blocks.
+
+##### Delayed Allocation
+
+Every write command is delayed for as long as possible, making it so that changes can be made in memory before they affect (and possible fragment) the actual drive.
+
+##### Persistent PreAllocaition
+
+The FS can now be called to preallocate an empty extent, so, once that file is populated, it stays as a contiguous space.
+
+##### Metadata Checksums
+
+Metadata is checked often, which helps find any issues with the file system, as each data structure is now properly 'documented'.
+
+##### Better Times
+
+- A creation time was added;
+- The time precision was increased to nanoseconds instead of only seconds;
+- The maximum supported time was increased as well (the standard UNIX time can only go up to 2038).
+
+##### Extended Attributes
+
+The filesystem can also be customized with new entries at the end of each `inode`.
+
+##### Quotas
+
+`EXT4` also supports adding limits to the size of a file, or even multiple files spread across the filesystem.
+
+##### Barriers
+
+Some hard drives have caches, which impact the journal, sometimes causing it to be written after the cache, which would create conflicts. To fix this issue, `EXT4` creates a 'barrier', preventing the disk from writing data before the journal is written to the drive. This feature impacts performance, but is also very needed.
+
+##### Flexible Block Groups
+
+Groups blocks together, isolating chucks to write data on, which helps make data more contiguous.
+
+##### Meta Block Groups
+
+If the whole filesystem was only a single block group, it would max out at 256 TB of total data. Using meta block groups, this limit is increased to 32 bits of block group descriptor, which makes the **total capacity of the filesystem** ==**512 PB**==.
+
+##### [Partition Layout](https://maplecircuit.dev/linux/fs/ext/ext4.html)
+
+#### exFAT
+
+#### Conclusion
+
+- `FAT-32`: Use for small USB/SD devices, if no file exceeds 4GB. This is the most compatible format, so it ca nbe used with very old systems and some embedded devices.
+- `exFAT`: Use for external drives and large USB/SD devices, if compatibility with macOS and Window is needed.
+- `EXT2`: Use for very simple filesystems, such as the `/boot` partition, where journaling is not needed.
+- `EXT3`: Deprecated. The `ext3` module is handled by `ext4` on recent systems.
+- `EXT4`: Use for system partitions, and for any SSD or large storage device under Linux.
+
+### File Permissions
+
+Both `EXT2` and `EXT4` support basic file permissions such as these, but `EXT4` adds some more advanced features.
+
+#### Permission Groups
+
+- **Owner**: Permissions for whoever owns the file.
+- **Group**: Permissions for the group assigned to the file.
+- **Others**: Permissions for everyone else.
+
+#### Permissions
+
+File permissions can be represented by characters or binary.
+
+- **Read**: `r--` `4`
+- **Write**: `-w-` `2`
+- **Execute**: `--x` `1`
+
+- **Read**, **Write** and **Execute**: `rwx` `7`
+- **Read** and **Write**: `rw-` `6`
+- **Read** and **Execute**: `r-x` `5`
+
+#### Manage Permissions
+
+##### Read Permissions
+
+```sh
+ls -l
+> drwxr-xr-x 2 trude trude 4096 Apr 5 18:56 Desktop
+```
+
+![[Pasted image 20250409112858.png]]
+
+In this example, the binary representation would be `755`.
+
+##### Modify Permissions
+
+```bash
+# Change the owner
+sudo chown owner filename
+
+# Change the owner and group
+sudo chown owner:group filename
+
+# Change permissions
+sudo chmod 774 filename
+```
+
+##### Common Permissions
+
+- `644`: File Baseline
+- `755`: Directory Baseline
+- `400`: Key Pair
+
+### `/root` Directory Structure
+
+Root directories might vary slightly between distributions (and other UNIX systems), however, the 'base' is always the same. For example, a Debian root directory would be the following:
+
+```
+/
+├── bin   -> /usr/bin
+├── boot (Mount point for /boot partition)
+│   ├── grub/grub2    (GRUB configuration and modules)
+│   ├── efi           (EFI System Partition - UEFI systems)
+│   └── kernels       (Kernel images - may be under grub)
+├── dev
+│   ├── pts           (Pseudo-terminals)
+│   ├── shm           (Shared memory)
+│   ├── null          (Null device)
+│   ├── zero          (Zero device)
+│   ├── random        (Random number generator)
+│   └── urandom       (Non-blocking random number generator)
+├── etc (Configuration files)
+│   ├── network       (Networking configuration)
+│   ├── systemd       (Systemd configuration)
+│   ├── default       (Default settings for programs)
+│   ├── init.d        (Legacy init scripts / systemd link)
+│   ├── ssh           (SSH server and client configuration)
+│   ├── X11           (X Window System configuration)
+│   ├── pam.d         (PAM configuration)
+│   └── security      (Security-related configuration)
+├── home (Home Directories)
+├── lib   -> /usr/lib
+├── lib64 -> /usr/lib64
+├── media    (Mount Point for Removable Media)
+├── mnt      (Temporary Mount Point)
+├── opt      (Optional Packages)
+├── proc     (Process Information - Virtual Filesystem)
+│   ├── self          (Symbolic link to the current process's directory)
+│   ├── cpuinfo       (CPU information)
+│   ├── meminfo       (Memory information)
+│   ├── mounts        (Mounted file systems)
+│   ├── cmdline       (Kernel command line)
+│   ├── <PID>         (Directories for each process, named by PID)
+├── root (Root User's Home Directory)
+├── run
+│   ├── systemd       (Systemd runtime data)
+│   ├── user          (User-specific runtime data)
+│   └── lock          (Lock files)
+├── sbin  -> /usr/sbin
+├── srv (Service Data)
+├── sys (System Information - Virtual Filesystem)
+│   ├── devices       (Device tree)
+│   ├── firmware      (Firmware information)
+│   ├── power         (Power management settings)
+│   ├── kernel        (Kernel parameters)
+│   └── module        (Kernel modules)
+├── tmp (Temporary Files)
+├── usr (User Programs and Data)
+│   ├── bin           (User binaries)
+│   ├── sbin          (Non-essential system administration commands)
+│   ├── lib           (Libraries for /usr/bin and /usr/sbin)
+│   ├── include       (Header files for C/C++ development)
+│   ├── share         (Architecture-independent data)
+│   └── local         (Locally installed software)
+└── var (Variable Data)
+    ├── log           (System log files)
+    ├── tmp           (Temporary files that persist across reboots)
+    ├── lib           (Variable data for installed programs)
+    ├── cache         (Cached data for applications)
+    └── spool         (Spool directories)
+```
+
 ## Networking
 
-## Compilers
+## Compilers???
 
 ## Desktop
+
+Environments
 
 ### Wayland
 
 ### Window Managers
-
-### Desktop Environments
-
-## INC =-------
-
-## Processes
-
-TODO  
-A program is an executable containing machine code. When a computer executes a program, it is first loaded into memory.  
-![image5](image5.png)  
-A program loaded in memory is a process.
-
-> Note: For interpreted languages, the interpreter creates a process that executes code directly.

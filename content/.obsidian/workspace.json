@@ -27,7 +27,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "notes/index/index.md",
+                "file": "notes/how_to_computer/index.md",
                 "mode": "source",
                 "source": false
               },
@@ -195,11 +195,15 @@
   },
   "active": "c01600dff17cd347",
   "lastOpenFiles": [
-    "notes/index/index.md",
+    "drafts/linux/Pasted image 20250409112858.png",
     "drafts/linux/index.md",
+    "notes/how_to_computer/index.md",
+    "notes/index/index.md",
+    "notes/git.md",
+    "posts/dotfiles.md",
+    "drafts/linux-encrypt/index.md",
     "drafts/bash.md",
     "notes/c-language.md",
-    "drafts/linux-encrypt/index.md",
     "drafts/linux/image7.png",
     "drafts/linux/image6.png",
     "drafts/linux/image5.png",
@@ -224,22 +228,17 @@
     "notes/drafts/linux-encrypt/index.md",
     "notes/compiling.md",
     "notes/firewall.md",
-    "notes/git.md",
     "notes/gdb.md",
     "notes/drafts/linux/Pasted image 20250401143509.png",
     "Pasted image 20250401143252.png",
     "debian-12.10.0-amd64-netinst.iso",
     "notes/encryption.md",
-    "notes/wsl2.md",
-    "notes/ready/encrypt-files.md",
     "notes/drafts/linux/EXT3.png",
-    "notes/algorithms_and_data/index.md",
     "notes/index",
     "notes/cs",
     "textgenerator/templates/awesomePrompts",
     "textgenerator/templates",
     "textgenerator",
-    "notes/how_to_computer/Pasted image 20250319161431.png",
     "posts/exploring-freebsd"
   ]
 }
