@@ -678,13 +678,51 @@ Root directories might vary slightly between distributions (and other UNIX syste
     └── spool         (Spool directories)
 ```
 
+## APT
+
+## Manuals
+
+man
+
 ## Networking
+
+### `iproute2`
+
+The `iproute2` package provides a collection of networking and traffic control utilities. Once again, Debian doesn't ship all of these, only those deemed **necessary**.
+
+|            |              |              |              |              |
+| ---------- | ------------ | ------------ | ------------ | ------------ |
+| `arpd`     | `bridge`     | **`ctstat`** | `dcb`        | `devlink`    |
+| `genl`     | `ifstat`     | **`ip`**     | **`lnstat`** | **`nstat`**  |
+| **`rdma`** | **`routel`** | `rtacct`     | `rtmon`      | **`rtstat`** |
+| **`ss`**   | `tc`         | `tipc`       | `vdpa`       |              |
+
+The Debian installer automatically configures Ethernet and/or Wi-Fi if an interface is available. To change such configurations, edit `/etc/network/interfaces`.
+
+Both DNS and DHCP are managed by `systemd-resolved` and `dhclient`, respectively.
+
+### Network Manager
+
+To facilitate configuring networks, it's very common to install Network Manager on top of Debian's default utilities.
+
+```bash
+sudo apt install network-manager
+
+# Remove the current configuration (so NM can take over)
+sudo mv /etc/network/interfaces /etc/network/interfaces.bckp
+sudo systemctl restart networking
+sudo service NetworkManager restart
+```
+
+After Network Manager is enabled, the `nmtui` command can be used to easily connect to new networks and change configurations.
 
 ## Compilers???
 
 ## Desktop
 
-Environments
+Desktop Environments...
+
+> Network manager needs to be configured...
 
 ### Wayland
 
