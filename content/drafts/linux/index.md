@@ -678,11 +678,114 @@ Root directories might vary slightly between distributions (and other UNIX syste
     └── spool         (Spool directories)
 ```
 
-## APT
+## Package Managers
 
-## Manuals
+Without a package manager, the only way to install new programs would be to manually compile them from source. Although it is possible to install software this way, having a central software repository facilitates installing new software, managing updates, and configuring each package for the distribution it is running on.
 
-man
+Debian uses `apt` as its package manager.
+
+### Repositories
+
+Most distributions have a repository of their own: Some distributions only provide source code, but the vast majority serve pre-compiled packages instead. For example, on Debian, it's common to use `deb.debian.org` as a remote to fetch packages from, but many more are available. 
+
+Debian has three releases in active maintenance:
+- `stable`: The recommended production release.
+- `testing`: Contains newer, less tested versions of software.
+- `unstable`: Used mainly by developers; Has the latest packages.
+
+To add a new package (or version of the package) to Debian, it is first reviewed by maintainers, then, if accepted, it is added to `unstable`. After waiting a period of time to make sure the program meets the testing criteria (few bugs, dependencies are met, etc), the program is moved to `testing`. Eventually, after further testing and error correction, the entire `testing` branch becomes Debian's next `stable` release.
+
+A package is a collection of software, containing executables, libraries, configuration, documentation, and metadata. This metadata includes the package name, version, dependencies and maintainer, to name a few. To read a package's metadata, run: `apt info package_name`.
+
+### Configure Repositories
+
+Repositories are configured in the `/etc/apt/sources.list` file. For example: 
+
+```
+deb http://deb.debian.org/debian/ testing main non-free contrib
+deb-src http://deb.debian.org/debian/ testing main non-free contrib
+deb http://security.debian.org/debian-security testing-security main
+```
+
+Alternatively, repositories can also be placed under `/etc/apt/sources.list.d/`, as individual `.list` files. `apt` merges both locations when searching for packages.
+
+There are two ways to configure repositories: Using their codename, or release type.  
+For example, at the time of writing, the testing branch is code-named `trixie`.
+
+```
+deb http://deb.debian.org/debian/ trixie main non-free contrib
+deb-src http://deb.debian.org/debian/ trixie main non-free contrib
+deb http://security.debian.org/debian-security trixie-security main
+```
+
+Initially, this configuration would serve the exact same purpose as the previous one, however, after the `testing` branch is ready, it becomes the next stable release, and `apt` would continue to use `trixie`, which would be the new stable release. Using codenames this way prevents `apt` from upgrading to the next Debian version automatically. Using `stable` would always point to the next stable release, which would now be `bookworm`, but in the near future, would automatically switch to `trixie`. The exception to this rule is `unstable` (`sid`), as it is a *rolling release*, and has no versions. Once a package is tested on it, it is merged with the testing branch, individually.
+
+> **WARNING**: While upgrading to a newer version is supported, **downgrading** is **not**. Moving from `trixie` to `bookworm`, for example, would break `apt`. The correct way to downgrade is to use the codename for the testing release, and wait for it to become stable.
+
+### Update Packages
+
+When `apt update` is executed, `apt` first downloads the index for every repository available, and then builds a local package database. Then, to actually upgrade the installed packages, use `apt upgrade`.
+
+The following commands would update every package on the system and perform `apt` maintenance tasks:
+
+```bash
+sudo apt update
+sudo apt upgrade
+sudo apt full-upgrade # Allows handling of dependencies by removing or installing new packages. Same as dist-upgrade.
+sudo apt autoremove # Remove unused dependencies.
+sudo apt autoclean # Remove old local repository entries.
+```
+
+### Manage Packages
+
+```bash
+apt search search_term # Search in package descriptions
+sudo apt install package_name # Install a package
+sudo apt remove package_name # Remove the binary package
+sudo apt purge package_name # Remove the binary package and configuration files
+```
+
+## Manual Pages
+
+Debian packages often come with manual pages (especially command-line utilities). These files are typically written in the `troff` format, with the `-man` macros, and are moved to `/usr/share/man` after installation.
+
+The `man` utility can search for manual pages and display their content using a pager such as `less`. It can also handle `BSD` manual pages in the `mdoc` format.
+
+To read the manual page for a given utility, run:
+
+```bash
+man utility
+```
+
+While reading the page, press `h` to display help within `less`.
+
+### Sections
+
+Man pages are organized into sections:
+1. Executable programs or shell commands
+2. System calls
+3. Library calls
+4. Special files (devices)
+5. File formats and conventions
+6. Games
+7. Miscellaneous (macro packages, etc...)
+8. System administration commands (usually for root)
+9. Kernel routines (non-standard)
+
+```bash
+man section utility # Read the manual page for utility in section.
+```
+
+### Search
+
+Both the following commands search for man pages containing `search_term` in their short description.
+
+```bash
+man -k search_term
+apropos search_term
+```
+
+Use `man -k .` to list all known pages.
 
 ## Networking
 
@@ -716,8 +819,6 @@ sudo service NetworkManager restart
 
 After Network Manager is enabled, the `nmtui` command can be used to easily connect to new networks and change configurations.
 
-## Compilers???
-
 ## Desktop
 
 Desktop Environments...
@@ -727,3 +828,5 @@ Desktop Environments...
 ### Wayland
 
 ### Window Managers
+
+### Desktop Environments

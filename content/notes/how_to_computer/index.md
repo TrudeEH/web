@@ -1012,4 +1012,4 @@ Most screenshots were taken from Turing Complete, a simulator available for purc
 
 If you found that I made a mistake, want to improve one of my circuits, or have any constructive feedback to share, please contact me, and I will happily add your name to the credits.
 
-Everything in this website, including other notes and posts (and the website itself) is open-source, licensed under the `MIT`. Feel free to use it for your own research. If you'd like to submit a PR or Issue on [GitHub](https://github.com/TrudeEH/web), I would appreciate it!
+Everything in this website, including other notes and posts (and the website itself) is open-source, licensed under the `MIT` license. Feel free to use it for your own research. If you'd like to submit a PR or Issue on [GitHub](https://github.com/TrudeEH/web), I would appreciate it!
