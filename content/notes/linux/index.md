@@ -165,7 +165,7 @@ A C program generally uses libraries, which then implement system calls to perfo
 
 A process is an instance of a running program: When a program is executed, the kernel assigns a **PID** (Process ID) to it, defines a **state** (wether it is running, stopped, etc), defines which process spawned the program, and assigns it **memory space** (or address space): Virtual memory, preventing the program from accessing the memory assigned to other processes.  
 
-![[image5.png]]  
+![image5](image5.png)  
 
 After creating the process, the kernel loads the program into memory and starts it. Once the program finishes or is terminated, the kernel reclaims its resources.
 
@@ -592,7 +592,7 @@ ls -l
 > drwxr-xr-x 2 trude trude 4096 Apr 5 18:56 Desktop
 ```
 
-![[Pasted image 20250409112858.png]]
+![Pasted image 20250409112858](Pasted%20image%2020250409112858.png)
 
 In this example, the binary representation would be `755`.
 
@@ -889,7 +889,7 @@ Although the CLI can do almost anything a graphical session can, especially on s
 
 Wayland is a display server protocol: It defines how a compositor and clients (applications) communicate.
 
-To draw the program window, the client first renders its content into off-screen buffers, and then uses the `libwayland-client` to inform the compositor of which parts were updated. The Wayland compositor then uses `libwayland-server` to collect these buffers, composite them into the final scene to display (using OpenGL), and accesses [[#GPUs|kernel interfaces]] (DRM/KMS) to update the physical display. The compositor also receives input events through `libinput` (which uses the kernel's `evdev`), and forwards them to the currently focused application.
+To draw the program window, the client first renders its content into off-screen buffers, and then uses the `libwayland-client` to inform the compositor of which parts were updated. The Wayland compositor then uses `libwayland-server` to collect these buffers, composite them into the final scene to display (using OpenGL), and accesses [kernel interfaces](#GPUs) (DRM/KMS) to update the physical display. The compositor also receives input events through `libinput` (which uses the kernel's `evdev`), and forwards them to the currently focused application.
 
 For example, GNOME uses Mutter as its window manager. To draw the desktop on the screen, the GNOME Shell (a client which provides the top bar, overview, dash, and other user interface elements) communicates with Mutter to draw its elements on the screen. Clients also make use of Mesa to render their content, which is then handled by the window manager.
 
@@ -899,13 +899,13 @@ For example, GNOME uses Mutter as its window manager. To draw the desktop on the
 
 The default applications provided by the desktop can use one of two toolkits: GTK and QT. These act as abstractions on top of the graphical stack, and provide pre-made menus, buttons, text boxes, along many other elements, according to their own design specifications. Because of this, a GTK app would better on GNOME opposed to KDE, and QT apps feel more at home on KDE Plasma instead of GNOME.
 
-> If you haven't yet decided which desktop environment to use, I recommend that you read my blog post introducing new users to Linux, on the [[posts/linux-starter-guide/index#Choose Your Desktop Environment|Desktop Environment section]].
+> If you haven't yet decided which desktop environment to use, I recommend that you read my blog post introducing new users to Linux, on the [Desktop Environment section](../../posts/linux-starter-guide/index.md#Choose%20Your%20Desktop%20Environment).
 
 #### Install a Desktop Environment
 
 Debian's installer offers the possibility to install a desktop environment, which comes with a collection of programs and tooling selected by the Debian team. Although these are good options, the default selection is meant to be ready "out of the box", for any use-case. These *metapackages* include an office suite, games, language support, and many other programs, some of which you might not need. To set up a more minimal installation, one can skip installing a desktop environment and only select the `standard system utilities`:
 
-![[debian-software-selection.png]]  
+![debian-software-selection](debian-software-selection.png)  
 Then, after the installation finishes, install your preferred desktop environment. For GNOME, as an example, run:
 
 ```bash
@@ -914,4 +914,4 @@ sudo apt install gnome-core # change to kde-plasma-desktop
 sudo systemctl reboot
 ```
 
-GNOME uses Network Manager as a dependency, and provides a graphical interface to manage networks. Although it will be automatically installed by `apt`, make sure to enable it following the steps in the [[#Network Manager]] section.
+GNOME uses Network Manager as a dependency, and provides a graphical interface to manage networks. Although it will be automatically installed by `apt`, make sure to enable it following the steps in the [Network Manager](#Network%20Manager) section.
