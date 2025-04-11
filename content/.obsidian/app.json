@@ -12,7 +12,12 @@
     "builtin",
     "builtins",
     "builtin",
-    "Readline"
+    "Readline",
+    "metapackages",
+    "flatpaks",
+    "Flathub",
+    "Flatpaks",
+    "flatpaks"
   ],
   "spellcheck": false,
   "vimMode": false

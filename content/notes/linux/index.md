@@ -1,10 +1,10 @@
 ---
-title: index
+title: Linux
 description: 
-draft: true
+draft: false
 tags:
-  - computer-science
   - os
+  - linux
 author: TrudeEH
 showToc: true
 summary:
@@ -204,7 +204,7 @@ The GPU still has a device file, which is used by the Kernel's DRM and Mesa, but
 
 ## Shell (`bash`)
 
-The kernel by itself isn't intractable, so a shell is needed for the user to be able to execute programs and run commands. Bash is not only a prompt, but also an interpreter for [its own programming language](bash.md), which can be used to write scripts and automate tasks.
+The kernel by itself isn't intractable, so a shell is needed for the user to be able to execute programs and run commands. Bash is not only a prompt, but also an interpreter for [its own programming language](../bash), which can be used to write scripts and automate tasks.
 
 ### Compiling
 
@@ -435,7 +435,7 @@ mount /dev/sdX <dir>
 
 Uses linked lists to store and lookup data, to keep the implementation of the filesystem itself as simple as possible. A simple filesystem makes it easier to repair (or skip) broken sectors on the hard drive.
 
-#### Partition Layout
+##### Partition Layout
 
 ![EXT2](EXT2.png)
 
@@ -481,7 +481,7 @@ Instead of `EXT2`, where errors were corrected directly in the hard drive, `EXT3
 ##### Larger FS
 
 `EXT3` can only support up to 16 TB. This is why `EXT4` was created.  
-Instead of ==32 bits== capacity to count blocks, `EXT4` divides each entry in the block descriptor table in two parts: An upper, and a lower entry. This lower entry extends the upper one, and since each supports up to ==32 bits==, the total supported block count (in the block descriptor table) rises to ==64 bits== (16 TB → 1,000,000,000 TB).
+Instead of **32 bits** capacity to count blocks, `EXT4` divides each entry in the block descriptor table in two parts: An upper, and a lower entry. This lower entry extends the upper one, and since each supports up to **32 bits**, the total supported block count (in the block descriptor table) rises to **64 bits** (16 TB → 1,000,000,000 TB).
 
 ##### Extents
 
@@ -541,18 +541,24 @@ Groups blocks together, isolating chucks to write data on, which helps make data
 
 ##### Meta Block Groups
 
-If the whole filesystem was only a single block group, it would max out at 256 TB of total data. Using meta block groups, this limit is increased to 32 bits of block group descriptor, which makes the **total capacity of the filesystem** ==**512 PB**==.
+If the whole filesystem was only a single block group, it would max out at 256 TB of total data. Using meta block groups, this limit is increased to 32 bits of block group descriptor, which makes the total capacity of the filesystem **512 PB**.
 
 ##### [Partition Layout](https://maplecircuit.dev/linux/fs/ext/ext4.html)
 
 #### exFAT
 
-#### Conclusion
+The `exFAT` filesystem, developed by Microsoft, was designed to be a lightweight file system to expand `FAT-32`, which couldn't handle files over 4GB, and had a small maximum partition size.
+
+While `EXT2-4` were made to be used with HDDs, and later, SSDs, `exFAT` was designed specifically for flash memory, typically used in removable storage devices (USB drives, SD cards, etc).
+
+Though `exFAT` is not suitable for Linux installations, and doesn't have a journal, it is recognized by every major operating system, so it can be used to share information between them.
+
+#### Use Cases
 
 - `FAT-32`: Use for small USB/SD devices, if no file exceeds 4GB. This is the most compatible format, so it ca nbe used with very old systems and some embedded devices.
 - `exFAT`: Use for external drives and large USB/SD devices, if compatibility with macOS and Window is needed.
 - `EXT2`: Use for very simple filesystems, such as the `/boot` partition, where journaling is not needed.
-- `EXT3`: Deprecated. The `ext3` module is handled by `ext4` on recent systems.
+- `EXT3`: Deprecated. The `EXT3` module is handled by `EXT4` on recent systems.
 - `EXT4`: Use for system partitions, and for any SSD or large storage device under Linux.
 
 ### File Permissions
@@ -678,7 +684,7 @@ Root directories might vary slightly between distributions (and other UNIX syste
     └── spool         (Spool directories)
 ```
 
-## Package Managers
+## Package Manager (`apt`)
 
 Without a package manager, the only way to install new programs would be to manually compile them from source. Although it is possible to install software this way, having a central software repository facilitates installing new software, managing updates, and configuring each package for the distribution it is running on.
 
@@ -745,6 +751,50 @@ sudo apt remove package_name # Remove the binary package
 sudo apt purge package_name # Remove the binary package and configuration files
 ```
 
+## Flatpak
+
+While central repositories are very useful, they are specific to each distribution. Because of this, if a developer wishes to publish an app for Linux, they would have to ship their program in many packaging formats, and test it on every distro they plan to support.
+
+Flatpak is a universal packaging format for Linux. A flatpak acts as a container, and ships not only the program, but also its own filesystem and dependencies. If a flatpak works on one machine, in theory, it would work on any computer, using any distribution, since the environment is the same. Flatpaks are also isolated from the main system, and are managed with permissions, similarly to mobile applications.
+
+Flatpak's approach brings many issues, however. Programs are not as integrated with the host system, they use much more disk space, and are often slower.
+
+> As a general rule, use flatpaks if the Debian counterpart either doesn't exist, if it is much older (and you need the latest version), or for proprietary apps such as Discord and Steam, as their flatpak version isolates those programs and prevents them from abusing native permissions.
+
+### Install Flatpak
+
+```bash
+sudo apt install flatpak
+
+# Install the GNOME Software Plugin if using GNOME
+sudo apt install gnome-software-plugin-flatpak
+
+# Install the Plasma Discover Plugin if using KDE Plasma
+sudo apt install plasma-discover-backend-flatpak
+```
+
+### Repositories
+
+To fetch updates and install new software, flatpaks also require their own repository. Flatpak apps are available as soon as the developer publishes them, either on their own repository, or on a central one, such as Flathub, which acts a lot like an "app store", compared to Debian's staged approach.
+
+To add FlatHub, run the command below:
+
+```bash
+sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+```
+
+Then, to install programs:
+
+```bash
+flatpak install flathub app_name
+```
+
+Once a flatpak app is installed, it can't be executed from bash directly, as it is not part of the underlying system. These programs must be launched either through the `.desktop` file `flatpak` creates when installing a new app, or using the `flatpak` command, itself:
+
+```bash
+flatpak run app_name
+```
+
 ## Manual Pages
 
 Debian packages often come with manual pages (especially command-line utilities). These files are typically written in the `troff` format, with the `-man` macros, and are moved to `/usr/share/man` after installation.
@@ -787,6 +837,12 @@ apropos search_term
 
 Use `man -k .` to list all known pages.
 
+### TL;DR
+
+Sometimes, one might not have the time to read a manual page, or need a quick reference to use some command. 
+
+Debian doesn't come with `tldr` by default, but after installing it, run `tldr command` to see examples of using that command, or `tldr command subcommand` for a cheat sheet on that subcommand.
+
 ## Networking
 
 ### `iproute2`
@@ -811,7 +867,7 @@ To facilitate configuring networks, it's very common to install Network Manager 
 ```bash
 sudo apt install network-manager
 
-# Remove the current configuration (so NM can take over)
+# Move the current configuration (so NM can take over)
 sudo mv /etc/network/interfaces /etc/network/interfaces.bckp
 sudo systemctl restart networking
 sudo service NetworkManager restart
@@ -819,14 +875,43 @@ sudo service NetworkManager restart
 
 After Network Manager is enabled, the `nmtui` command can be used to easily connect to new networks and change configurations.
 
-## Desktop
+## Logging
 
-Desktop Environments...
+Since Debian uses `systemd`, its logging mechanism, `systemd-journald` is the primary logging service. `journald` collects logs from the kernel, system services and applications, and then stores them in a binary format, which allows for efficient queries.
 
-> Network manager needs to be configured...
+To read system logs, use `journalctl`.
 
-### Wayland
+## Desktop (Graphical Stack)
 
-### Window Managers
+Although the CLI can do almost anything a graphical session can, especially on servers, Linux systems can also be used as desktop computers.
+
+### Wayland and Compositors
+
+Wayland is a display server protocol: It defines how a compositor and clients (applications) communicate.
+
+To draw the program window, the client first renders its content into off-screen buffers, and then uses the `libwayland-client` to inform the compositor of which parts were updated. The Wayland compositor then uses `libwayland-server` to collect these buffers, composite them into the final scene to display (using OpenGL), and accesses [[#GPUs|kernel interfaces]] (DRM/KMS) to update the physical display. The compositor also receives input events through `libinput` (which uses the kernel's `evdev`), and forwards them to the currently focused application.
+
+For example, GNOME uses Mutter as its window manager. To draw the desktop on the screen, the GNOME Shell (a client which provides the top bar, overview, dash, and other user interface elements) communicates with Mutter to draw its elements on the screen. Clients also make use of Mesa to render their content, which is then handled by the window manager.
 
 ### Desktop Environments
+
+ A desktop environment is a collection of the tools listed above. It includes a window manager, a set of applications, and a graphical desktop with menus, settings, panels and an application menu, among other elements.
+
+The default applications provided by the desktop can use one of two toolkits: GTK and QT. These act as abstractions on top of the graphical stack, and provide pre-made menus, buttons, text boxes, along many other elements, according to their own design specifications. Because of this, a GTK app would better on GNOME opposed to KDE, and QT apps feel more at home on KDE Plasma instead of GNOME.
+
+> If you haven't yet decided which desktop environment to use, I recommend that you read my blog post introducing new users to Linux, on the [[posts/linux-starter-guide/index#Choose Your Desktop Environment|Desktop Environment section]].
+
+#### Install a Desktop Environment
+
+Debian's installer offers the possibility to install a desktop environment, which comes with a collection of programs and tooling selected by the Debian team. Although these are good options, the default selection is meant to be ready "out of the box", for any use-case. These *metapackages* include an office suite, games, language support, and many other programs, some of which you might not need. To set up a more minimal installation, one can skip installing a desktop environment and only select the `standard system utilities`:
+
+![[debian-software-selection.png]]  
+Then, after the installation finishes, install your preferred desktop environment. For GNOME, as an example, run:
+
+```bash
+sudo apt update
+sudo apt install gnome-core # change to kde-plasma-desktop
+sudo systemctl reboot
+```
+
+GNOME uses Network Manager as a dependency, and provides a graphical interface to manage networks. Although it will be automatically installed by `apt`, make sure to enable it following the steps in the [[#Network Manager]] section.

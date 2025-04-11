@@ -10,7 +10,7 @@ weight: "1"
 ---
 
 - [Building a Computer From Scratch](../how_to_computer/)
-- Operating Systems `Linux` - `Coming Soon!`
+- [Operating Systems](../linux/) `Linux`
 - Shell Scripting `BASH` - `Coming Soon!`
 - [C](../c-language/)
 	- [Compiling](../compiling/) `Make` `GCC` `Clang`
