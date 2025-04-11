@@ -81,8 +81,8 @@ sudo update-grub
 
 ```sh
 make -j$(nproc) deb-pkg LOCALVERSION=-custom
-sudo dpkg -i ../linux-headers*-custom*.deb
-sudo dpkg -i ../linux-image*-custom*.deb
+sudo apt -i ../linux-headers*-custom*.deb
+sudo apt -i ../linux-image*-custom*.deb
 ```
 
 ### Modules
@@ -555,7 +555,7 @@ Though `exFAT` is not suitable for Linux installations, and doesn't have a journ
 
 #### Use Cases
 
-- `FAT-32`: Use for small USB/SD devices, if no file exceeds 4GB. This is the most compatible format, so it ca nbe used with very old systems and some embedded devices.
+- `FAT-32`: Use for small USB/SD devices, if no file exceeds 4GB. This is the most compatible format, so it can be used with very old systems and some embedded devices.
 - `exFAT`: Use for external drives and large USB/SD devices, if compatibility with macOS and Window is needed.
 - `EXT2`: Use for very simple filesystems, such as the `/boot` partition, where journaling is not needed.
 - `EXT3`: Deprecated. The `EXT3` module is handled by `EXT4` on recent systems.
