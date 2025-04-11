@@ -268,7 +268,7 @@ Bash includes a set of *builtins*: Command-line utilities that come within bash 
 | `unlink`  | `uptime`   | `users`    | `vdir`      | `wc`       |
 | `who`     | `whoami`   | `yes`      |             |            |
 
-The most popular set of *coreutils* by far is [GNU's coreutils](https://www.gnu.org/software/coreutils/). For embedded systems, it's common to use [BusyBox](https://www.busybox.net/) instead, as it is much lighter on resources. There is also an ongoing effort to port *GNU's coreutils* to Rust: [uutils coreutils]().
+The most popular set of *coreutils* by far is [GNU's coreutils](https://www.gnu.org/software/coreutils/). For embedded systems, it's common to use [BusyBox](https://www.busybox.net/) instead, as it is much lighter on resources. There is also an ongoing effort to port *GNU's coreutils* to Rust: [uutils coreutils](https://uutils.github.io/).
 
 ### `util-linux`
 
@@ -447,7 +447,7 @@ Uses linked lists to store and lookup data, to keep the implementation of the fi
 
 ##### HTrees
 
-`EXT3` can also use a [index](notes/algorithms_and_data/index.md) instead of a linked list to store directory entries, making lookup times much faster. To build the HTree, all filenames are hashed and ordered, making the implementation more complex. This feature is disabled by default.
+`EXT3` can also use a HTree (similar to a binary tree) instead of a linked list to store directory entries, making lookup times much faster. To build the HTree, all filenames are hashed and ordered, making the implementation more complex. This feature is disabled by default.
 
 ##### Scalability
 
@@ -542,8 +542,6 @@ Groups blocks together, isolating chucks to write data on, which helps make data
 ##### Meta Block Groups
 
 If the whole filesystem was only a single block group, it would max out at 256 TB of total data. Using meta block groups, this limit is increased to 32 bits of block group descriptor, which makes the total capacity of the filesystem **512 PB**.
-
-##### [Partition Layout](https://maplecircuit.dev/linux/fs/ext/ext4.html)
 
 #### exFAT
 
@@ -889,7 +887,7 @@ Although the CLI can do almost anything a graphical session can, especially on s
 
 Wayland is a display server protocol: It defines how a compositor and clients (applications) communicate.
 
-To draw the program window, the client first renders its content into off-screen buffers, and then uses the `libwayland-client` to inform the compositor of which parts were updated. The Wayland compositor then uses `libwayland-server` to collect these buffers, composite them into the final scene to display (using OpenGL), and accesses [kernel interfaces](#GPUs) (DRM/KMS) to update the physical display. The compositor also receives input events through `libinput` (which uses the kernel's `evdev`), and forwards them to the currently focused application.
+To draw the program window, the client first renders its content into off-screen buffers, and then uses the `libwayland-client` to inform the compositor of which parts were updated. The Wayland compositor then uses `libwayland-server` to collect these buffers, composite them into the final scene to display (using OpenGL), and accesses kernel interfaces (DRM/KMS) to update the physical display. The compositor also receives input events through `libinput` (which uses the kernel's `evdev`), and forwards them to the currently focused application.
 
 For example, GNOME uses Mutter as its window manager. To draw the desktop on the screen, the GNOME Shell (a client which provides the top bar, overview, dash, and other user interface elements) communicates with Mutter to draw its elements on the screen. Clients also make use of Mesa to render their content, which is then handled by the window manager.
 
@@ -899,7 +897,7 @@ For example, GNOME uses Mutter as its window manager. To draw the desktop on the
 
 The default applications provided by the desktop can use one of two toolkits: GTK and QT. These act as abstractions on top of the graphical stack, and provide pre-made menus, buttons, text boxes, along many other elements, according to their own design specifications. Because of this, a GTK app would better on GNOME opposed to KDE, and QT apps feel more at home on KDE Plasma instead of GNOME.
 
-> If you haven't yet decided which desktop environment to use, I recommend that you read my blog post introducing new users to Linux, on the [Desktop Environment section](../../posts/linux-starter-guide/index.md#Choose%20Your%20Desktop%20Environment).
+> If you haven't yet decided which desktop environment to use, I recommend that you read my blog post introducing new users to Linux, on the [Desktop Environment section](../../posts/linux-starter-guide#Choose%20Your%20Desktop%20Environment).
 
 #### Install a Desktop Environment
 
@@ -914,4 +912,4 @@ sudo apt install gnome-core # change to kde-plasma-desktop
 sudo systemctl reboot
 ```
 
-GNOME uses Network Manager as a dependency, and provides a graphical interface to manage networks. Although it will be automatically installed by `apt`, make sure to enable it following the steps in the [Network Manager](#Network%20Manager) section.
+GNOME uses Network Manager as a dependency, and provides a graphical interface to manage networks. Although it will be automatically installed by `apt`, make sure to enable it following the steps in the Network Manager section.
