@@ -10,29 +10,30 @@ weight: "1"
 ---
 
 - [Building a Computer From Scratch](../how_to_computer/)
-- [Operating Systems](../linux/) `Linux`
-- Shell Scripting `BASH` - `Coming Soon!`
-- [C](../c-language/)
-	- [Compiling](../compiling/) `Make` `GCC` `Clang`
+- [Operating System](../linux/) `Linux`
+- [C Language](../c-language/)
+	- [Algorithms & Data Structures](../algorithms_and_data/)
+	- [Compiling](../compiling/) `GCC` `Make` `Meson`
 	- [Debugging](../gdb/) `GDB`
 	- [Snippets](../c-snippets/)
-- [Algorithms & Data Structures](../algorithms_and_data/)
-- Rust Lang - `Coming Soon!`
-- GUI Apps `GTK4` - `Coming Soon!`
-- [Python](../python/)
-	- [Flask](../flask/) 
-- [Databases](../databases/) `SQL`
+- GUI Apps
+	- Object-Oriented C `GObject` - `Coming Soon!`
+	- GUI Toolkit `GTK4` - `Coming Soon!`
+- Shell Scripting `BASH` - `Coming Soon!`
 - Networking
 	- [HTTP](../http/) `CURL`
 	- [Encryption](../encryption/) `GPG` `Cryptsetup`
 	- [HTTPS and SSL Certificates](../https-ssl-certs/) `Certbot`
 	- [SSH](../ssh/)
 	- [Firewall](../firewall/) `UFW`
-	- [IRC](../irc/)
+	- [Instant Messaging](../irc/) `IRC`
 - Web Development
 	- [HTML](../html/)
 	- CSS - `Coming Soon!`
 	- JS - `Coming Soon!`
+- [Python](../python/)
+	- [Flask](../flask/)
+- [Databases](../databases/) `SQL`
 - Tools
 	- [Version Control](../git/) `GIT`
 	- [Password Manager](../pass/) `PASS`

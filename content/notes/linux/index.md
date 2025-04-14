@@ -204,7 +204,7 @@ The GPU still has a device file, which is used by the Kernel's DRM and Mesa, but
 
 ## Shell (`bash`)
 
-The kernel by itself isn't intractable, so a shell is needed for the user to be able to execute programs and run commands. Bash is not only a prompt, but also an interpreter for [its own programming language](../bash), which can be used to write scripts and automate tasks.
+The kernel by itself isn't intractable, so a shell is needed for the user to be able to execute programs and run commands. Bash is not only a prompt, but also an interpreter for its own programming language, which can be used to write scripts and automate tasks.
 
 ### Compiling
 
@@ -910,7 +910,7 @@ Then, after the installation finishes, install your preferred desktop environmen
 
 ```bash
 sudo apt update
-sudo apt install gnome-core # change to kde-plasma-desktop
+sudo apt install gnome-core # or kde-plasma-desktop
 sudo systemctl reboot
 ```
 

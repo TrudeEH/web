@@ -8,21 +8,19 @@ author: TrudeEH
 showToc: true
 ---
 
-## Bash Language
-
-### Strings
+## Strings
 
 - `""` Defines a string which supports substitutions (`$` and `\`, for example).
 - `''` Defines a string, but preserves its actual value (substitutions are treated as regular characters).
 - [ANSI Escape Sequences](c-language.md#ANSI%20Escape%20Sequences) apply when using `""`.
 
-### Comments
+## Comments
 
 ```bash
 # comment
 ```
 
-### Commands
+## Commands
 
 A shell command consists of the command itself, followed by its arguments.
 
@@ -32,7 +30,7 @@ command "arg1" "arg2"
 
 If the first word of a command is a reserved word, bash handles the command, otherwise, it searches for an executable on the system's `$PATH`, a list of directories where a binary could be located.
 
-#### Reserved Words
+### Reserved Words
 
 |   |   |   |   |   |   |
 |---|---|---|---|---|---|
@@ -41,16 +39,16 @@ If the first word of a command is a reserved word, bash handles the command, oth
 |`case`|`esac`|`coproc`|`select`|`function`|
 |`{`|`}`|`[[`|`]]`|`!`|
 
-### List of Commands
+## List of Commands
 
 - `command1 ; command2` Execute command2 after command1, sequentially.
 - `command1 &` Execute command1 asynchronously in a subshell.
 - `command1 && command2` *AND*: Only execute command2 if command1 returns 0 (success).
 - `command1 || command2` *OR*: Only execute command2 if command1 returns a non-zero exit value (failure).
 
-### Loops
+## Loops
 
-#### `until`
+### `until`
 
 ```bash
 until test-commands; do 
@@ -60,7 +58,7 @@ done
 
 Execute the code in `...` for as long as `test-commands` return non-zero.
 
-#### `while`
+### `while`
 
 ```bash
 while test-commands; do 
@@ -70,11 +68,11 @@ done
 
 Execute `...` for as long as `test-commands` return 0.
 
-#### `for`
+### `for`
 
 Expand `words` and execute `...` for each member in the resultant list, with `name` bound to the current member.
 
-##### Iterate through List
+#### Iterate through List
 
 ```bash
 for item in list; do
@@ -82,7 +80,7 @@ for item in list; do
 done
 ```
 
-##### C-like Loop
+#### C-like Loop
 
 ```bash
 for (( i=1; i<=10; i++ )); do  
@@ -90,7 +88,7 @@ for (( i=1; i<=10; i++ )); do
 done
 ```
 
-##### Infinite Loop
+#### Infinite Loop
 
 ```bash
 for (( ; ; )); do
@@ -98,9 +96,9 @@ for (( ; ; )); do
 done
 ```
 
-### Conditional Constructs
+## Conditional Constructs
 
-#### `if`
+### `if`
 
 ```bash
 if test-commands; then
@@ -115,7 +113,7 @@ fi
 Execute the first `...` if `test-commands` returns 0, and evaluate the next condition otherwise. This process repeats until `else` is found, or one of the `tests` evaluates to a 0.  
 Once any `...` executes, the remaining `if` construct is skipped.
 
-#### `case`
+### `case`
 
 ```bash
 case word in
@@ -132,7 +130,7 @@ The `|` operator separates multiple patterns, and each clause can end with `;;`,
 
 Using `;&` instead of `;;` would cause the next `...` to be executed as well, and `;;&` would test the next clause, instead of immediately exiting.
 
-#### `select`
+### `select`
 
 ```bash
 PS3="Enter a number: "
@@ -157,29 +155,29 @@ Output:
 Enter a number:
 ```
 
-#### `((...))`
+### `((...))`
 
 The arithmetic expression is evaluated according to the rules described below (see [Shell Arithmetic]() TODO link to shell arithmetic).
 
-#### `[[...]]`
+### `[[...]]`
 
 Return a status of 0 or 1 depending on the evaluation of the conditional expression expression. Expressions are composed of the primaries described below in [Bash Conditional Expressions](https://www.gnu.org/software/bash/manual/bash.html#Bash-Conditional-Expressions).
 
-#### Combine Expressions
+### Combine Expressions
 
 - `( expression )` Returns the value of expression. (Can be used to override precedence).
 - `! expression` *NOT* an expression. (`true` if expression is `false`).
 - `exp1 && exp2` *AND* - `true` if both expressions are `true`.
 - `exp1 || exp2` *OR* - `true` if either expressions are `true`.
 
-#### Grouping Commands
+### Grouping Commands
 
 Bash allows for commands to be grouped as a single unit. That way, if the group is redirected, the output of every command in the list is passed to a single stream.
 
 - `( list )` Create a subshell (variables created inside it can't be accessed outside).
 - `{ list; }` No subshell is created.
 
-### Functions
+## Functions
 
 ```bash
 fname() {
@@ -199,7 +197,7 @@ fname
 
 Any variables defined inside the function 
 
-#### Arguments
+### Arguments
 
 ```bash
 fname() {
@@ -209,7 +207,7 @@ fname() {
 fname "a" "b"
 ```
 
-#### Scope
+### Scope
 
 ```bash
 var1='A'
@@ -228,7 +226,7 @@ echo "var1: $var1, var2: $var2" # A, D
 
 Defining a variable inside the function overwrites the global scope. To prevent this, use the `local` keyword.
 
-#### `return`
+### `return`
 
 ```bash
 fname() {
@@ -241,7 +239,7 @@ echo $? # 1
 
 Use the `return` command to exit the function and return a value.
 
-### Variables (Parameters)
+## Variables (Parameters)
 
 ```bash
 name="Trude"
@@ -254,7 +252,7 @@ echo ${name}
 
 Variables can be of any type, and grow to any needed size.
 
-#### Special Variables
+### Special Variables
 
 - `$*` Expands to every positional parameter: `$1$2$3`.
 - `$@` Expands to every positional parameter, separated by spaces: `"$1" "$2" "$3"`.
@@ -265,21 +263,21 @@ Variables can be of any type, and grow to any needed size.
 - `$!` Process ID of the latest job placed into the background.
 - `$0` Name of the shell or script.
 
-### Shell Expansions
+## Shell Expansions
 
-#### Brace Expansion
+### Brace Expansion
 
 ```bash
 echo a{d,c,b}e # ade ace abe
 ```
 
-#### Tilde Expansion
+### Tilde Expansion
 
 - `~` = `$HOME`
 - `~+` = `$PWD`
 - `~-` = `$OLDPWD`
 
-#### Shell Parameter Expansion
+### Shell Parameter Expansion
 
 - `${var}` Braces are required if the variable is positional and over one digit, or if it is followed by a character that is not part of its name.
 - `${!var}` Access the value of `var`, and checks if it is the name of another variable. If so, expands that variable. (Pointer)
@@ -316,7 +314,7 @@ echo a{d,c,b}e # ade ace abe
 	- `a` Output the flags corresponding to `var`'s attributes.
 	- `k` Same as `K`, but separates keys and values using spaces, making it easier to loop through them.
 
-#### Command Substitution
+### Command Substitution
 
 ```bash
 echo "$(command)"
@@ -325,7 +323,7 @@ echo "`command`"
 
 Execute a command and substitute itself with the command's result.
 
-#### Arithmetic Expansion
+### Arithmetic Expansion
 
 ```bash
 echo "$(( expression ))"
@@ -333,7 +331,7 @@ echo "$(( expression ))"
 
 Performs an arithmetic expression and substitutes itself with the result.
 
-#### Process Substitution
+### Process Substitution
 
 ```bash
 cat <(command) >(command)
@@ -347,7 +345,7 @@ The `>()` substitution is also executed asynchronously, and creates a temporary 
 
 > Neither `cat` nor `gzip` are `bash` commands ('builtins'), but external programs.
 
-#### Pattern Matching
+### Pattern Matching
 
 - `*` Matches any string.
 - `?` Matches any single character.
@@ -358,7 +356,7 @@ The `>()` substitution is also executed asynchronously, and creates a temporary 
 - `@(pattern-list)` Matches one of the given patterns.
 - `!(pattern-list)` Matches anything except the given patterns.
 
-### Redirections
+## Redirections
 
 - `command > dest` Redirect the output of a command to a destination: A file, device, command, list, etc.
 - `command >> dest` Append to the destination instead of overwriting.
@@ -379,12 +377,12 @@ string
 EOF
 ```
 
-### Shell Builtin Commands
+## Shell Builtin Commands
 
 This section is an introduction to every command available in `bash`.  
 To learn more about some command, run `help command`.
 
-#### Bourne Shell Commands
+### Bourne Shell Commands
 
 - `: arguments` Do nothing beyond expanding arguments and performing redirections.
 - `. file` Read and execute commands from `file`.
@@ -419,7 +417,7 @@ To learn more about some command, run `help command`.
 - `umask` Defines which permissions should be removed from newly created files.
 - `unset` Remove a variable or function name. (Use `-f` to remove the actual function definition)
 
-#### Bash Commands
+### Bash Commands
 
 - `alias` Prints the list of aliases or defines new ones (with `alias name=value`).
 - `bind` Displays or sets key and function bindings for Readline.
@@ -444,9 +442,9 @@ To learn more about some command, run `help command`.
 - `ulimit` Controls resource limits for processes created by the shell.
 - `unalias` Removes defined aliases, with an option to remove all.
 
-### Shell Variables
+## Shell Variables
 
-#### Bourne Shell Variables
+### Bourne Shell Variables
 
 - `CDPATH` Search path directories for the `cd` command.
 - `HOME` Current user's home directory, default for `cd`.
@@ -459,7 +457,7 @@ To learn more about some command, run `help command`.
 - `PS1` Primary prompt string displayed interactively.
 - `PS2` Secondary prompt string for continued commands.
 
-#### Bash Variables
+### Bash Variables
 
 - `_` Pathname of invoked shell/script, or last argument of previous command.
 - `BASH` Full pathname used to execute the current Bash instance.
@@ -559,7 +557,7 @@ To learn more about some command, run `help command`.
 - `TMPDIR` Directory used for creating temporary files.
 - `UID` Numeric real user ID of the current user (readonly).
 
-### Parse Arguments
+## Parse Arguments
 
 ```bash
 while getopts "ab:c" opt; do
@@ -672,6 +670,22 @@ Arithmetic is performed using `(())`, `let` and `declare -i`.
 - `expr ? expr : expr` Conditional operator  
 - `=` `*=` `/=` `%=` `+=` `-=` `<<=` `>>=` `&=` `^=` `|=` Assignment  
 - `expr1 , expr2` Comma
+
+## Arrays
+
+### Indexed arrays
+
+```bash
+declare -a name
+name[]=value
+```
+
+### Associative arrays
+
+```bash
+declare -A name
+name=(value1 value2 ...)
+```
 
 6.7 Arrays  
 https://www.gnu.org/software/bash/manual/bash.html#Bash-Features

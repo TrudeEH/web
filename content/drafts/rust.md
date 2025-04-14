@@ -1,49 +1,132 @@
 ---
-title: "rust"
+title: Rust
 description: 
 draft: true
 tags: 
 author: TrudeEH
 showToc: true
+summary:
 ---
-
-## Vocabulary
-
-|Command / Word|Action / Meaning|Example|
-|---|---|---|
-|Statement|Performs an action, but does not return a value.|Function definitions, code that ends with `;`.|
-|Expression|Evaluate to a resultant value.|Tests, math.|
 
 ## Tools
 
-- Install Rust: `curl --proto '=https' --tlsv1.2 -sSf <https://sh.rustup.rs> | sh`
-    - `rustup`
-    - `rustc`
-    - `cargo`
+- Install Rust: `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
+  - `rustup`
+  - `rustc`
+  - `cargo`
 
-## Hello World!
+## Hello World
 
 ```rust
 fn main() {
-	println!("Hello world!");
+  println!("Hello world!"); // Macro to print text
 }
 ```
 
-## Variables
+## Comments
+
+- *Regular comments* which are ignored by the compiler:
+  - `// Line comments which go to the end of the line.`
+  - `/* Block comments which go to the closing delimiter. */`
+- *Doc comments* which are parsed into HTML library documentation:
+  - `/// Generate library docs for the following item.`
+  - `//! Generate library docs for the enclosing item.`
+
+## Formatted Print
+
+## Primitives (Variables)
+
+### Scalar Types
+
+- Signed integers (default to `i32`): `i8`, `i16`, `i32`, `i64`, `i128` and `isize` (pointer size)
+- Unsigned integers: `u8`, `u16`, `u32`, `u64`, `u128` and `usize` (pointer size)
+- Floating point (default to `f64`): `f32`, `f64`
+- `char` Unicode scalar values like `'a'`, `'α'` and `'∞'` (4 bytes each)
+- `bool` either `true` or `false`
+- The unit type `()`, whose only possible value is an empty tuple: `()`
+
+### Compound Types
+
+- Arrays: `[1, 2, 3]`
+- Tuples: `(1, true)`
+
+### Examples
+
+Variables can either be *type annotated*, or infered by context. By default, a variable is always constant, and can be made mutable with the `mut` keyword. After creating a variable, its data type cannot be changed.
 
 ```rust
-let x: i32; // A variable can only be used if it has been initialized (contains a value)
-
-let y: i8 = 5; // All variables are constant by default.
-let mut z = 1; // The mut keyword makes the variable mutable. (Explicit type annotation is not necessary, but recommended). 
-
-let (k, f); //Same as "let k; let f;"
-
-let t = { // Initialize a variable as the result of an expression.
-	let squared = y * y;
-	squared
-};
+fn main() {
+	let x: i32; // Declare a variable
+	
+	let a_float: f64 = 1.0;  // Regular annotation
+	let an_integer   = 5i32; // Suffix annotation
+	
+	let default_float   = 3.0; // `f64`
+	let default_integer = 7;   // `i32`
+	
+	// A type can also be inferred from context.
+	let mut inferred_type = 12; // Type i64 is inferred from another line.
+	inferred_type = 4294967296i64;
+	
+	let mut mutable = 12; // Mutable `i32`
+	mutable = 21;
+	
+	// Variables can be overwritten with shadowing.
+	let mutable = true;
+	
+	// Array signature consists of Type T and length as [T; length].
+	let my_array: [i32; 5] = [1, 2, 3, 4, 5];
+	
+	// Tuple is a collection of values of different types 
+	// and is constructed using parentheses ().
+	let my_tuple = (5u32, 1u8, true, -5.04f32);
+	
+	let (k, f); //Same as "let k; let f;"
+	
+	let t = { // Initialize a variable as the result of an expression.
+		let squared = y * y;
+		squared
+	};
+}
 ```
+
+> A variable can only be used after it has been initialized (contains a value).
+
+### Literals and Operators
+
+Integers can also be expressed using hexadecimal `0x`, octal `0o` or binary `0b`.  
+To improve readability, `_` can be added to numbers: `1_000` is the same as `1000`.  
+Scientific e-notation such as `1e6`, `7.4e-4` is also supported, and defaults to `f64`.
+
+The operators available and their precedence are similar to `C`:
+
+```Rust
+fn main() {
+    println!("1 + 2 = {}", 1u32 + 2); // Integer addition
+    println!("1 - 2 = {}", 1i32 - 2); // Integer subtraction
+    // Changing `1i32` to `1u32` would causa an integer underflow.
+
+    // Scientific notation
+    println!("1e4 is {}, -2.5e-3 is {}", 1e4, -2.5e-3);
+
+    // Short-circuiting boolean logic
+    println!("true AND false is {}", true && false);
+    println!("true OR false is {}", true || false);
+    println!("NOT true is {}", !true);
+
+    // Bitwise operations
+    println!("0011 AND 0101 is {:04b}", 0b0011u32 & 0b0101);
+    println!("0011 OR 0101 is {:04b}", 0b0011u32 | 0b0101);
+    println!("0011 XOR 0101 is {:04b}", 0b0011u32 ^ 0b0101);
+    println!("1 << 5 is {}", 1u32 << 5);
+    println!("0x80 >> 2 is 0x{:x}", 0x80u32 >> 2);
+
+    // Use underscores to improve readability!
+    println!("One million is written as {}", 1_000_000u32);
+}
+```
+
+---
 
 ## Data Types
 
