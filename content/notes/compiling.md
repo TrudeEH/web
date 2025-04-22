@@ -1,5 +1,5 @@
 ---
-title: Compiling [MAKE / GCC]
+title: C Compiling
 description: 
 draft: false
 tags:

@@ -19,18 +19,14 @@ weight: "1"
 - GUI Apps
 	- Object-Oriented C `GObject` - `Coming Soon!`
 	- GUI Toolkit `GTK4` - `Coming Soon!`
-- Shell Scripting `BASH` - `Coming Soon!`
 - Networking
 	- [HTTP](../http/) `CURL`
+	- [HTML](../html/)
 	- [Encryption](../encryption/) `GPG` `Cryptsetup`
 	- [HTTPS and SSL Certificates](../https-ssl-certs/) `Certbot`
 	- [SSH](../ssh/)
 	- [Firewall](../firewall/) `UFW`
 	- [Instant Messaging](../irc/) `IRC`
-- Web Development
-	- [HTML](../html/)
-	- CSS - `Coming Soon!`
-	- JS - `Coming Soon!`
 - [Python](../python/)
 	- [Flask](../flask/)
 - [Databases](../databases/) `SQL`

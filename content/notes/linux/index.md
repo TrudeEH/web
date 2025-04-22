@@ -161,6 +161,8 @@ syscall
 This snippet implements a syscall that prints text to `stdout`, usually a terminal window.  
 A C program generally uses libraries, which then implement system calls to perform actions.
 
+> To monitor system calls, use the `strace` utility.
+
 ### Processes
 
 A process is an instance of a running program: When a program is executed, the kernel assigns a **PID** (Process ID) to it, defines a **state** (wether it is running, stopped, etc), defines which process spawned the program, and assigns it **memory space** (or address space): Virtual memory, preventing the program from accessing the memory assigned to other processes.  
@@ -206,6 +208,51 @@ The GPU still has a device file, which is used by the Kernel's DRM and Mesa, but
 
 The kernel by itself isn't intractable, so a shell is needed for the user to be able to execute programs and run commands. Bash is not only a prompt, but also an interpreter for its own programming language, which can be used to write scripts and automate tasks.
 
+### Commands
+
+Bash performs actions through commands. A shell command consists of the command itself, followed by its arguments.
+
+```bash
+command "arg1" "arg2"
+```
+
+If the first word of a command is a reserved word, bash handles the command, otherwise, it searches for an executable on the system's `$PATH`, a list of directories where a binary could be located.
+
+### Bash Scripts
+
+Example `script.sh`:
+
+```bash
+#! /bin/bash
+
+echo "Bash Script"
+```
+
+Execute the script:
+
+```bash
+chmod u+x script.sh  # Give the script execution permission (to its owner)
+./script.sh          # Run the script
+```
+
+### Learning
+
+There are some commands available to search for documentation:
+
+```bash
+tldr command        # Examples of how to use the command (external tool)
+help command        # Short documentation for the command
+man command         # Full documentation for the command
+man bash            # Bash documentation; Includes most built-in commands
+```
+
+> To get started, use `help` by itself, which provides a list of the built-in commands available in bash.
+
+For example, suppose you want to learn how to write an `if` statement in `bash`: 
+
+![Pasted image 20250422123058](../../Pasted%20image%2020250422123058.png)  
+As suggested by `tldr`, to see all possible conditions, use the `man test` command.
+
 ### Compiling
 
 Dependencies:
@@ -238,8 +285,6 @@ sudo apt install ../bash*.deb
 ## Programs
 
 Bash includes a set of *builtins*: Command-line utilities that come within bash itself. However, these are very limited, and to actually make the computer useful, more programs are needed.
-
-> To learn more about a specific program, use: `man program_name`.
 
 ### Coreutils
 
@@ -684,6 +729,8 @@ Root directories might vary slightly between distributions (and other UNIX syste
     └── spool         (Spool directories)
 ```
 
+> Run `man hier` for more details.
+
 ## Package Manager (`apt`)
 
 Without a package manager, the only way to install new programs would be to manually compile them from source. Although it is possible to install software this way, having a central software repository facilitates installing new software, managing updates, and configuring each package for the distribution it is running on.
@@ -831,11 +878,11 @@ man section utility # Read the manual page for utility in section.
 Both the following commands search for man pages containing `search_term` in their short description.
 
 ```bash
-man -k search_term
-apropos search_term
+apropos search_term # Search for a manual page
+apropos --and s1 s2 # Search using multiple search terms
 ```
 
-Use `man -k .` to list all known pages.
+Use `apropos .` to list all known pages.
 
 ### TL;DR
 
@@ -903,7 +950,7 @@ The default applications provided by the desktop can use one of two toolkits: GT
 
 #### Install a Desktop Environment
 
-Debian's installer offers the possibility to install a desktop environment, which comes with a collection of programs and tooling selected by the Debian team. Although these are good options, the default selection is meant to be ready "out of the box", for any use-case. These *metapackages* include an office suite, games, language support, and many other programs, some of which you might not need. To set up a more minimal installation, one can skip installing a desktop environment and only select the `standard system utilities`:
+Debian's installer offers the possibility to install a desktop environment, which comes with a collection of programs and tooling selected by the Debian team. Although these are good options, the default selection is meant to be ready "out of the box", for any use-case. These *metapackages* include an office suite, games, language support, and many other programs, some of which you might not need. To set up a more minimal installation, skip installing a desktop environment and only select the `standard system utilities`:
 
 ![debian-software-selection](debian-software-selection.png)  
 Then, after the installation finishes, install your preferred desktop environment. For GNOME, as an example, run:

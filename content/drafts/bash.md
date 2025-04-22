@@ -8,6 +8,34 @@ author: TrudeEH
 showToc: true
 ---
 
+## Run a Bash Script
+
+Example `script.sh`:
+
+```bash
+#! /bin/bash
+
+echo "Bash Script"
+```
+
+Execute the script:
+
+```bash
+chmod u+x script.sh  # Give the script execution permission (to its owner)
+./script.sh          # Run the script
+```
+
+## Documentation
+
+You will learn more about these commands later 
+
+```bash
+whatis command     # Short description of the command
+tldr command       # Examples of how to use the command
+man command        # Full documentation for the command
+man bash           # Bash documentation; Includes most built-in commands
+```
+
 ## Strings
 
 - `""` Defines a string which supports substitutions (`$` and `\`, for example).
@@ -37,7 +65,7 @@ If the first word of a command is a reserved word, bash handles the command, oth
 |`if`|`then`|`elif`|`else`|`fi`|`time`|
 |`for`|`in`|`until`|`while`|`do`|`done`|
 |`case`|`esac`|`coproc`|`select`|`function`|
-|`{`|`}`|`[[`|`]]`|`!`|
+|`{`|`}`|`[`](`)`|`!`|
 
 ## List of Commands
 
@@ -159,7 +187,7 @@ Enter a number:
 
 The arithmetic expression is evaluated according to the rules described below (see [Shell Arithmetic]() TODO link to shell arithmetic).
 
-### `[[...]]`
+### `[...](...)`
 
 Return a status of 0 or 1 depending on the evaluation of the conditional expression expression. Expressions are composed of the primaries described below in [Bash Conditional Expressions](https://www.gnu.org/software/bash/manual/bash.html#Bash-Conditional-Expressions).
 
@@ -474,7 +502,7 @@ To learn more about some command, run `help command`.
 - `BASH_EXECUTION_STRING` Command argument passed via the `-c` invocation option.
 - `BASH_LINENO` Array of line numbers where functions in `FUNCNAME` were invoked.
 - `BASH_LOADABLES_PATH` Search path for dynamically loadable builtins (`enable -f`).
-- `BASH_REMATCH` Array holding results from regex matching (`=~`) in `[[...]]`.
+- `BASH_REMATCH` Array holding results from regex matching (`=~`) in `[...](...)`.
 - `BASH_SOURCE` Array of source filenames where functions in `FUNCNAME` are defined.
 - `BASH_SUBSHELL` Incremented for each subshell level; initial value is 0.
 - `BASH_VERSINFO` Readonly array detailing the Bash version components.
@@ -610,7 +638,7 @@ esac
 
 ## Conditional Expressions
 
-Conditional Expressions are used by the `[[]]`, `[]` and `test` commands.
+Conditional Expressions are used by the `[bash](.md)`, `[]` and `test` commands.
 
 - `-a file` True if file exists.
 - `-b file` True if file exists and is a block special file.
@@ -673,14 +701,15 @@ Arithmetic is performed using `(())`, `let` and `declare -i`.
 
 ## Arrays
 
-### Indexed arrays
+### Indexed Arrays
 
 ```bash
-declare -a name
-name[]=value
+declare -a array1
+
+array2=(1 2 "four" 8 16) # Multiple types are supported
 ```
 
-### Associative arrays
+### Associative Arrays
 
 ```bash
 declare -A name
