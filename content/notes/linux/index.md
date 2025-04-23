@@ -206,11 +206,11 @@ The GPU still has a device file, which is used by the Kernel's DRM and Mesa, but
 
 ## Shell (`bash`)
 
-The kernel by itself isn't intractable, so a shell is needed for the user to be able to execute programs and run commands. Bash is not only a prompt, but also an interpreter for its own programming language, which can be used to write scripts and automate tasks.
+The kernel by itself isn't intractable, so a shell is needed for the user to be able to execute programs and run commands. `bash` is not only a prompt, but also an interpreter for its own programming language, which can be used to write scripts and automate tasks.
 
 ### Commands
 
-Bash performs actions through commands. A shell command consists of the command itself, followed by its arguments.
+`bash` performs actions through commands. A shell command consists of the command itself, followed by its arguments.
 
 ```bash
 command "arg1" "arg2"
@@ -218,14 +218,18 @@ command "arg1" "arg2"
 
 If the first word of a command is a reserved word, bash handles the command, otherwise, it searches for an executable on the system's `$PATH`, a list of directories where a binary could be located.
 
-### Bash Scripts
+### Shell Scripts
+
+While `bash` is typically used as the login shell, it is slow for script execution. For this reason, many distributions (such as Debian) use `dash` to run `sh` scripts (symlink `/bin/sh` to `/bin/dash`), which is a faster alternative to `bash`, designed specifically to execute scripts and to be strictly POSIX compliant.
+
+When writing scripts, it's a good practice to follow the POSIX standard, to make them compatible with most shells, older systems, and different distributions, while taking advantage of `dash`'s faster performance. Keep in mind that `dash` is not `bash` compatible, and some `bash` commands might not work on `dash`.
 
 Example `script.sh`:
 
 ```bash
-#! /bin/bash
+#! /bin/sh
 
-echo "Bash Script"
+echo "Shell Script"
 ```
 
 Execute the script:
@@ -235,15 +239,15 @@ chmod u+x script.sh  # Give the script execution permission (to its owner)
 ./script.sh          # Run the script
 ```
 
+After writing a script, use `shellcheck` to check for issues.
+
 ### Learning
 
-There are some commands available to search for documentation:
-
 ```bash
-tldr command        # Examples of how to use the command (external tool)
-help command        # Short documentation for the command
-man command         # Full documentation for the command
-man bash            # Bash documentation; Includes most built-in commands
+tldr command     # Examples of how to use the command (external tool)
+help command     # Short documentation for the command
+man command      # Full documentation for the command
+man dash         # Dash documentation; Includes most built-in commands
 ```
 
 > To get started, use `help` by itself, which provides a list of the built-in commands available in bash.
@@ -252,6 +256,8 @@ For example, suppose you want to learn how to write an `if` statement in `bash`:
 
 ![Pasted image 20250422123058](../../Pasted%20image%2020250422123058.png)  
 As suggested by `tldr`, to see all possible conditions, use the `man test` command.
+
+> If you are writing scripts using `dash`, it's recommended to read the `dash` manual instead: `man dash`. The `if [[ ]]` syntax is exclusive to `bash`, for example, and should be replaced with `if [ ]` to use with `dash`.
 
 ### Compiling
 
@@ -285,6 +291,8 @@ sudo apt install ../bash*.deb
 ## Programs
 
 Bash includes a set of *builtins*: Command-line utilities that come within bash itself. However, these are very limited, and to actually make the computer useful, more programs are needed.
+
+> To learn more about a program, use: `man program_name`.
 
 ### Coreutils
 

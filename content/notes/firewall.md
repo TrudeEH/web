@@ -9,7 +9,7 @@ tags:
 author: TrudeEH
 showToc: true
 ---
-A firewall monitors and controls all incoming and outgoing network traffic, and can be implemented in the hardware or software level.
+A firewall monitors and controls all incoming and outgoing network traffic, and can be implemented at the hardware or software level.
 
 ## See All Open Ports
 
