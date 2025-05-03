@@ -415,6 +415,8 @@ A service is a unit file that specifies how to start, stop, reload and manage th
 
 Unit files are usually located under `/lib/systemd/system/` and `/etc/systemd/system/`.
 
+To check how long each service takes to load, use: `systemd-analyze blame`.
+
 ## GRUB
 
 GRUB allows the user to select which kernel to boot to, load kernel modules before the kernel starts, and is responsible for loading the initial RAM disk (initrd), and thus, starting the system.
